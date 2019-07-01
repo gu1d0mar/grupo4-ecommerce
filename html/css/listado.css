@@ -1,0 +1,28 @@
+*{box-sizing: border-box;}
+body{
+  background-color: black;
+}
+aside{
+  display: none;
+}
+.drop-filtros{
+  width:95%;
+  border: 2px solid yellow;
+  background-color: black;
+  color: white;
+  font-size: 1.1em;
+}
+.sm-filtros{
+  color:black;
+  background-color: grey;
+}
+.menu{
+  width: 100%;
+  background-color: grey;
+  margin-bottom:30px;
+}
+section img{
+  float: left;
+  margin-right: 20px;
+  margin-left: 20px;
+}
