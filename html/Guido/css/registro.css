@@ -1,8 +1,9 @@
 * {box-sizing: border-box}
 
-/* Add padding to containers */
+/* Add a background color and some padding around the form */
 .container {
-  padding: 16px;
+  border-radius: 5px;
+  padding: 20px;
 }
 
 /* Full-width input fields */
@@ -28,7 +29,7 @@ hr {
 
 /* Set a style for the submit/register button */
 .registerbtn {
-  background-color: #4CAF50;
+  background-color: #007bff;
   color: white;
   padding: 16px 20px;
   margin: 8px 0;
