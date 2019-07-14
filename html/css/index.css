@@ -2,7 +2,6 @@ body {
     background-image: url('../img/bg.jpg');
     background-repeat: repeat;
 }
-
 .carousel-item {
     height: 600px;
   }
