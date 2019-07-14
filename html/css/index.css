@@ -1,12 +1,12 @@
 body {
-    background-image: url('../img/background1.jpg');
+    background-image: url('../img/bg.jpg');
     background-repeat: repeat;
 }
 
 .carousel-item {
     height: 600px;
   }
-  
+
 .carousel-item img {
     position: absolute;
     top: 0;
