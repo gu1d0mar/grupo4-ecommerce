@@ -25,6 +25,7 @@ body {
 /*search box css start here*/
 .search-sec{
     padding: 1rem;
+
 }
 .search-slt{
     display: block;
@@ -49,7 +50,6 @@ body {
 @media (min-width: 992px){
     .search-sec{
         position: relative;
-        left: 135px;
         top: -114px;
         /*background: rgba(26, 70, 104, 0.51);*/
     }
@@ -59,4 +59,10 @@ body {
     .search-sec{
         background: #1A4668;
     }
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
