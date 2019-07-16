@@ -47,12 +47,12 @@ body {
     height: calc(3rem + 2px) !important;
     border-radius:0;
 }
+.search-sec{
+    bottom: 100px;
+    position: relative;
+    background: rgba(26, 70, 104, 0.51);*/
+}
 @media (min-width: 992px){
-    .search-sec{
-        position: relative;
-        top: -114px;
-        /*background: rgba(26, 70, 104, 0.51);*/
-    }
 }
 
 @media (max-width: 992px){
@@ -61,7 +61,7 @@ body {
     }
 }
 
-.row {
+.searchg {
     display: flex;
     justify-content: center;
     align-items: center;
