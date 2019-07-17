@@ -1,73 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d0267cb93b.js"></script>
-    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/gian.css">
+    <title>Listado de productos</title>
   </head>
-  <style>
-    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-    .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-    .fa-anchor,.fa-coffee {font-size:200px}
-  </style>
   <body>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <a class="navbar-brand" href="index.html">Nombre a definir</a>
-  <div class="navbar-text my-2 my-lg-0 d-lg-none" style="font-size:22px;">
-        <a href="#"><i class="far fa-user"></i></a>
-        <a href="#"><i class="fas fa-shopping-cart"></i></a>
-  </div>
-  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" href="index.html">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="index.html#servicios">Servicios</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="contacto.html">Contacto</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="registro.html">Registro</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="login.html">Login</a>
-      </li>
-    </ul>
-  </div>
-  <div class="navbar-text my-2 my-lg-0 d-none d-lg-block" style="font-size:22px;">
-        <a href="usuario.html"><i class="far fa-user"></i></a>
-        <a href="carrito.html"><i class="fas fa-shopping-cart"></i></a>
-  </div>
-</nav>
-
-    <!-- Header -->
-
-    <div>
-      <header class="w3-container w3-black w3-center" style="padding:128px 16px" >
-        <h1 class="w3-margin w3-jumbo">Nombre a definir</h1>
-        <p class="w3-xlarge">Reserve su turno</p>
-      </header>
-    </div>
-
-    <!-- First Grid -->
-
-    <div class="container-fluid mt-3" id="servicios">
+    <div class="container-fluid">
+      <!-- Header -->
+      <?php require_once("includes/header.php") ?>
+      <!-- Header -->
+      <!-- Filtros -->
       <!-- Filtros sm -->
-      <div class="row justify-content-center d-sm-none">
+      <div class="row justify-content-center d-sm-none mt-2">
         <div class="col">
           <div class="dropdown mb-2">
             <button class="btn btn-secondary w-100 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -91,7 +39,7 @@
       </div>
       <!-- Filtros md -->
       <div class="row">
-        <ul class="nav flex-column col d-none d-sm-block pl-3 ml-2 mt-2 border rounded">
+        <ul class="nav flex-column col d-none d-sm-block pl-3 ml-2 mt-2 rounded bg-white">
           <li class="nav-item pb-2 border-bottom d-none d-lg-block">
             <form class="form-inline pt-2">
               <div class="input-group w-100">
@@ -102,7 +50,7 @@
               </div>
             </form>
           </li>
-          <!-- modal -->
+          <!-- Modal -->
           <li class="nav-item pb-2 border-bottom d-lg-none pt-2">
             <button type="button" class="btn btn-secondary btn-block " data-toggle="modal" data-target="#busquedaModal">
               <i class="fas fa-search"></i>
@@ -130,7 +78,7 @@
               </div>
             </div>
           </div>
-          <!-- modal -->
+          <!-- Fin Modal -->
           <li class="nav-item pt-2 pb-2 border-bottom">
             <div class="form-check">
               <label class="form-check-label" for="defaultCheck1">
@@ -180,20 +128,20 @@
             </div>
           </li>
         </ul>
-      <!-- Productos -->
-      <div class="col-10 offset-1 offset-sm-0 ml-sm-auto mt-sm-2 col-lg-9">
+        <!-- Productos -->
+        <div class="col-10 offset-1 offset-sm-0 ml-sm-auto mt-sm-2 col-lg-9">
           <div class="card mb-3">
             <div class="row no-gutters">
               <div class="col-md-4 col-lg-3 col-xl-2 d-flex align-content-center">
-                <img src="img/depilation.jpg" class="card-img " alt="depilacion">
+                <img src="img/depilation.jpg" class="card-img  m-auto" alt="depilacion">
               </div>
-              <div class="col">
+              <div class="col-md-8 col-lg-9 col-xl-10 d-flex">
                 <div class="card-body">
-                  <h5 class="card-title"><a href="productos.html">Nombre del Local </a></h5>
+                  <h5 class="card-title"><a href="producto.php">Nombre del Local </a></h5>
                   <h6 class="card-subtitle mb-2 text-muted">Barrio</h6>
                   <p class="card-text">Pequeña descripcion del lugar, servicios que ofrece, cosas que hace, etc.</p>
-                  <a href="productos.html" class="btn btn-secondary">Servicios</a>
-                  <a href="productos.html" class="btn btn-primary">Reservar</a>
+                  <a href="producto.php" class="btn btn-secondary">Servicios</a>
+                  <a href="producto.php" class="btn btn-primary">Reservar</a>
                   <p class="card-text d-none d-lg-block"><small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small></p>
                 </div>
               </div>
@@ -205,75 +153,15 @@
           <div class="card mb-3">
             <div class="row no-gutters">
               <div class="col-md-4 col-lg-3 col-xl-2 d-flex align-content-center">
-                <img src="img/manicura.jpg" class="card-img m-auto" alt="manicura">
+                <img src="img/manicura.jpg" class="card-img  m-auto" alt="depilacion">
               </div>
-              <div class="col-md-8">
+              <div class="col-md-8 col-lg-9 col-xl-10 d-flex">
                 <div class="card-body">
-                  <h5 class="card-title"><a href="productos.html">Nombre del Local </a></h5>
+                  <h5 class="card-title"><a href="producto.php">Nombre del Local </a></h5>
                   <h6 class="card-subtitle mb-2 text-muted">Barrio</h6>
                   <p class="card-text">Pequeña descripcion del lugar, servicios que ofrece, cosas que hace, etc.</p>
-                  <a href="productos.html" class="btn btn-secondary">Servicios</a>
-                  <a href="productos.html" class="btn btn-primary">Reservar</a>
-                  <p class="card-text d-none d-lg-block"><small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small></p>
-                </div>
-              </div>
-            </div>
-            <div class="card-footer d-lg-none">
-              <small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small>
-            </div>
-          </div>
-          <div class="card mb-3">
-            <div class="row no-gutters">
-              <div class="col-md-4 col-lg-3 col-xl-2 d-flex align-content-center">
-                <img src="img/peluqueria.jpg" class="card-img m-auto" alt="peluqueria">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="productos.html">Nombre del Local </a></h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Barrio</h6>
-                  <p class="card-text">Pequeña descripcion del lugar, servicios que ofrece, cosas que hace, etc.</p>
-                  <a href="productos.html" class="btn btn-secondary">Servicios</a>
-                  <a href="productos.html" class="btn btn-primary">Reservar</a>
-                  <p class="card-text d-none d-lg-block"><small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small></p>
-                </div>
-              </div>
-            </div>
-            <div class="card-footer d-lg-none">
-              <small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small>
-            </div>
-          </div>
-          <div class="card mb-3">
-            <div class="row no-gutters">
-              <div class="col-md-4 col-lg-3 col-xl-2 d-flex align-content-center">
-                <img src="img/depilation.jpg" class="card-img " alt="depilacion">
-              </div>
-              <div class="col">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="productos.html">Nombre del Local </a></h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Barrio</h6>
-                  <p class="card-text">Pequeña descripcion del lugar, servicios que ofrece, cosas que hace, etc.</p>
-                  <a href="productos.html" class="btn btn-secondary">Servicios</a>
-                  <a href="productos.html" class="btn btn-primary">Reservar</a>
-                  <p class="card-text d-none d-lg-block"><small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small></p>
-                </div>
-              </div>
-            </div>
-            <div class="card-footer d-lg-none">
-              <small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small>
-            </div>
-          </div>
-          <div class="card mb-3">
-            <div class="row no-gutters">
-              <div class="col-md-4 col-lg-3 col-xl-2 d-flex align-content-center">
-                <img src="img/manicura.jpg" class="card-img m-auto" alt="manicura">
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="productos.html">Nombre del Local </a></h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Barrio</h6>
-                  <p class="card-text">Pequeña descripcion del lugar, servicios que ofrece, cosas que hace, etc.</p>
-                  <a href="productos.html" class="btn btn-secondary">Servicios</a>
-                  <a href="productos.html" class="btn btn-primary">Reservar</a>
+                  <a href="producto.php" class="btn btn-secondary">Servicios</a>
+                  <a href="producto.php" class="btn btn-primary">Reservar</a>
                   <p class="card-text d-none d-lg-block"><small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small></p>
                 </div>
               </div>
@@ -287,13 +175,133 @@
               <div class="col-md-4 col-lg-3 col-xl-2 d-flex align-content-center">
                 <img src="img/peluqueria.jpg" class="card-img m-auto" alt="peluqueria">
               </div>
-              <div class="col-md-8">
+              <div class="col-md-8 col-lg-9 col-xl-10 d-flex">
                 <div class="card-body">
-                  <h5 class="card-title"><a href="productos.html">Nombre del Local </a></h5>
+                  <h5 class="card-title"><a href="producto.php">Nombre del Local </a></h5>
                   <h6 class="card-subtitle mb-2 text-muted">Barrio</h6>
                   <p class="card-text">Pequeña descripcion del lugar, servicios que ofrece, cosas que hace, etc.</p>
-                  <a href="productos.html" class="btn btn-secondary">Servicios</a>
-                  <a href="productos.html" class="btn btn-primary">Reservar</a>
+                  <a href="producto.php" class="btn btn-secondary">Servicios</a>
+                  <a href="producto.php" class="btn btn-primary">Reservar</a>
+                  <p class="card-text d-none d-lg-block"><small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small></p>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer d-lg-none">
+              <small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="row no-gutters">
+              <div class="col-md-4 col-lg-3 col-xl-2 d-flex align-content-center">
+                <img src="img/depilation.jpg" class="card-img  m-auto" alt="depilacion">
+              </div>
+              <div class="col-md-8 col-lg-9 col-xl-10 d-flex">
+                <div class="card-body">
+                  <h5 class="card-title"><a href="producto.php">Nombre del Local </a></h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Barrio</h6>
+                  <p class="card-text">Pequeña descripcion del lugar, servicios que ofrece, cosas que hace, etc.</p>
+                  <a href="producto.php" class="btn btn-secondary">Servicios</a>
+                  <a href="producto.php" class="btn btn-primary">Reservar</a>
+                  <p class="card-text d-none d-lg-block"><small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small></p>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer d-lg-none">
+              <small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="row no-gutters">
+              <div class="col-md-4 col-lg-3 col-xl-2 d-flex align-content-center">
+                <img src="img/manicura.jpg" class="card-img  m-auto" alt="depilacion">
+              </div>
+              <div class="col-md-8 col-lg-9 col-xl-10 d-flex">
+                <div class="card-body">
+                  <h5 class="card-title"><a href="producto.php">Nombre del Local </a></h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Barrio</h6>
+                  <p class="card-text">Pequeña descripcion del lugar, servicios que ofrece, cosas que hace, etc.</p>
+                  <a href="producto.php" class="btn btn-secondary">Servicios</a>
+                  <a href="producto.php" class="btn btn-primary">Reservar</a>
+                  <p class="card-text d-none d-lg-block"><small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small></p>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer d-lg-none">
+              <small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="row no-gutters">
+              <div class="col-md-4 col-lg-3 col-xl-2 d-flex align-content-center">
+                <img src="img/peluqueria.jpg" class="card-img m-auto" alt="peluqueria">
+              </div>
+              <div class="col-md-8 col-lg-9 col-xl-10 d-flex">
+                <div class="card-body">
+                  <h5 class="card-title"><a href="producto.php">Nombre del Local </a></h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Barrio</h6>
+                  <p class="card-text">Pequeña descripcion del lugar, servicios que ofrece, cosas que hace, etc.</p>
+                  <a href="producto.php" class="btn btn-secondary">Servicios</a>
+                  <a href="producto.php" class="btn btn-primary">Reservar</a>
+                  <p class="card-text d-none d-lg-block"><small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small></p>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer d-lg-none">
+              <small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="row no-gutters">
+              <div class="col-md-4 col-lg-3 col-xl-2 d-flex align-content-center">
+                <img src="img/depilation.jpg" class="card-img  m-auto" alt="depilacion">
+              </div>
+              <div class="col-md-8 col-lg-9 col-xl-10 d-flex">
+                <div class="card-body">
+                  <h5 class="card-title"><a href="producto.php">Nombre del Local </a></h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Barrio</h6>
+                  <p class="card-text">Pequeña descripcion del lugar, servicios que ofrece, cosas que hace, etc.</p>
+                  <a href="producto.php" class="btn btn-secondary">Servicios</a>
+                  <a href="producto.php" class="btn btn-primary">Reservar</a>
+                  <p class="card-text d-none d-lg-block"><small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small></p>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer d-lg-none">
+              <small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="row no-gutters">
+              <div class="col-md-4 col-lg-3 col-xl-2 d-flex align-content-center">
+                <img src="img/manicura.jpg" class="card-img  m-auto" alt="depilacion">
+              </div>
+              <div class="col-md-8 col-lg-9 col-xl-10 d-flex">
+                <div class="card-body">
+                  <h5 class="card-title"><a href="producto.php">Nombre del Local </a></h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Barrio</h6>
+                  <p class="card-text">Pequeña descripcion del lugar, servicios que ofrece, cosas que hace, etc.</p>
+                  <a href="producto.php" class="btn btn-secondary">Servicios</a>
+                  <a href="producto.php" class="btn btn-primary">Reservar</a>
+                  <p class="card-text d-none d-lg-block"><small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small></p>
+                </div>
+              </div>
+            </div>
+            <div class="card-footer d-lg-none">
+              <small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small>
+            </div>
+          </div>
+          <div class="card mb-3">
+            <div class="row no-gutters">
+              <div class="col-md-4 col-lg-3 col-xl-2 d-flex align-content-center">
+                <img src="img/peluqueria.jpg" class="card-img m-auto" alt="peluqueria">
+              </div>
+              <div class="col-md-8 col-lg-9 col-xl-10 d-flex">
+                <div class="card-body">
+                  <h5 class="card-title"><a href="producto.php">Nombre del Local </a></h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Barrio</h6>
+                  <p class="card-text">Pequeña descripcion del lugar, servicios que ofrece, cosas que hace, etc.</p>
+                  <a href="producto.php" class="btn btn-secondary">Servicios</a>
+                  <a href="producto.php" class="btn btn-primary">Reservar</a>
                   <p class="card-text d-none d-lg-block"><small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small></p>
                 </div>
               </div>
@@ -304,38 +312,10 @@
           </div>
         </div>
       </div>
+      <!-- Footer -->
+      <?php require_once("includes/footer.php") ?>
+      <!-- Footer -->
     </div>
-
-    <!-- Footer -->
-    <footer class="bg-dark container-fluid mt-3" style="position: absolute; bottom: 1;">
-      <div class="container">
-        <nav class="navbar navbar-dark bg-dark justify-content-center justify-content-md-between">
-            <ul class="navbar-nav text-center text-md-left">
-              <li class="nav-item">
-                <a class="nav-link" href="faq.html">Quienes somos</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="faq.html">Preguntas frecuentes</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="faq.html">Terminos y condiciones</a>
-              </li>
-            </ul>
-            <a class="navbar-brand d-none d-lg-block" href="index.html">Nombre a definir</a>
-            <div class="">
-              <div class="form-label text-white d-none d-md-block">
-                <label for="newsletter">Suscribite</label>
-                <p class="text-muted">Y enterate de todas las novedades</p>
-              </div>
-              <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-1 col-9" type="mail" placeholder="Suscribite">
-                <button class="btn btn-outline-success my-2 my-sm-0 col-2" type="submit"><i class="far fa-envelope"></i></button>
-              </form>
-            </div>
-        </nav>
-      </div>
-    </footer>
-    <!-- footer -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

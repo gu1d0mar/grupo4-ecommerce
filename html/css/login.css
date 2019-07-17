@@ -9,7 +9,7 @@
   }
 
   /* Set a style for all buttons */
-  button {
+  .log {
     background-color: #007bff;
     color: white;
     padding: 14px 20px;
@@ -20,7 +20,7 @@
   }
 
   /* Add a hover effect for buttons */
-  button:hover {
+  .log:hover {
     opacity: 0.8;
   }
 
