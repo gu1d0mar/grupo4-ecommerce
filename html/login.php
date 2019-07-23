@@ -3,42 +3,36 @@
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="css/login.css">
+       <!-- <link rel="stylesheet" href="css/login.css"> -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <script src="https://kit.fontawesome.com/d0267cb93b.js"></script>
       <title>Ingresa a Fernandez-Fernandez Coiffeur</title>
   </head>
-  <body>
+  <body class="text-center">
     <div class="container-fluid">
       <!--Header-->
       <?php require_once("includes/header.php") ?>
       <!-- Header -->
-      <div class="row">
-        <div class="col col-md-8 m-auto">
-          <form class="form-group mt-3" action="usuario.php" method="post">
-            <h1>Inicio</h1>
-            <p>Ingresa al sitio</p>
-            <hr>
-            <label for="uname"><b>Usuario</b></label>
-            <input type="text" placeholder="Ingrese nombre de usuario..." name="uname" required>
-            <label for="psw"><b>Contrasena</b></label>
-            <input type="password" placeholder="Ingrese contrasena..." name="psw" required>
-            <hr>
-            <label for="remember">
-              <input type="checkbox"  name="remember"> Recordarme
-            </label>
-            <hr>
-            <button type="submit" class="log">Ingresar</button>
-            <div class="col signin text-center mt-3" >
-              <p>No tienes cuenta? <a href="registro.php">Ingresa aquí</a>.</p>
-            </div>
-            <div class="col d-flex justify-content-between p-3 w-100" style="background-color:#f1f1f1">
-              <button type="reset" class="cancelbtn log">Cancelar</button>
-              <span class="psw"><a href="#">Olvido su contraseña?</a></span>
-            </div>
-          </form>
+      <h1>Inicio</h1>
+      <h1 class="h3 mb-3 font-weight-normal">Ingresa al sitio</h1>
+      <form class="col col-md-4 m-auto">
+        <div class="form-signin">
+          <label for="exampleInputEmail1">Usuario</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese nombre de usuario...">
         </div>
-      </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Contrasena</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese contrasena...">
+        </div>
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+          <label class="form-check-label" for="exampleCheck1">Recordarme</label>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-lg btn-primary btn-block">Ingresar</button>
+        <small id="emailHelp" class="form-text text-muted">No tienes cuenta? <a href="registro.php">Ingresa aqui</a>.</small>
+        <small id="emailHelp" class="form-text text-muted">Olvido su contrasena? <a href="#">Ingresa aqui</a></small>
+      </form>
       <!-- Footer -->
       <?php require_once("includes/footer.php") ?>
       <!-- Footer -->
