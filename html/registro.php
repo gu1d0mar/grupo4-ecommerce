@@ -15,7 +15,7 @@
       <!-- Header -->
       <div class="text-center">
         <h1>Creá tu cuenta</h1>
-        <h1 class="h3 mb-3 font-weight-normal">Ingresa tus datos</h1>
+        <h3 class="h3 mb-3 font-weight-normal">Ingresa tus datos</h3>
         <form class="col col-md-4 m-auto">
           <div class="form-signin">
             <label for="exampleInputEmail1">Usuario</label>

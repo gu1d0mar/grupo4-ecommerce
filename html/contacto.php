@@ -15,7 +15,7 @@
       <!-- Header -->
       <div class="text-center">
         <h1>Contacto</h1>
-        <h1 class="h3 mb-3 font-weight-normal">Dejanos tu mensaje</h1>
+        <h3 class="h3 mb-3 font-weight-normal">Dejanos tu mensaje</h3>
         <form class="col col-md-4 m-auto">
           <div class="form-signin">
             <label for="exampleInputEmail1">Nombre</label>
