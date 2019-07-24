@@ -18,18 +18,18 @@
       <form class="col col-md-4 m-auto">
         <div class="form-signin">
           <label for="exampleInputEmail1">Usuario</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese nombre de usuario...">
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese nombre de usuario..." required>
         </div>
         <div class="form-group">
           <label for="exampleInputPassword1">Contrasena</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese contrasena...">
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese contrasena..." required>
         </div>
         <div class="form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1">
           <label class="form-check-label" for="exampleCheck1">Recordarme</label>
         </div>
         <br>
-        <button type="submit" class="btn btn-lg btn-primary btn-block">Ingresar</button>
+        <button type="submit" class="btn btn-lg btn-primary btn-block" formaction="usuario.php">Ingresar</button>
         <small id="emailHelp" class="form-text text-muted">No tienes cuenta? <a href="registro.php">Ingresa aqui</a>.</small>
         <small id="emailHelp" class="form-text text-muted">Olvido su contrasena? <a href="#">Ingresa aqui</a></small>
       </form>
