@@ -1,12 +1,9 @@
+<?php $tittle = "Producto" ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <script src="https://kit.fontawesome.com/d0267cb93b.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Productos</title>
-  </head>
+  <!-- Head -->
+  <?php require_once("includes/head.php") ?>
+  <!-- Head -->
   <body>
     <div class="container-fluid">
       <!-- Header -->

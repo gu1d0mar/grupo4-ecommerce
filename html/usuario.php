@@ -1,12 +1,9 @@
+<?php $tittle = "Usuario" ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/d0267cb93b.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Perfil</title>
-  </head>
+  <!-- Head -->
+  <?php require_once("includes/head.php") ?>
+  <!-- Head -->
   <body>
     <div class="container-fluid">
       <!-- Header -->
@@ -24,6 +21,7 @@
             <p class="card-text"> <i class="fas fa-home"></i>  Ciudad Gotica, DC</p>
             <p class="card-text"> <i class="fas fa-birthday-cake"></i>  19/02/1939</p>
             <p class="card-text"><a href="carrito.php" class="text-body"><i class="far fa-calendar-alt"></i> Mis turnos</p></a>
+            <p class="card-text"><a href="carrito.php" class="text-body"><i class="fas fa-cog"></i> Configuracion</p></a>
           </div>
           <div class="card mb-3 p-2 bg-secondary ">
             <ul class="list-group bg-secondary ">

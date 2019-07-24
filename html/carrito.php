@@ -1,12 +1,9 @@
+<?php $tittle = "Carrito" ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta charset="utf-8">
-  <script src="https://kit.fontawesome.com/d0267cb93b.js"></script>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <title>Carrito</title>
-</head>
+  <!-- Head -->
+  <?php require_once("includes/head.php") ?>
+  <!-- Head -->
   <body>
     <div class="container-fluid">
       <!--Header-->
@@ -27,7 +24,7 @@
         </div>
         <!-- Carrito -->
         <div class="row">
-          <div class="col-md-8 offset-md-2 mb-2">
+          <div class="col-md-8 offset-md-2 mb-2 bg-white border rounded p-3">
             <h4 class="d-flex justify-content-between align-items-center mb-3 mw-500">
               <span class="text-muted">Carrito</span>
               <span class="badge badge-secondary badge-pill">2</span>
@@ -59,13 +56,17 @@
                 <strong>$400</strong>
               </li>
             </ul>
-            <form class="card p-2">
-              <div class="input-group">
-                <input type="text" class="form-control" placeholder="Codigo de descuento">
-                <div class="input-group-append">
-                  <button type="submit" class="btn btn-secondary">Ingresar</button>
+            <forms>
+              <div class="card p-2">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Codigo de descuento">
+                  <div class="input-group-append">
+                    <button type="submit" class="btn btn-secondary">Ingresar</button>
+                  </div>
                 </div>
               </div>
+              <button type="submit" class="btn btn-primary btn-lg btn-block mt-3" name="button">Finalizar compra</button>
+              <p class="text-center mt-2 "><a href="listado.php" class="text-secondary">Seguir comprando</a></p>
             </form>
           </div>
         </div>

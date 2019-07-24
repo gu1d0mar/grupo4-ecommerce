@@ -1,22 +1,18 @@
+<?php $tittle = "Contacto" ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <!-- <link rel="stylesheet" href="css\contacto.css"> -->
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <script src="https://kit.fontawesome.com/d0267cb93b.js"></script>
-      <title>Contacto en Fernandez-Fernandez Coiffeur</title>
-  </head>
+  <!-- Head -->
+  <?php require_once("includes/head.php") ?>
+  <!-- Head -->
   <body>
     <div class="container-fluid">
       <!-- Header -->
       <?php require_once("includes/header.php") ?>
       <!-- Header -->
-      <div class="text-center">
-        <h1>Contacto</h1>
-        <h3 class="h3 mb-3 font-weight-normal">Dejanos tu mensaje</h3>
-        <form class="col col-md-6 col-lg-4 m-auto">
+      <div class="text-center mt-2">
+        <form class="col col-md-6 col-lg-4 m-auto bg-white border rounded p-3 text-center">
+          <h1>Contacto</h1>
+          <h3 class="h3 mb-3 font-weight-normal">Dejanos tu mensaje</h3>
           <div class="form-signin">
             <label for="exampleInputEmail1">Nombre</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu nombre..." required>
