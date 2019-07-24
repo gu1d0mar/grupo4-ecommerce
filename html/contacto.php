@@ -8,43 +8,45 @@
       <script src="https://kit.fontawesome.com/d0267cb93b.js"></script>
       <title>Contacto en Fernandez-Fernandez Coiffeur</title>
   </head>
-  <body class="text-center">
+  <body>
     <div class="container-fluid">
       <!-- Header -->
       <?php require_once("includes/header.php") ?>
       <!-- Header -->
-      <h1>Contacto</h1>
-      <h1 class="h3 mb-3 font-weight-normal">Dejanos tu mensaje</h1>
-      <form class="col col-md-4 m-auto">
-        <div class="form-signin">
-          <label for="exampleInputEmail1">Nombre</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu nombre..." required>
-        </div>
-        <div class="form-signin">
-          <label for="exampleInputEmail1">Apellido</label>
-          <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu apellido..." required>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">País</label>
-          <select id="inputState" class="form-control">
-            <option selected>Elige tu país...</option>
-            <option>...</option>
-            <option value="argentina">Argentina</option>
-            <option value="chile">Chile</option>
-            <option value="uruguay">Uruguay</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Comentarios</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Deja tu comentario..." required>
-        </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-          <label class="form-check-label" for="exampleCheck1">Al enviar este mensaje acepto los <a href="faq.php">Términos y condiciones</a> de Peluca y peluquín S.A.</label>
-        </div>
-        <br>
-        <button type="submit" class="btn btn-lg btn-primary btn-block" formaction="index.php">Enviar</button>
-      </form>
+      <div class="text-center">
+        <h1>Contacto</h1>
+        <h1 class="h3 mb-3 font-weight-normal">Dejanos tu mensaje</h1>
+        <form class="col col-md-4 m-auto">
+          <div class="form-signin">
+            <label for="exampleInputEmail1">Nombre</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu nombre..." required>
+          </div>
+          <div class="form-signin">
+            <label for="exampleInputEmail1">Apellido</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu apellido..." required>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">País</label>
+            <select id="inputState" class="form-control">
+              <option selected>Elige tu país...</option>
+              <option>...</option>
+              <option value="argentina">Argentina</option>
+              <option value="chile">Chile</option>
+              <option value="uruguay">Uruguay</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Comentarios</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Deja tu comentario..." required>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+            <label class="form-check-label" for="exampleCheck1">Al enviar este mensaje acepto los <a href="faq.php">Términos y condiciones</a> de Peluca y peluquín S.A.</label>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-lg btn-primary btn-block" formaction="index.php">Enviar</button>
+        </form>
+      </div>
       <!-- Footer -->
       <?php require_once("includes/footer.php") ?>
     </div>
