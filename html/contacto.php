@@ -16,7 +16,7 @@
       <div class="text-center">
         <h1>Contacto</h1>
         <h3 class="h3 mb-3 font-weight-normal">Dejanos tu mensaje</h3>
-        <form class="col col-md-4 m-auto">
+        <form class="col col-md-6 col-lg-4 m-auto">
           <div class="form-signin">
             <label for="exampleInputEmail1">Nombre</label>
             <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu nombre..." required>

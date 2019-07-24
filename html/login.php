@@ -16,7 +16,7 @@
       <div class="text-center">
         <h1>Inicio</h1>
         <h3 class="h3 mb-3 font-weight-normal">Ingresa al sitio</h3>
-        <form class="col col-md-4 m-auto">
+        <form class="col col-md-6 col-lg-4 m-auto">
           <div class="form-signin">
             <label for="exampleInputEmail1">Usuario</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese nombre de usuario..." required>
