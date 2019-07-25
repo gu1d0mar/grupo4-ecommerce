@@ -21,7 +21,7 @@
             <p class="card-text"> <i class="fas fa-home"></i>  Ciudad Gotica, DC</p>
             <p class="card-text"> <i class="fas fa-birthday-cake"></i>  19/02/1939</p>
             <p class="card-text"><a href="carrito.php" class="text-body"><i class="far fa-calendar-alt"></i> Mis turnos</p></a>
-            <p class="card-text"><a href="carrito.php" class="text-body"><i class="fas fa-cog"></i> Configuracion</p></a>
+            <p class="card-text"><a href="#" class="text-body"><i class="fas fa-cog"></i> Configuracion</p></a>
           </div>
           <div class="card mb-3 p-2 bg-secondary ">
             <ul class="list-group bg-secondary ">

@@ -2,6 +2,26 @@ body {
     background-image: url('../img/bg.jpg');
     background-repeat: repeat;
 }
+
+.fondo{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(251, 252, 255,0.5);
+  padding-top: 5em;
+}
+.recomend{
+  margin-bottom: 4em;
+}
+.divider{
+  margin: 2rem;
+}
+
+.info-text{
+
+}
+.info-text p {
+  font-weight: 400;
+}
 .carousel-item {
     height: 600px;
   }
@@ -13,7 +33,7 @@ body {
     /* min-height: 200px; */
     /* max-height: 600px; */
     height: 768px;
-    width: 1024px;
+    width: 100vw;
 }
 
 @media (max-width:700px) {

@@ -1,10 +1,10 @@
-<div class="row">
+
   <header class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="index.php">Peluca & Peluquin</a>
-    <div class="navbar-text my-2 my-lg-0 order-lg-3" style="font-size:22px;">
+    <a class="navbar-brand ml-4 ml-lg-2" href="index.php">Peluca & Peluquin</a>
+    <div class="navbar-text my-2 my-lg-0 d-lg-none" style="font-size:22px;">
       <a href="usuario.php"><i class="far fa-user"></i></a>
       <a href="carrito.php"><i class="fas fa-shopping-cart"></i></a>
     </div>
@@ -24,5 +24,8 @@
         </li>
       </ul>
     </div>
+    <div class="navbar-text my-2 my-lg-0 d-none d-lg-block mr-md-2" style="font-size:22px;">
+      <a href="usuario.php"><i class="far fa-user"></i></a>
+      <a href="carrito.php"><i class="fas fa-shopping-cart"></i></a>
+    </div>
   </header>
-</div>
