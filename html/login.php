@@ -10,7 +10,7 @@
       <?php require_once("includes/header.php") ?>
       <!-- Header -->
       <div class="text-center mt-2">
-        <form class="col col-md-6 col-lg-4 m-auto bg-white border rounded p-3 text-center">
+        <form class="col col-md-6 col-xl-4 m-auto bg-white border rounded p-3 text-center">
           <h1>Inicio</h1>
           <h3 class="h3 mb-3 font-weight-normal">Ingresa al sitio</h3>
           <div class="form-signin">
