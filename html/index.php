@@ -2,38 +2,39 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <!-- Head -->
-  <?php require_once("includes/head.php") ?>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/index.css">
+
+  <script src="https://kit.fontawesome.com/d0267cb93b.js"></script>
+  <title>P&P - <?=$tittle?></title>
+</head>
+
   <!-- Head -->
   <body>
-    <div class="container-fluid">
-      <!--Header-->
-      <?php require_once("includes/header.php") ?>
-      <!-- Header -->
-      <!-- Carrousel -->
-      <div class="row d-none d-md-block mt-2">
-        <div class="w-100">
-          <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="3000">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img class="d-block w-100" src="img/IMG_0030.jpg" alt="First slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="img/ico-destinonegocio-muebles-de-peluqueria-istock-getty-images-1030x694.jpg" alt="Second slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block w-100" src="img/peluqueria-seensay-santander-cantabria-salon-de-belleza-1500x738.jpg" alt="Third slide">
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
+    <!--Header-->
+    <?php require_once("includes/header.php") ?>
+    <!-- Header -->
+    <!-- Carrousel -->
 
+    <div role="main" class="d-none d-md-block mb-3">
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/carrousel1.jpg" alt="1" width="100%" height="100%">
+          </div>
+          <div class="carousel-item">
+            <img src="img/carrousel2.jpg" alt="1" width="100%" height="100%">
+          </div>
+          <div class="carousel-item">
+            <img src="img/carrousel3.jpg" alt="1" width="100%" height="100%">
+          </div>
           <section class="search-sec">
             <form action="" method="post" novalidate="novalidate">
               <div class="row ">
@@ -52,188 +53,129 @@
                 </div>
               </div>
             </form>
-        </section>
+          </section>
         </div>
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+
       </div>
-      <!-- Fin Carrousel -->
-      <!-- Filtros -->
-      <!-- Filtros sm -->
-      <div class="row justify-content-center d-sm-none mt-2">
-        <div class="col">
-          <div class="dropdown mb-2">
-            <button class="btn btn-secondary w-100 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Filtros
-            </button>
-            <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">Filtro 1</a>
-              <hr>
-              <a class="dropdown-item" href="#">Filtro 2</a>
-              <hr>
-              <a class="dropdown-item" href="#">Filtro 3</a>
-              <hr>
-              <a class="dropdown-item" href="#">Filtro 4</a>
-              <hr>
-              <a class="dropdown-item" href="#">Filtro 5</a>
-              <hr>
-              <a class="dropdown-item" href="#">Filtro 6</a>
+    </div>
+    <!-- Carrousel -->
+    <div class="fondo">
+      <div class="container">
+        <div class="recomend">
+          <div class="text-center">
+            <h2>Lo mejor para vos</h2>
+            <p>Reserva online facil y rapido. Los mejores locales y profesionales te esperan</p>
+          </div>
+          <div class="row text-center">
+            <div class="col-md-4">
+              <a href="producto.php"><img src="img/depilation.jpg" alt="depilation" class="rounded-circle" width="200" height="200"></a>
+              <h2>Nombre del local</h2>
+              <a class="btn btn-secondary" href="producto.php" role="button">Ver servicios</a>
+            </div>
+            <div class="col-md-4">
+              <a href="producto.php"><img src="img/manicura.jpg" alt="manicura" class="rounded-circle" width="200" height="200"></a>
+              <h2>Nombre del local</h2>
+              <a class="btn btn-secondary" href="producto.php" role="button">Ver servicios</a>
+            </div>
+            <div class="col-md-4">
+              <a href="producto.php"><img src="img/peluqueria.jpg" alt="peluqueria" class="rounded-circle" width="200" height="200"></a>
+              <h2>Nombre del local</h2>
+              <a class="btn btn-secondary" href="producto.php" role="button">Ver servicios</a>
             </div>
           </div>
         </div>
-      </div>
-      <!-- Filtros md -->
-      <div class="row">
-        <ul class="nav flex-column col d-none d-sm-block pl-3 ml-2 mt-2 rounded bg-white">
-          <li class="nav-item pb-2 border-bottom d-none d-lg-block">
-            <form class="form-inline pt-2">
-              <div class="input-group w-100">
-                <input class="form-control col" type="search" placeholder="Search" aria-label="Search">
-                <button type="button" class="btn btn-secondary col-2" data-toggle="modal" data-target="#exampleModal">
-                  <i class="fas fa-search"></i>
-                </button>
-              </div>
-            </form>
-          </li>
-          <!-- Modal -->
-          <li class="nav-item pb-2 border-bottom d-lg-none pt-2">
-            <button type="button" class="btn btn-secondary btn-block " data-toggle="modal" data-target="#busquedaModal">
-              <i class="fas fa-search"></i>
-            </button>
-          </li>
-          <div class="modal fade" id="busquedaModal" tabindex="-1" role="dialog" aria-labelledby="busquedaModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="busquedaModalLabel">Search</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <form class="form-inline pt-2">
-                    <div class="input-group">
-                      <form class="form-inline">
-                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                      </form>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
+
+        <hr class="divider">
+
+        <div class="row info">
+          <div class="col-md-7 order-md-2 info-text">
+            <h2 class="featurette-heading">Reserva lo que quieras, donde quieras, cuando quieras</h2>
+            <p class="lead">Queremos facilitarte la vida, y queremos verte bien, asi que ingresa la direccion y decinos lo que queres, y blablablablabala </p>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
           </div>
-          <!-- Fin Modal -->
-          <li class="nav-item pt-2 pb-2 border-bottom">
-            <div class="form-check">
-              <label class="form-check-label" for="defaultCheck1">
-                Filtro 1
-              </label>
-              <input class="form-check-input ml-2" type="checkbox" value="" id="defaultCheck1">
-            </div>
-          </li>
-          <li class="nav-item pt-2 pb-2 border-bottom">
-            <div class="form-check">
-              <label class="form-check-label" for="defaultCheck1">
-                Filtro 2
-              </label>
-              <input class="form-check-input ml-2" type="checkbox" value="" id="defaultCheck1">
-            </div>
-          </li>
-          <li class="nav-item pt-2 pb-2 border-bottom">
-            <div class="form-check">
-              <label class="form-check-label" for="defaultCheck1">
-                Filtro 3
-              </label>
-              <input class="form-check-input ml-2" type="checkbox" value="" id="defaultCheck1">
-            </div>
-          </li>
-          <li class="nav-item pt-2 pb-2 border-bottom">
-            <div class="form-check">
-              <label class="form-check-label" for="defaultCheck1">
-                Filtro 4
-              </label>
-              <input class="form-check-input ml-2" type="checkbox" value="" id="defaultCheck1">
-            </div>
-          </li>
-          <li class="nav-item pt-2 pb-2 border-bottom">
-            <div class="form-check">
-              <label class="form-check-label" for="defaultCheck1">
-                Filtro 5
-              </label>
-              <input class="form-check-input ml-2" type="checkbox" value="" id="defaultCheck1">
-            </div>
-          </li>
-          <li class="nav-item pt-2 pb-2 border-bottom">
-            <div class="form-check">
-              <label class="form-check-label" for="defaultCheck1">
-                Filtro 6
-              </label>
-              <input class="form-check-input ml-2" type="checkbox" value="" id="defaultCheck1">
-            </div>
-          </li>
-        </ul>
-        <!-- Productos -->
-        <div class="col-10 offset-1 offset-sm-0 ml-sm-auto mt-sm-2 col-lg-9">
-          <div class="card mb-3">
-            <div class="row no-gutters">
-              <div class="col-md-4 col-lg-3 col-xl-2 d-flex align-content-center">
-                <img src="img/depilation.jpg" class="card-img  m-auto" alt="depilacion">
-              </div>
-              <div class="col-md-8 col-lg-9 col-xl-10 d-flex">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="producto.php">Nombre del Local </a></h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Barrio</h6>
-                  <p class="card-text">Pequeña descripcion del lugar, servicios que ofrece, cosas que hace, etc.</p>
-                  <a href="producto.php" class="btn btn-secondary">Servicios</a>
-                  <a href="producto.php" class="btn btn-primary">Reservar</a>
-                  <p class="card-text d-none d-lg-block"><small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small></p>
-                </div>
-              </div>
-            </div>
-            <div class="card-footer d-lg-none">
-              <small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small>
-            </div>
+          <div class="col-md-5 order-md-1">
+            <img src="img/amigos.jpg" alt="m" class="img-fluid mx-auto" width="100%" height="100%">
           </div>
-          <div class="card mb-3">
-            <div class="row no-gutters">
-              <div class="col-md-4 col-lg-3 col-xl-2 d-flex align-content-center">
-                <img src="img/manicura.jpg" class="card-img  m-auto" alt="depilacion">
-              </div>
-              <div class="col-md-8 col-lg-9 col-xl-10 d-flex">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="producto.php">Nombre del Local </a></h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Barrio</h6>
-                  <p class="card-text">Pequeña descripcion del lugar, servicios que ofrece, cosas que hace, etc.</p>
-                  <a href="producto.php" class="btn btn-secondary">Servicios</a>
-                  <a href="producto.php" class="btn btn-primary">Reservar</a>
-                  <p class="card-text d-none d-lg-block"><small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small></p>
-                </div>
-              </div>
-            </div>
-            <div class="card-footer d-lg-none">
-              <small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small>
-            </div>
+        </div>
+
+        <hr class="divider">
+
+        <div class="resena">
+          <div class="text-center">
+            <h2>La opinion de nuestros usuarios</h2>
           </div>
-          <div class="card mb-3">
-            <div class="row no-gutters">
-              <div class="col-md-4 col-lg-3 col-xl-2 d-flex align-content-center">
-                <img src="img/peluqueria.jpg" class="card-img m-auto" alt="peluqueria">
-              </div>
-              <div class="col-md-8 col-lg-9 col-xl-10 d-flex">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="producto.php">Nombre del Local </a></h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Barrio</h6>
-                  <p class="card-text">Pequeña descripcion del lugar, servicios que ofrece, cosas que hace, etc.</p>
-                  <a href="producto.php" class="btn btn-secondary">Servicios</a>
-                  <a href="producto.php" class="btn btn-primary">Reservar</a>
-                  <p class="card-text d-none d-lg-block"><small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small></p>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="card mb-3">
+                <div class="card-body p-2 text-center">
+                    <img src="img/batman.jpg" alt="usuario" class="card-img pb-2 rounded-circle w-50 h-50">
+                    <p class="card-text"><small class="text-muted">Brunito</small></p>
+                    <p class="mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                    <p class="card-text">Persona diciendo que la pagina esta buenisima y blabla</p>
+                    <small class="text-muted">Nombre del local al que fue</small>
                 </div>
               </div>
             </div>
-            <div class="card-footer d-lg-none">
-              <small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i> Direccion</a></small>
+            <div class="col-md-3">
+              <div class="card mb-3">
+                <div class="card-body p-2 text-center">
+                  <img src="img/batman.jpg" alt="usuario" class="card-img pb-2 rounded-circle w-50 h-50">
+                  <p class="card-text"><small class="text-muted">Brunito</small></p>
+                  <p class="mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                  <p class="card-text">Persona diciendo que la pagina esta buenisima y blabla</p>
+                  <small class="text-muted">Nombre del local al que fue</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card mb-3">
+                <div class="card-body p-2 text-center">
+                    <img src="img/batman.jpg" alt="usuario" class="card-img pb-2 rounded-circle w-50 h-50">
+                    <p class="card-text"><small class="text-muted">Brunito</small></p>
+                    <p class="mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                    <p class="card-text">Persona diciendo que la pagina esta buenisima y blabla</p>
+                    <small class="text-muted">Nombre del local al que fue</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="card mb-3">
+                <div class="card-body p-2 text-center">
+                    <img src="img/batman.jpg" alt="usuario" class="card-img pb-2 rounded-circle w-50 h-50">
+                    <p class="card-text"><small class="text-muted">Brunito</small></p>
+                    <p class="mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
+                    <p class="card-text">Persona diciendo que la pagina esta buenisima y blabla</p>
+                    <small class="text-muted">Nombre del local al que fue</small>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
+        <hr class="divider">
+
+        <div class="unite text-center">
+          <div class="row">
+            <div class="col-md-5 order-md-2 info-text">
+              <h2 class="featurette-heading">Unite a la comunidad P&P</h2>
+              <p class="lead">Tenes ganas de brindar tus servicios, o conoces a alguien que quiera hacerlo? </p>
+              <a class="btn btn-secondary" href="producto.php" role="button">Apreta aca</a>
+            </div>
+            <div class="col-md-5 order-md-1">
+              <img src="img/manicura2.png" alt="m" class="img-fluid mx-auto" width="300" height="300">
+            </div>
+          </div>
+        </div>
+
+        <hr class="divider">
       </div>
     </div>
     <!-- Footer -->
