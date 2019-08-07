@@ -1,4 +1,39 @@
 <?php $tittle = "Registrarse" ?>
+<?php
+
+// define variables and set to empty values
+$userErr = $termsErr = "";
+$user = $terms = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+  if (empty($_POST["user"])) {
+    $userErr = "Debe ingresar un correo electronico";
+  } else {
+    $user = test_input($_POST["user"]);
+    // check if e-mail address is well-formed
+    if (!filter_var($user, FILTER_VALIDATE_EMAIL)) {
+      $userErr = "Formato de correo invalido";
+    }
+  }
+
+  if (empty($_POST["terms"])) {
+    $termsErr = "Debe aceptar los terminos y condiciones";
+  } else {
+    $terms = test_input($_POST["terms"]);
+  }
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <!-- Head -->
@@ -10,25 +45,27 @@
       <?php require_once("includes/header.php") ?>
       <!-- Header -->
       <div class="text-center mt-2">
-        <form class="col col-md-6 col-xl-4 m-auto bg-white border rounded p-3 text-center">
+        <form class="col col-md-6 col-xl-4 m-auto bg-white border rounded p-3 text-center" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
           <h1>Creá tu cuenta</h1>
           <h3 class="h3 mb-3 font-weight-normal">Ingresa tus datos</h3>
           <div class="form-signin">
             <label for="exampleInputEmail1">Usuario</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese nombre de usuario..." required>
+            <input type="text" name="user" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese nombre de usuario..." value="<?php echo $user;?>">
+            <span class="error"> <?php echo $userErr;?></span>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Contrasena</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese contrasena..." required>
+            <input type="password" name="password1" class="form-control" id="exampleInputPassword1" placeholder="Ingrese contrasena..." required>
             <label for="exampleInputPassword2">Repita Contrasena</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Repita contrasena..." required>
+            <input type="password" name ="password2" class="form-control" id="exampleInputPassword1" placeholder="Repita contrasena..." required>
           </div>
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+            <input type="checkbox"  name="terms" class="form-check-input" id="exampleCheck1">
+            <span class="error"> <?php echo $termsErr;?></span>
             <label class="form-check-label" for="exampleCheck1"> Acepto los <a href="faq.php">Términos y condiciones</a> de Peluca y peluquín S.A.</label>
           </div>
           <br>
-          <button type="submit" class="btn btn-lg btn-primary btn-block" formaction="login.php">Registrame</button>
+          <button type="submit" class="btn btn-lg btn-primary btn-block">Registrame</button>
           <small id="emailHelp" class="form-text text-muted">Ya tienes cuenta? <a href="login.php">Ingresa aqui</a>.</small>
         </form>
       </div>
