@@ -2,8 +2,8 @@
 <?php
 
 // define variables and set to empty values
-$userErr = $termsErr = "";
-$user = $terms = "";
+$userErr = $termsErr = $passwordErr = $cpasswordErr = "";
+$user = $terms = $password = $cpassword = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -14,13 +14,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // check if e-mail address is well-formed
     if (!filter_var($user, FILTER_VALIDATE_EMAIL)) {
       $userErr = "Formato de correo invalido";
+    } else {
+      $userOK = TRUE;
     }
+  }
+
+  if(!empty($_POST["password"]) && ($_POST["password"] == $_POST["cpassword"])) {
+    $password = test_input($_POST["password"]);
+    $cpassword = test_input($_POST["cpassword"]);
+    if (strlen($_POST["password"]) < 8) {
+        $passwordErr = "Your Password Must Contain At Least 8 Characters!";
+    }
+    elseif(!preg_match("#[0-9]+#",$password)) {
+        $passwordErr = "Your Password Must Contain At Least 1 Number!";
+    }
+    elseif(!preg_match("#[A-Z]+#",$password)) {
+        $passwordErr = "Your Password Must Contain At Least 1 Capital Letter!";
+    }
+    elseif(!preg_match("#[a-z]+#",$password)) {
+        $passwordErr = "Your Password Must Contain At Least 1 Lowercase Letter!";
+    }
+  }
+  elseif(!empty($_POST["password"])) {
+    $cpasswordErr = "Please Check You've Entered Or Confirmed Your Password!";
+  } else {
+     $passwordErr = "Please enter password   ";
   }
 
   if (empty($_POST["terms"])) {
     $termsErr = "Debe aceptar los terminos y condiciones";
   } else {
     $terms = test_input($_POST["terms"]);
+    $termsOk = TRUE;
   }
 }
 
@@ -30,6 +55,8 @@ function test_input($data) {
   $data = htmlspecialchars($data);
   return $data;
 }
+
+//header('Location:login.php');
 
 ?>
 
@@ -45,7 +72,7 @@ function test_input($data) {
       <?php require_once("includes/header.php") ?>
       <!-- Header -->
       <div class="text-center mt-2">
-        <form class="col col-md-6 col-xl-4 m-auto bg-white border rounded p-3 text-center" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <form class="col col-md-6 col-xl-4 m-auto bg-white border rounded p-3 text-center" method="post">
           <h1>Creá tu cuenta</h1>
           <h3 class="h3 mb-3 font-weight-normal">Ingresa tus datos</h3>
           <div class="form-signin">
@@ -55,9 +82,11 @@ function test_input($data) {
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Contrasena</label>
-            <input type="password" name="password1" class="form-control" id="exampleInputPassword1" placeholder="Ingrese contrasena..." required>
+            <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese contrasena..."  value="<?php echo $password;?>">
+            <span class="error"> <?php echo $passwordErr;?></span>
             <label for="exampleInputPassword2">Repita Contrasena</label>
-            <input type="password" name ="password2" class="form-control" id="exampleInputPassword1" placeholder="Repita contrasena..." required>
+            <input type="password" name ="cpassword" class="form-control" id="exampleInputPassword1" placeholder="Repita contrasena..."  value="<?php echo $cpassword;?>">
+            <span class="error"> <?php echo $cpasswordErr;?></span>
           </div>
           <div class="form-check">
             <input type="checkbox"  name="terms" class="form-check-input" id="exampleCheck1">
