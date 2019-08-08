@@ -69,10 +69,10 @@ if ($userOK == TRUE) {
   <?php require_once("includes/head.php") ?>
   <!-- Head -->
   <body>
+    <!--Header-->
+    <?php require_once("includes/header.php") ?>
+    <!-- Header -->
     <div class="container-fluid">
-      <!--Header-->
-      <?php require_once("includes/header.php") ?>
-      <!-- Header -->
       <div class="text-center mt-2">
         <form class="col col-md-6 col-xl-4 m-auto bg-white border rounded p-3 text-center" method="post">
           <h1>Creá tu cuenta</h1>

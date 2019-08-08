@@ -5,10 +5,10 @@
   <?php require_once("includes/head.php") ?>
   <!-- Head -->
   <body>
+    <!-- Header -->
+    <?php require_once("includes/header.php") ?>
+    <!-- Header -->
     <div class="container-fluid">
-      <!-- Header -->
-      <?php require_once("includes/header.php") ?>
-      <!-- Header -->
       <div class="col-10 m-auto">
         <div class="w-100">
           <img src="img/banner.jpg" class="img-fluid my-2"alt="">
