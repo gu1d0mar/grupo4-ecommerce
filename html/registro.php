@@ -3,19 +3,19 @@
 
 // define variables and set to empty values
 $userErr = $termsErr = $passwordErr = $cpasswordErr = "";
-$user = $terms = $password = $cpassword = $userOK = "";
+$user = $terms = $password = $cpassword = $userOk = $termsOk = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (empty($_POST["user"])) {
-    $userErr = "Debe ingresar un correo electronico";
+    $userErr = "<b>* Debe ingresar un correo electronico</b>";
   } else {
     $user = test_input($_POST["user"]);
     // check if e-mail address is well-formed
     if (!filter_var($user, FILTER_VALIDATE_EMAIL)) {
-      $userErr = "Formato de correo invalido";
+      $userErr = "<b>* Formato de correo invalido</b>";
     } else {
-      $userOK = TRUE;
+      $userOk = TRUE;
     }
   }
 
@@ -23,26 +23,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = test_input($_POST["password"]);
     $cpassword = test_input($_POST["cpassword"]);
     if (strlen($_POST["password"]) < 8) {
-        $passwordErr = "Your Password Must Contain At Least 8 Characters!";
+        $passwordErr = "<b>* Su contraseña debe contener al menos 8 caracteres!</b>";
     }
     elseif(!preg_match("#[0-9]+#",$password)) {
-        $passwordErr = "Your Password Must Contain At Least 1 Number!";
+        $passwordErr = "<b>* Su contraseña debe contener al menos 1 numero!</b>";
     }
     elseif(!preg_match("#[A-Z]+#",$password)) {
-        $passwordErr = "Your Password Must Contain At Least 1 Capital Letter!";
+        $passwordErr = "<b>* Su contraseña debe contener al menos 1 letra mayuscula!</b>";
     }
     elseif(!preg_match("#[a-z]+#",$password)) {
-        $passwordErr = "Your Password Must Contain At Least 1 Lowercase Letter!";
+        $passwordErr = "<b>* Su contraseña debe contener al menos 1 letra minuscula!</b>";
     }
   }
   elseif(!empty($_POST["password"])) {
-    $cpasswordErr = "Please Check You've Entered Or Confirmed Your Password!";
+    $cpasswordErr = "<b>* Por favor revise que ingreso o verifico su contraseña!</b>";
   } else {
-     $passwordErr = "Please enter password   ";
+     $passwordErr = "<b>* Por favor ingrese contraseña!</b>";
   }
 
   if (empty($_POST["terms"])) {
-    $termsErr = "Debe aceptar los terminos y condiciones";
+    $termsErr = "<b>* Debe aceptar los terminos y condiciones!</b>";
   } else {
     $terms = test_input($_POST["terms"]);
     $termsOk = TRUE;
@@ -56,8 +56,12 @@ function test_input($data) {
   return $data;
 }
 
-if ($userOK == TRUE) {
-  header('Location:login.php');
+if ($userOk == TRUE) {
+  if ($termsOk == TRUE) {
+    header('Location:login.php');
+
+  }
+
 }
 
 ?>

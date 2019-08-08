@@ -1,59 +1,71 @@
+<?php $tittle = "Contacto"?>
 <?php
-
-$tittle = "Contacto"
-
 // define variables and set to empty values
-$firstnameErr = $lastnameErr = $termsErr = $countryErr = "";
-$firstname = $lastname = $country = $comment = "";
+$firstnameErr = $lastnameErr = $termsErr = $countryErr = $commentErr = "";
+$firstname = $lastname = $country = $comment = $terms = $firstnameOk = $lastnameOk = $countryOk = $commentOk = $termsOk = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (empty($_POST["firstname"])) {
-    $firstnameErr = "Debe ingresar su nombre";
+    $firstnameErr = "<b>* Debe ingresar su nombre</b>";
   } else {
     $firstname = test_input($_POST["firstname"]);
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z ]*$/",$firstname)) {
-      $firstnameErr = "Solo se permiten letras y espacios";
+      $firstnameErr = "<b>* Solo se permiten letras y espacios</b>";
+    } else {
+      $firstnameOk = TRUE;
     }
   }
 
   if (empty($_POST["lastname"])) {
-    $lastnameErr = "Debe ingresar su apellido";
+    $lastnameErr = "<b>* Debe ingresar su apellido</b>";
   } else {
     $lastname = test_input($_POST["lastname"]);
     // check if name only contains letters and whitespace
     if (!preg_match("/^[a-zA-Z ]*$/",$lastname)) {
-      $lastnameErr = "Solo se permiten letras y espacios";
+      $lastnameErr = "<b>* Solo se permiten letras y espacios</b>";
+    } else {
+      $lastnameOk = TRUE;
     }
   }
 
   if (empty($_POST["comment"])) {
-    $commentErr = "Debe dejar un comentario";
+    $commentErr = "<b>* Debe dejar un comentario</b>";
   } else {
     $comment = test_input($_POST["comment"]);
+    $comentOk = TRUE;
   }
 
   if (empty($_POST["country"])) {
-    $countryErr = "Debe elegir un pais";
+    $countryErr = "<b>* Debe elegir un pais</b>";
   } else {
     $country = test_input($_POST["country"]);
+    $countryOk = TRUE;
   }
 
   if (empty($_POST["terms"])) {
-    $termsErr = "Debe aceptar los terminos y condiciones";
+    $termsErr = "<b>* Debe aceptar los terminos y condiciones</b>";
   } else {
     $terms = test_input($_POST["terms"]);
+    $termsOk = TRUE;
   }
 }
-
-
 
 function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);
   $data = htmlspecialchars($data);
   return $data;
+}
+
+
+if ($firstnameOk == TRUE) {
+  if ($lastnameOk == TRUE) {
+      if ($termsOk == TRUE) {
+          header('Location:index.php');
+      }
+  }
 }
 ?>
 
@@ -69,7 +81,7 @@ function test_input($data) {
     <!-- Header -->
     <div class="container-fluid">
       <div class="text-center mt-2">
-        <form class="col col-md-6 col-xl-4 m-auto bg-white border rounded p-3 text-center"  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <form class="col col-md-6 col-xl-4 m-auto bg-white border rounded p-3 text-center"  method="post">
           <h1>Contacto</h1>
           <h3 class="h3 mb-3 font-weight-normal">Dejanos tu mensaje</h3>
           <div class="form-signin">
