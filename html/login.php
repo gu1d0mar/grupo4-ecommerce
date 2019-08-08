@@ -5,17 +5,17 @@
   <?php require_once("includes/head.php") ?>
   <!-- Head -->
   <body>
+    <!--Header-->
+    <?php require_once("includes/header.php") ?>
+    <!-- Header -->
     <div class="container-fluid">
-      <!--Header-->
-      <?php require_once("includes/header.php") ?>
-      <!-- Header -->
       <div class="text-center mt-2">
         <form class="col col-md-6 col-xl-4 m-auto bg-white border rounded p-3 text-center">
           <h1>Inicio</h1>
           <h3 class="h3 mb-3 font-weight-normal">Ingresa al sitio</h3>
           <div class="form-signin">
             <label for="exampleInputEmail1">Usuario</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese nombre de usuario..." required>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese nombre de usuario..." required>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Contrasena</label>

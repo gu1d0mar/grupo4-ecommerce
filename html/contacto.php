@@ -1,7 +1,6 @@
-<?php $tittle = "Contacto" ?>
-
 <?php
 
+$tittle = "Contacto"
 
 // define variables and set to empty values
 $firstnameErr = $lastnameErr = $termsErr = $countryErr = "";
@@ -65,10 +64,10 @@ function test_input($data) {
   <?php require_once("includes/head.php") ?>
   <!-- Head -->
   <body>
+    <!-- Header -->
+    <?php require_once("includes/header.php") ?>
+    <!-- Header -->
     <div class="container-fluid">
-      <!-- Header -->
-      <?php require_once("includes/header.php") ?>
-      <!-- Header -->
       <div class="text-center mt-2">
         <form class="col col-md-6 col-xl-4 m-auto bg-white border rounded p-3 text-center"  method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
           <h1>Contacto</h1>
@@ -89,16 +88,16 @@ function test_input($data) {
             <label for="exampleInputPassword1">País</label>
             <select id="inputState" class="form-control">
               <option selected>Elige tu país...</option>
-              <option>...</option>
               <option value="argentina">Argentina</option>
               <option value="chile">Chile</option>
               <option value="uruguay">Uruguay</option>
             </select>
+            <span class="error"> <?php echo $countryErr;?></span>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Comentarios</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Deja tu comentario..." name="comment" rows="5" cols="40" value="<?php echo $comment;?>">
-            <span class="error"> <?php echo $lastnameErr;?></span>
+            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Deja tu comentario..." name="comment" rows="5" cols="40"  style="height:100px;" value="<?php echo $comment;?>">
+            <span class="error"> <?php echo $commentErr;?></span>
             <br>
           </div>
           <div class="form-check">

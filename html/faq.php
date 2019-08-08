@@ -5,10 +5,10 @@
   <?php require_once("includes/head.php") ?>
   <!-- Head -->
   <body>
+    <!-- Header -->
+    <?php require_once("includes/header.php") ?>
+    <!-- Header -->
     <div class="container-fluid">
-      <!-- Header -->
-      <?php require_once("includes/header.php") ?>
-      <!-- Header -->
       <div class="row">
         <div class="w-100">
           <div class="jumbotron jumbotron-fluid">
