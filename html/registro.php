@@ -92,6 +92,7 @@ if ($userOk == TRUE) {
             <label for="exampleInputPassword1">Contrasena</label>
             <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Ingrese contrasena..."  value="<?php echo $password;?>">
             <span class="error"> <?php echo $passwordErr;?></span>
+            <br>
             <label for="exampleInputPassword2">Repita Contrasena</label>
             <input type="password" name ="cpassword" class="form-control" id="exampleInputPassword1" placeholder="Repita contrasena..."  value="<?php echo $cpassword;?>">
             <span class="error"> <?php echo $cpasswordErr;?></span>
