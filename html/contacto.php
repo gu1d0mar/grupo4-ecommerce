@@ -1,5 +1,5 @@
-<?php $tittle = "Contacto"?>
 <?php
+$tittle = "Contacto";
 // define variables and set to empty values
 $firstnameErr = $lastnameErr = $termsErr = $countryErr = $commentErr = "";
 $firstname = $lastname = $country = $comment = $terms = $firstnameOk = $lastnameOk = $countryOk = $commentOk = $termsOk = "";

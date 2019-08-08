@@ -1,6 +1,5 @@
-<?php $tittle = "Registrarse" ?>
 <?php
-
+$tittle = "Registrarse";
 // define variables and set to empty values
 $userErr = $termsErr = $passwordErr = $cpasswordErr = "";
 $user = $terms = $password = $cpassword = $userOk = $termsOk = "";
@@ -96,8 +95,8 @@ if ($userOk == TRUE) {
           </div>
           <div class="form-check">
             <input type="checkbox"  name="terms" class="form-check-input" id="exampleCheck1">
-            <span class="error"> <?php echo $termsErr;?></span>
             <label class="form-check-label" for="exampleCheck1"> Acepto los <a href="faq.php">Términos y condiciones</a> de Peluca y peluquín S.A.</label>
+            <span class="error"> <?php echo $termsErr;?></span>
           </div>
           <br>
           <button type="submit" class="btn btn-lg btn-primary btn-block">Registrame</button>

@@ -1,5 +1,5 @@
-<?php $tittle = "Iniciar Sesión" ?>
 <?php
+$tittle = "Iniciar Sesión";
 // define variables and set to empty values
 $userErr = $passwordErr = "";
 $user = $password = $userOk = $passwordOk = "";
