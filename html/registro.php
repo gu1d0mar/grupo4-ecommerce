@@ -3,7 +3,7 @@
 
 // define variables and set to empty values
 $userErr = $termsErr = $passwordErr = $cpasswordErr = "";
-$user = $terms = $password = $cpassword = "";
+$user = $terms = $password = $cpassword = $userOK = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -56,7 +56,9 @@ function test_input($data) {
   return $data;
 }
 
-//header('Location:login.php');
+if ($userOK == TRUE) {
+  header('Location:login.php');
+}
 
 ?>
 
