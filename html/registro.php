@@ -2,7 +2,7 @@
 $tittle = "Registrarse";
 // define variables and set to empty values
 $userErr = $termsErr = $passwordErr = $cpasswordErr = "";
-$user = $terms = $password = $cpassword = $userOk = $termsOk = "";
+$user = $terms = $password = $cpassword = $userOk = $termsOk = $passwordOk = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -32,8 +32,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     elseif(!preg_match("#[a-z]+#",$password)) {
         $passwordErr = "<b>* Su contraseña debe contener al menos 1 letra minuscula!</b>";
+    } else {
+      $passwordOk = TRUE;
     }
   }
+
   elseif(!empty($_POST["password"])) {
     $cpasswordErr = "<b>* Por favor revise que ingreso o verifico su contraseña!</b>";
   } else {
@@ -56,11 +59,11 @@ function test_input($data) {
 }
 
 if ($userOk == TRUE) {
-  if ($termsOk == TRUE) {
-    header('Location:login.php');
-
+  if ($passwordOk == TRUE) {
+    if ($termsOk == TRUE) {
+      header('Location:login.php');
+    }
   }
-
 }
 
 ?>
