@@ -31,7 +31,6 @@ if($_POST){
   }
 
   // Terms
-
   if (empty(old('terms'))){
     adderror('terms', 'Debe aceptar los terminos y condiciones para continuar');
   }
