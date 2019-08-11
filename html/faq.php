@@ -1,4 +1,4 @@
-<?php $tittle = "F.A.Q." ?>
+<?php $pageTitle = "F.A.Q." ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <!-- Head -->

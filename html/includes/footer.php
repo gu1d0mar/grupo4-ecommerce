@@ -1,4 +1,4 @@
-<footer class="bg-dark container-fluid footer">
+<footer class="bg-dark w-100 footer">
   <div class="container">
     <nav class="navbar navbar-dark bg-dark justify-content-center justify-content-md-between">
       <ul class="navbar-nav text-center text-md-left">

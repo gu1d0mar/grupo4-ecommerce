@@ -1,15 +1,17 @@
-<?php $tittle = "Servicios" ?>
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<?php $pageTitle = "Servicios" ?>
+
   <!-- Head -->
   <?php require_once("includes/head.php") ?>
   <!-- Head -->
+
   <body>
     <!-- Header -->
     <?php require_once("includes/header.php") ?>
     <!-- Header -->
+
     <div class="container-fluid">
       <!-- Filtros -->
+
       <!-- Filtros sm -->
       <div class="row justify-content-center d-sm-none mt-2">
         <div class="col">
@@ -33,6 +35,7 @@
           </div>
         </div>
       </div>
+
       <!-- Filtros md -->
       <div class="row">
         <ul class="nav flex-column col d-none d-sm-block pl-3 ml-2 mt-2 rounded bg-white">
@@ -46,6 +49,7 @@
               </div>
             </form>
           </li>
+
           <!-- Modal -->
           <li class="nav-item pb-2 border-bottom d-lg-none pt-2">
             <button type="button" class="btn btn-secondary btn-block " data-toggle="modal" data-target="#busquedaModal">
@@ -75,6 +79,7 @@
             </div>
           </div>
           <!-- Fin Modal -->
+
           <li class="nav-item pt-2 pb-2 border-bottom">
             <div class="form-check">
               <label class="form-check-label" for="defaultCheck1">
@@ -124,6 +129,7 @@
             </div>
           </li>
         </ul>
+
         <!-- Productos -->
         <div class="col-10 offset-1 offset-sm-0 ml-sm-auto mt-sm-2 col-lg-9">
           <div class="card mb-3">
@@ -309,9 +315,11 @@
         </div>
       </div>
     </div>
+
     <!-- Footer -->
     <?php require_once("includes/footer.php") ?>
     <!-- Footer -->
+    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
