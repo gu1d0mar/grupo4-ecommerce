@@ -18,21 +18,21 @@ if($_POST){
 
   // Email
   if (!isEmail(old('email'))) {
-    adderror('email', 'Debes escribir un email válido');
+    addError('email', 'Debes escribir un email válido');
   }
 
   // Contraseña
   if (length(old('password'),6)) {
-    adderror('password','La contraseña debe tener 6 caracteres minimo');
+    addError('password','La contraseña debe tener 6 caracteres minimo');
   }
 
   if (!match(old('password'),old('repPassword'))) {
-    adderror('repPassword', 'Las contraseñas no coinciden');
+    addError('repPassword', 'Las contraseñas no coinciden');
   }
 
   // Terms
   if (empty(old('terms'))){
-    adderror('terms', 'Debe aceptar los terminos y condiciones para continuar');
+    addError('terms', 'Debe aceptar los terminos y condiciones para continuar');
   }
 
   // Redireccion

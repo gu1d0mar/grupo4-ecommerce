@@ -1,71 +1,45 @@
 <?php
 $pageTitle = "Contacto";
-// define variables and set to empty values
-$firstnameErr = $lastnameErr = $termsErr = $countryErr = $commentErr = "";
-$firstname = $lastname = $country = $comment = $terms = $firstnameOk = $lastnameOk = $countryOk = $commentOk = $termsOk = "";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+require_once("functions/forms.php");
 
-  if (empty($_POST["firstname"])) {
-    $firstnameErr = "<b>* Debe ingresar su nombre</b>";
-  } else {
-    $firstname = test_input($_POST["firstname"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z ]*$/",$firstname)) {
-      $firstnameErr = "<b>* Solo se permiten letras y espacios</b>";
-    } else {
-      $firstnameOk = TRUE;
+if($_POST) {
+
+  // Validaciones
+    // Nombre
+    if (length(old('name'),2,40)) {
+      addError('name', 'Tu nombre debe tener entre 2 y 40 caracteres');
     }
-  }
 
-  if (empty($_POST["lastname"])) {
-    $lastnameErr = "<b>* Debe ingresar su apellido</b>";
-  } else {
-    $lastname = test_input($_POST["lastname"]);
-    // check if name only contains letters and whitespace
-    if (!preg_match("/^[a-zA-Z ]*$/",$lastname)) {
-      $lastnameErr = "<b>* Solo se permiten letras y espacios</b>";
-    } else {
-      $lastnameOk = TRUE;
+    // Apellido
+    if (length(old('surname'),2,40)) {
+      addError('surname', 'Tu nombre debe tener entre 2 y 40 caracteres');
     }
-  }
 
-  if (empty($_POST["comment"])) {
-    $commentErr = "<b>* Debe dejar un comentario</b>";
-  } else {
-    $comment = test_input($_POST["comment"]);
-    $comentOk = TRUE;
-  }
+    // Email
+    if (!isEmail(old('email'))) {
+      addError('email', 'Debes escribir un email válido');
+    }
 
-  if (empty($_POST["country"])) {
-    $countryErr = "<b>* Debe elegir un pais</b>";
-  } else {
-    $country = test_input($_POST["country"]);
-    $countryOk = TRUE;
-  }
+    // Pais
+    if (empty(old('pais'))) {
+      addError('pais', 'Debes seleccionar un país');
+    }
 
-  if (empty($_POST["terms"])) {
-    $termsErr = "<b>* Debe aceptar los terminos y condiciones</b>";
-  } else {
-    $terms = test_input($_POST["terms"]);
-    $termsOk = TRUE;
-  }
-}
+    //Comentarios
+    if (empty(old('comentario'))) {
+      addError('comentario', 'Debes dejar un mensaje');
+    }
 
-function test_input($data) {
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
+    // Terms
+    if (empty(old('terms'))) {
+      addError('terms', 'Debes aceptar los terminos y condiciones');
+    }
 
-
-if ($firstnameOk == TRUE) {
-  if ($lastnameOk == TRUE) {
-      if ($termsOk == TRUE) {
-          header('Location:index.php');
-      }
-  }
+    // Redireccion
+    if (isValid()) {
+      header ('location: index.php');
+    }
 }
 ?>
   <!-- Head -->
@@ -79,44 +53,64 @@ if ($firstnameOk == TRUE) {
 
     <div class="container-fluid">
       <div class="text-center mt-2">
-        <form class="col col-md-6 col-xl-4 m-auto bg-white border rounded p-3 text-center"  method="post">
+        <form class="col col-md-6 col-xl-4 m-auto bg-white border rounded p-3 text-center" action="contacto.php" method="post">
           <h1>Contacto</h1>
           <h3 class="h3 mb-3 font-weight-normal">Dejanos tu mensaje</h3>
-          <div class="form-signin">
-            <label for="exampleInputEmail1">Nombre</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu nombre..."  name="firstname" value="<?php echo $firstname;?>">
-            <span class="error"> <?php echo $firstnameErr;?></span>
-            <br>
-          </div>
-          <div class="form-signin">
-            <label for="exampleInputEmail1">Apellido</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe tu apellido..."  name="lastname" value="<?php echo $lastname;?>">
-            <span class="error"> <?php echo $lastnameErr;?></span>
-            <br>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="name">Nombre</label>
+              <input type="text" name= "name" class="form-control" placeholder="Ingrese su nombre" value="<?= old('name') ?>">
+              <?php if (hasError('name')) : ?>
+                <small class="errors"><?= getError('name') ?></small>
+              <?php endif; ?>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="surname">Apellido</label>
+              <input type="text" name="surname" class="form-control" placeholder="Ingrese su apellido" value="<?= old('surname') ?>">
+              <?php if (hasError('surname')) : ?>
+                <small class="errors"><?= getError('surname') ?></small>
+              <?php endif; ?>
+            </div>
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">País</label>
-            <select id="inputState" class="form-control">
-              <option selected>Elige tu país...</option>
-              <option value="argentina">Argentina</option>
-              <option value="chile">Chile</option>
-              <option value="uruguay">Uruguay</option>
+            <label for="email">Email</label>
+            <input type="text" name="email" class="form-control" placeholder="Ingrese un nombre de usuario" value="<?= old('email') ?>">
+            <?php if (hasError('email')) : ?>
+              <small class="errors"><?= getError('email') ?></small>
+            <?php endif; ?>
+          </div>
+          <div class="form-group">
+            <label for="pais">País</label>
+            <select name="pais" class="form-control">
+              <option value="">Elige tu país</option>
+              <option value="Argentina" <?= selected(old('pais'), 'Argentina') ?>>Argentina</option>
+              <option value="Chile" <?= selected(old('pais'), 'Chile') ?>>Chile</option>
+              <option value="Uruguay" <?= selected(old('pais'), 'Uruguay') ?>>Uruguay</option>
             </select>
-            <span class="error"> <?php echo $countryErr;?></span>
+            <?php if (hasError('pais')) : ?>
+              <small class="errors"><?= getError('pais') ?></small>
+            <?php endif; ?>
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Comentarios</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Deja tu comentario..." name="comment" rows="5" cols="40"  style="height:100px;" value="<?php echo $comment;?>">
-            <span class="error"> <?php echo $commentErr;?></span>
-            <br>
+            <label for="comentario">Comentarios</label>
+            <textarea class="form-control" name="comentario" placeholder="Deja tu comentario" rows="4" ><?= old('comentario') ?></textarea>
           </div>
+          <?php if (hasError('comentario')) : ?>
+            <p>
+              <small class="errors"><?= getError('comentario') ?></small>
+            </p>
+          <?php endif; ?>
           <div class="form-check">
-            <input type="checkbox" name="terms" class="form-check-input" id="exampleCheck1" >
-            <label class="form-check-label" for="exampleCheck1">Al enviar este mensaje acepto los <a href="faq.php">Términos y condiciones</a> de Peluca y peluquín S.A.</label>
-            <span class="error"> <?php echo $termsErr;?></span>
-            <br>
+            <p>
+              <input type="checkbox" name="terms" class="form-check-input" <?= checked(old('terms')) ?>>
+              <label class="form-check-label" for="terms">Acepto los <a href="faq.php">Términos y condiciones</a> de Peluca y peluquín S.A.</label>
+            </p>
+            <?php if (hasError('terms')) : ?>
+              <p>
+                <small class="errors"><?= getError('terms') ?></small>
+              </p>
+            <?php endif; ?>
           </div>
-          <br>
           <button type="submit" class="btn btn-lg btn-primary btn-block">Enviar</button>
         </form>
       </div>

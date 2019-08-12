@@ -9,6 +9,10 @@ function selected($value, $option) {
   return $value == $option ? 'selected' : '';
 }
 
+function checked($field) {
+  return empty($field) ? '' : 'checked';
+}
+
 function length($value, $min, $max = NULL) {
   if ($max) {
     return strlen($value) < $min || strlen($value) > $max;
