@@ -53,7 +53,7 @@ if($_POST){
 
     <div class="container-fluid">
       <div class="text-center mt-2">
-        <form class="col col-md-6 col-xl-4 m-auto bg-white border rounded p-3 text-center" method="post">
+        <form class="col col-md-6 col-xl-4 m-auto bg-white border rounded p-3 text-center" action="includes/register.php" method="post">
           <h1>Creá tu cuenta</h1>
           <h3 class="h3 mb-3 font-weight-normal">Ingresa tus datos</h3>
           <div class="form-row">
