@@ -40,60 +40,78 @@ body {
 .info-text p {
   font-weight: 400;
 }
+
+.jumbo {
+  background-color: #201F1F;
+  position: relative;
+  height: 500px;
+}
+
+@media (min-width:755px){
+  .jumbo {height: 400px;}
+  .search-sec{
+    position: absolute;
+    left:0;
+    bottom: 40px;
+  }
+}
+
+/*Search-bar*/
+.search-inp{
+  display: block;
+  width: 95%;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #55595c;
+  background-color: rgb(242, 235,244);
+  border: 1px solid rgba(132,134,128,0.7);
+  height: calc(3rem + 2px) !important;
+  border-radius:1;
+  margin-bottom: 0.5rem;
+  margin-left: 0.45rem;
+}
+.search-btn{
+  width: 95%;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: capitalize;
+  height: calc(3rem + 2px) !important;
+  border-radius:1;
+}
+.search-sec{
+  width: 100%;
+  padding: 1rem;
+  background-color: rgba(242, 235,244, 0.6);
+  position: absolute;
+  left: 0;
+  bottom:20px;
+}
+
+.searchg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Search-bar */
+
   /* Carrousel */
   .carrousel {
     position: relative;
   }
 
   .carousel-item {
-      height: 600px;
-    }
-
-  .carousel-item img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      /* min-height: 200px; */
-      max-height: 600px;
-      height: 768px;
-      width: 100vw;
+    height: 600px;
   }
 
-    /*Search-bar*/
-    .search-slt{
-        display: block;
-        width: 95%;
-        font-size: 0.875rem;
-        line-height: 1.5;
-        color: #55595c;
-        background-color: #fff;
-        background-image: none;
-        border: 1px solid #ccc;
-        height: calc(3rem + 2px) !important;
-        border-radius:1;
-    }
-    .wrn-btn{
-        width: 100%;
-        font-size: 16px;
-        font-weight: 400;
-        text-transform: capitalize;
-        height: calc(3rem + 2px) !important;
-        border-radius:0;
-    }
-    .search-sec{
-        position: absolute;
-        width: 100%;
-        bottom: 60px;
-        padding: 1rem;
-        background: rgba(26, 70, 104, 0.51);*/
-    }
-
-    .searchg {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    /* Search-bar */
+  .carousel-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* min-height: 200px; */
+    max-height: 600px;
+    height: 768px;
+    width: 100vw;
+  }
   /* Carrousel */
 
   /* Forms */
@@ -115,11 +133,5 @@ body {
   @media (max-width:700px) {
       .carousel-item {
           display:none !important;
-      }
-  }
-
-  @media (max-width: 992px){
-      .search-sec{
-          background: #1A4668;
       }
   }
