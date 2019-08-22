@@ -1,21 +1,17 @@
 <?php
 
- $host_db = "localhost";
- $user_db = "root";
- $pass_db = "root";
- $db_name = "Peluquin";
- $tbl_name = "Users";
- 
- $conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
+require_once('../database/pdo.php')
 
- if ($conexion->connect_error) {
- die("La conexion falló: " . $conexion->connect_error);
+ $db = new mysqli($host_db, $user_db, $pass_db, $db_name);
+
+ if ($db->connect_error) {
+ die("La conexion falló: " . $db->connect_error);
 }
 
  $buscarUsuario = "SELECT * FROM $tbl_name
  WHERE email = '$_POST[email]' ";
 
- $result = $conexion->query($buscarUsuario);
+ $result = $db->query($buscarUsuario);
 
  $count = mysqli_num_rows($result);
 
@@ -27,22 +23,22 @@
  else{
 
  $form_pass = $_POST['password'];
- 
+
  $hash = password_hash($form_pass, PASSWORD_BCRYPT);
 
  $query = "INSERT INTO Users (email, password)
            VALUES ('$_POST[email]', '$hash')";
 
- if ($conexion->query($query) === TRUE) {
- 
+ if ($db->query($query) === TRUE) {
+
  echo "<br />" . "<h2>" . "Usuario Creado Exitosamente!" . "</h2>";
  echo "<h4>" . "Bienvenido: " . $_POST['email'] . "</h4>" . "\n\n";
- echo "<h5>" . "Hacer Login: " . "<a href='../login.php'>Login</a>" . "</h5>"; 
+ echo "<h5>" . "Hacer Login: " . "<a href='../login.php'>Login</a>" . "</h5>";
  }
 
  else {
- echo "Error al crear el usuario." . $query . "<br>" . $conexion->error; 
+ echo "Error al crear el usuario." . $query . "<br>" . $db->error;
    }
  }
- mysqli_close($conexion);
+ mysqli_close($db);
 ?>

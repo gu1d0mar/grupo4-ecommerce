@@ -4,7 +4,7 @@
  $user_db = "your-usernane";
  $pass_db = "your-password";
  $db_name = "your-dbname";
- 
+
  $conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
 
  if ($conexion->connect_error) {
