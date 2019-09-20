@@ -10,8 +10,14 @@
     "require": {
         "php": "^7.1.3",
         "fideloper/proxy": "^4.0",
+<<<<<<< HEAD
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0"
+=======
+        "laravel/framework": "^6.0",
+        "laravel/tinker": "^1.0",
+        "laravel/ui": "^1.0"
+>>>>>>> master
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
