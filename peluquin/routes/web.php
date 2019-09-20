@@ -27,18 +27,14 @@ Route::get('/faq', function () {
     return view('faq');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
-
 Route::get('/product', function () {
     return view('product');
-});
-
-Route::get('/register', function () {
-    return view('register');
 });
 
 Route::get('/user', function () {
     return view('user');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
