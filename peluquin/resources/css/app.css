@@ -1,0 +1,20 @@
+/* Footer */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom igual o un poco mayor al height del footer */
+  margin-bottom: 250px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  /* Altura fija del footer para celulares */
+  height: 220px;
+  margin-top: 400px;
+  background-color: #f5f5f5;
+}
+/* Footer */
