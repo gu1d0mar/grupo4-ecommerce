@@ -19,7 +19,7 @@
                           </div>
 
                           <div class="col-md-3">
-                              <input id="name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
+                              <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}" required autocomplete="first_name" autofocus>
 
                               @error('first_name')
                                   <span class="invalid-feedback" role="alert">
