@@ -14,3 +14,31 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/cart', function () {
+    return view('cart');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+Route::get('/faq', function () {
+    return view('faq');
+});
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/product', function () {
+    return view('product');
+});
+
+Route::get('/register', function () {
+    return view('register');
+});
+
+Route::get('/user', function () {
+    return view('user');
+});
