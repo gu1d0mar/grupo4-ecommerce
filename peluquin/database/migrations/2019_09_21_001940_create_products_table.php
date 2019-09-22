@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->string('description');
             $table->numeric('price');
-            $table->bigIncrements('shop_id');            // ForeignKey
+            $table->foreign('shop_id');            // ForeignKey
             $table->timestamps();
         });
     }

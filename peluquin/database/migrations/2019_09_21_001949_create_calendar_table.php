@@ -16,8 +16,8 @@ class CreateCalendarTable extends Migration
         Schema::create('calendar', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->date('date');
-            $table->foreingkey('product_id'); // ForeignKey
-            $table->foreignkey('user_id'); //ForeignKey
+            $table->foreign('product_id'); // ForeignKey
+            $table->foreign('user_id'); //ForeignKey
             $table->timestamps();
         });
     }
