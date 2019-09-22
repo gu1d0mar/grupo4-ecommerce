@@ -35,7 +35,6 @@ Route::get('/cart', function () {
 //Users
 //Route::delete('/user/delete', 'userController@destroy')->name('user.destroy')-middleware('auth');
 //Route::get('/user{id}', 'userController@show')->name('user')-middleware('auth');
-//Route::get('/user/{id}/edit', 'userController@edit')->name('user.edit')-middleware('auth');
 //Route::put('/user/{id}', 'userController@update')->name('user.update')-middleware('auth');
 
 //Shops
