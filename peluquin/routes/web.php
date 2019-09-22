@@ -27,6 +27,8 @@ Route::get('/', function () {
 //Route::get('/products/{id}/buy', 'productsController@buy')->name('products.buy')->middleware('auth');
 //Route::post('/products/{id}/buy', 'productsController@addToCart')->name('products.cart')->middleware('auth');
 
+Route::get('/shops','ShopsController@directory')->name('shops');
+
 //Cart
 Route::get('/cart', function () {
   return view('cart');
