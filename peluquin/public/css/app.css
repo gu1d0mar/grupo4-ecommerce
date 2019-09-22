@@ -17,4 +17,77 @@ body {
   margin-top: 400px;
   background-color: #f5f5f5;
 }
+
+@media (min-width: 510px) {
+  body{
+    margin-bottom:170px;
+  }
+  .footer{
+    height:150px;
+  }
+}
 /* Footer */
+
+.jumbo {
+  background-color: #201F1F;
+  position: relative;
+  height: 500px;
+}
+
+@media (min-width:755px){
+  .jumbo {height: 400px;}
+  .search-sec{
+    position: absolute;
+    left:0;
+    bottom: 40px;
+  }
+}
+
+/*Search-bar*/
+.search-inp{
+  display: block;
+  width: 95%;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #55595c;
+  background-color: rgb(242, 235,244);
+  border: 1px solid rgba(132,134,128,0.7);
+  height: calc(3rem + 2px) !important;
+  border-radius:1;
+  margin-bottom: 0.5rem;
+  margin-left: 0.45rem;
+}
+.search-btn{
+  width: 95%;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: capitalize;
+  height: calc(3rem + 2px) !important;
+  border-radius:1;
+}
+.search-sec{
+  width: 100%;
+  padding: 1rem;
+  background-color: rgba(242, 235,244, 0.6);
+  position: absolute;
+  left: 0;
+  bottom:20px;
+}
+
+.searchg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Search-bar */
+
+.recomend{
+  margin-top: 4em;
+}
+.divider{
+  margin: 2rem;
+}
+
+.info-text p {
+  font-weight: 400;
+}

@@ -15,10 +15,12 @@ class CreateDiscountsTable extends Migration
     {
         Schema::create('discounts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigIncrements('product_id');
-            $table->floating('discount');
+            $table->decimal('discount');
+            $table->unsignedBigInteger('product_id');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
         });
+
     }
 
     /**
