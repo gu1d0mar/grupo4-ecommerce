@@ -15,10 +15,10 @@ class CreateCartTable extends Migration
     {
         Schema::create('cart', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigIncrements('product_id');
-            $table->floating('price');
+            $table->foreignkeys('product_id'); // change from biGiNCREMENTS to ForegingKeys
+            $table->numeric('price');
             $table->numeric('ammout');
-            $table->bigIncrements('discount_id');
+            $table->foreignkey('discount_id')->nullable; // Make default Cero // Change from BigIncrements to ForeignKeys
             $table->timestamps();
         });
     }
