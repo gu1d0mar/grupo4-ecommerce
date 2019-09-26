@@ -4,7 +4,7 @@ use App\Shop;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-class shops_seeder extends Seeder
+class ShopSeeder extends Seeder
 {
     /**
      * Run the database seeds.
