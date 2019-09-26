@@ -20,7 +20,7 @@ class ShopsController extends Controller
       $products = Product::all();
       $shop = Shop::findOrFail($id);
 
-      return view('products.show_shop', ['shops' => $shop,'products'=>$products]);
+      return view('products.show_shop', ['shop' => $shop,'products'=>$products]);
       }
 
     public function search(Request $request){

@@ -33,20 +33,15 @@ Route::get('/shops/{id}','ShopsController@show')->name('shops.show');
 //Cart
 Route::get('/cart', function () {
   return view('cart');
-});
+})->name('cart');
 
 //Users
 //Route::delete('/user/delete', 'userController@destroy')->name('user.destroy')-middleware('auth');
-//Route::get('/user{id}', 'userController@show')->name('user')-middleware('auth');
+Route::get('/user', function(){
+  return view('user');
+})->name('user')->middleware('auth');
 //Route::put('/user/{id}', 'userController@update')->name('user.update')-middleware('auth');
 
-//Shops
-//Route::get('/shops','shopsController@directory')->name('shops');
-//Route::get('/shops/search','shopsController@search')->name('shops.search');
-//Route::delete('/shops/delete', 'shopsController@destroy')->name('shop.destroy')//->middleware(admins);
-//Route::get('/shops/{id}', 'shopsController@show')->name('shop.show');
-//Route::get('/shops/{id}/edit', 'shopsController@edit')->name('shop.edit')//->middleware(admins);
-//Route::put('/shops/{id}', 'shopsController@update')->name('shop.update')//->middleware(admins);
 
 
 

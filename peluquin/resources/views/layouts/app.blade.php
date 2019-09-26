@@ -37,7 +37,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item">
-                          <a class="nav-link" href="{{ route('register') }}">{{ __('Servicios') }}</a>
+                          <a class="nav-link" href="{{ route('shops') }}">{{ __('Servicios') }}</a>
                       </li>
                       <li class="nav-item">
                           <a class="nav-link" href="{{ route('register') }}">{{ __('Contacto') }}</a>
@@ -66,8 +66,9 @@
                         {{ Auth::user()->username }} <span class="caret"></span>
                       </a>
 
-                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
+                      <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-white-50" href="{{route('user')}}">Perfil</a>
+                        <a class="dropdown-item text-white-50" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                         {{ __('Cerrar Sesion') }}
