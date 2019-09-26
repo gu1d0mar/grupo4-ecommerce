@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 //Products
@@ -37,9 +37,9 @@ Route::get('/cart', function () {
 
 //Users
 //Route::delete('/user/delete', 'userController@destroy')->name('user.destroy')-middleware('auth');
-Route::get('/user', function(){
+Route::get('/user/{id}', function(){
   return view('user');
-})->name('user')->middleware('auth');
+})->name('profile')->middleware('auth');
 //Route::put('/user/{id}', 'userController@update')->name('user.update')-middleware('auth');
 
 
@@ -47,12 +47,15 @@ Route::get('/user', function(){
 
 Route::get('/contact', function () {
     return view('contact');
-});
+})->name('contact');
 
 Route::get('/faq', function () {
-    return view('faq');
-});
+    return view('help.faq');
+})->name('faq');
 
+Route::get('/termsandconditions',function(){
+  return view('help.tac');
+})->name('terms');
 
 Auth::routes();
 

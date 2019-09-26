@@ -14,7 +14,15 @@ class Shop extends Model
         'password', 'remember_token',
     ];
 
+    protected $appends = [
+      'stars',
+    ];
+
     public function products(){
         return $this->hasMany('App\Prodct','shop_id');
       }
+
+    public function getStarsAttribute(){
+      return round($this->points/2);
+    }
 }

@@ -7,12 +7,12 @@
     <div class="col-md-3">
       <div class="card my-3 p-2 ">
         <div class="card-img text-center">
-          <h4>{{ Auth::user()->username }}</h4>
+          <h4>{{Auth::user()->getNombreCompleto() }}</h4>
           <img src="img/batman.jpg" alt="avatar" class="rounded-circle w-50 h-50 ">
         </div>
         <hr>
-        <p class="card-text"> <i class="fas fa-home"></i>  Ciudad Gotica, DC</p>
-        <p class="card-text"> <i class="fas fa-birthday-cake"></i>  19/02/1939</p>
+        <p class="card-text"> <i class="fas fa-home"></i>{{--{{Auth::user()->nbhd}}--}} Nbhd</p>
+        <p class="card-text"> <i class="fas fa-birthday-cake"></i>{{--{{Auth::user()->bday}}--}} Bday</p>
         <p class="card-text"><a href="carrito.php" class="text-body"><i class="far fa-calendar-alt"></i> Mis turnos</p></a>
         <p class="card-text"><a href="#" class="text-body"><i class="fas fa-cog"></i> Configuracion</p></a>
       </div>

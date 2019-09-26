@@ -40,10 +40,10 @@
                           <a class="nav-link" href="{{ route('shops') }}">{{ __('Servicios') }}</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="{{ route('register') }}">{{ __('Contacto') }}</a>
+                          <a class="nav-link" href="{{ route('contact') }}">{{ __('Contacto') }}</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="{{ route('register') }}">{{ __('Carrito') }}</a>
+                          <a class="nav-link" href="{{ route('cart') }}">{{ __('Carrito') }}</a>
                       </li>
                     </ul>
                 </div>
@@ -63,11 +63,11 @@
                   @else
                     <li class="nav-item dropdown">
                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->username }} <span class="caret"></span>
+                        {{ Auth::user()->first_name }} <span class="caret"></span>
                       </a>
 
                       <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item text-white-50" href="{{route('user')}}">Perfil</a>
+                        <a class="dropdown-item text-white-50" href="{{route('profile',['id'=>Auth::user()->id])}}">Perfil</a>
                         <a class="dropdown-item text-white-50" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
@@ -97,10 +97,10 @@
               <a class="nav-link" href="{{ route('register') }}">Quienes somos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('register') }}">Preguntas frecuentes</a>
+              <a class="nav-link" href="{{ route('faq') }}">Preguntas frecuentes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('register') }}">Terminos y condiciones</a>
+              <a class="nav-link" href="{{ route('terms') }}">Terminos y condiciones</a>
             </li>
           </ul>
           <a class="navbar-brand d-none d-lg-block" href="{{ route('register') }}">Peluca & Peluquin</a>

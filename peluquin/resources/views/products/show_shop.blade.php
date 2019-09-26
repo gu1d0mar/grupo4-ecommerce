@@ -7,15 +7,25 @@
           <div class="card mb-3">
             <div class="row no-gutters">
               <div class="col-md-4 col-lg-3 h-75 w-75 m-auto">
-                <img src="img/depilation.jpg" class="img-fluid" alt="depilacion">
+                <img src="{{--$shop->logo--}}" class="img-fluid" alt="{{$shop->name}}">
               </div>
               <div class="col">
                 <div class="card-body pb-0">
                   <h3 class="card-title"><a href="producto.php">{{$shop->name}} </a></h3>
                   <h6 class="card-subtitle mb-2 text-muted">{{$shop->nbhd}}</h6>
+                  <h6 class="card-subtitle mb-2 text-muted">
+                    @for($i=0; $i<$shop->stars; $i++)
+                      <i class="fas fa-star"></i>
+                    @endfor
+                    @if($dif=5-$shop->stars)
+                      @for($i=0;$i<$dif;$i++)
+                        <i class="far fa-star"></i>
+                      @endfor
+                    @endif
+                  </h6>
                   <a href="producto.php" class="btn btn-primary btn-block">Reservar</a>
-                  <p class="card-text mt-2 lead">Pequeña descripcion del lugar, servicios que ofrece, cosas que hace, etc.</p>
-                  <p class="card-text"><a href="#"><i class="fas fa-map-marker-alt"></i>{{$shop->address}}</a></p>
+                  <p class="card-text mt-2 lead"></p>
+                  <p class="card-text"><a href="#"><i class="fas fa-map-marker-alt"></i>{{" " . $shop->address}}</a></p>
                 </div>
               </div>
             </div>
@@ -25,41 +35,14 @@
                   <h4 class="card-subtitle"><i class="fas fa-cut"></i> Servicios</h4>
                 </div>
                 <div class="list-group list-group-flush">
-                  <a href="carrito.php" class="list-group-item list-group-item-action">
-                    <li class="d-flex w-100 justify-content-between">
-                      Corte
-                      <small class="text-muted">$300</small>
-                    </li>
-                  </a>
-                  <a href="carrito.php" class="list-group-item list-group-item-action">
-                    <li class="d-flex w-100 justify-content-between">
-                      Corte
-                      <small class="text-muted">$300</small>
-                    </li>
-                  </a>
-                  <a href="carrito.php" class="list-group-item list-group-item-action">
-                    <li class="d-flex w-100 justify-content-between">
-                      Corte
-                      <small class="text-muted">$300</small>
-                    </li>
-                  </a>
-                </div>
-                <div class="card-header">
-                  <h4 class="card-subtitle"><i class="fas fa-paw"></i> Servicios</h4>
-                </div>
-                <div class="list-group list-group-flush">
-                  <a href="carrito.php" class="list-group-item list-group-item-action">
-                    <li class="d-flex w-100 justify-content-between">
-                      Corte
-                      <small class="text-muted">$300</small>
-                    </li>
-                  </a>
-                  <a href="carrito.php" class="list-group-item list-group-item-action">
-                    <li class="d-flex w-100 justify-content-between ">
-                      Corte
-                      <small class="text-muted">$300</small>
-                    </li>
-                  </a>
+                  {{-- @foreach ($shop->services() as $service)
+                    <a href="carrito.php" class="list-group-item list-group-item-action">
+                      <li class="d-flex w-100 justify-content-between">
+                        {{$service->name}}
+                        <small class="text-muted">{{"$" . $service->price}}</small>
+                      </li>
+                    </a>
+                  @endforeach --}}
                 </div>
               </div>
             </div>

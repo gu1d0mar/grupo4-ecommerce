@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title') Shops @endsection
+@section('title') Servicios @endsection
 @section('content')
   <div class="container">
     <!-- Filtros sm -->
@@ -123,6 +123,16 @@
               <div class="card-body">
                 <h5 class="card-title"><a href="{{route('shops.show',['id'=>$shop->id])}}">{{$shop->name}}</a></h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{$shop->nbhd}} </h6>
+                <h6 class="card-subtitle mb-2 text-muted">
+                  @for($i=0; $i<$shop->stars; $i++)
+                    <i class="fas fa-star"></i>
+                  @endfor
+                  @if($dif=5-$shop->stars)
+                    @for($i=0;$i<$dif;$i++)
+                      <i class="far fa-star"></i>
+                    @endfor
+                  @endif
+                </h6>
                 <a href=" {{--{{route('shops.show',['id'=>$shop->id])}}--}} " class="btn btn-secondary">Servicios</a>
                 <a href="producto.php" class="btn btn-primary">Reservar</a>
                 <p class="card-text d-none d-lg-block"><small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i>{{ " " . $shop->address}}</a></small></p>
