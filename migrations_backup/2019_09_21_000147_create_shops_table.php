@@ -17,9 +17,7 @@ class CreateShopsTable extends Migration
             $table->bigIncrements('id');
             $table->string('email')->unique();
             $table->string('name')->unique();
-            $table->decimal('points');
             $table->string('address');
-            $table->string('nbhd');
             $table->string('work_hours');
             $table->string('password');
             $table->rememberToken();

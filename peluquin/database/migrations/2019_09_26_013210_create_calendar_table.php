@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCartTable extends Migration
+class CreateCalendarTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateCartTable extends Migration
      */
     public function up()
     {
-        Schema::create('cart', function (Blueprint $table) {
+        Schema::create('calendar', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->date('date');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products');
-            $table->decimal('price');
-            $table->decimal('ammout');
-            $table->unsignedBigInteger('discount_id');
-            $table->foreign('discount_id')->references('id')->on('discounts')->nullable;
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreateCartTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cart');
+        Schema::dropIfExists('calendar');
     }
 }
