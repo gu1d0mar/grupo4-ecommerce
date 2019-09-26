@@ -133,8 +133,7 @@
                     @endfor
                   @endif
                 </h6>
-                <a href=" {{--{{route('shops.show',['id'=>$shop->id])}}--}} " class="btn btn-secondary">Servicios</a>
-                <a href="producto.php" class="btn btn-primary">Reservar</a>
+                <a href="{{route('shops.show',['id'=>$shop->id])}}" class="btn btn-primary my-2">Servicios</a>
                 <p class="card-text d-none d-lg-block"><small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i>{{ " " . $shop->address}}</a></small></p>
               </div>
             </div>

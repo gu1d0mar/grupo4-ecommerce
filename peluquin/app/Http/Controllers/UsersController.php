@@ -7,9 +7,10 @@ use App\User;
 
 class UsersController extends Controller
 {
-  public function show($id){
-    $user = User::findOrFail($id);
-    return view('user', ['user' => $user,]);
+  public function show(){
+    return view('user.profile');
   }
-
+  public function edit(){
+    return view('user.edit');
+  }
 }

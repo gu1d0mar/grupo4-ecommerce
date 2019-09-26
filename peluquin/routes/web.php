@@ -37,9 +37,8 @@ Route::get('/cart', function () {
 
 //Users
 //Route::delete('/user/delete', 'userController@destroy')->name('user.destroy')-middleware('auth');
-Route::get('/user/{id}', function(){
-  return view('user');
-})->name('profile')->middleware('auth');
+Route::get('/user','UsersController@show')->name('user.profile')->middleware('auth');
+Route::get('/user/config','UsersController@edit')->name('user.edit')->middleware('auth');
 //Route::put('/user/{id}', 'userController@update')->name('user.update')-middleware('auth');
 
 

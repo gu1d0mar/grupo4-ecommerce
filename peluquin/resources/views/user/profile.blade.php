@@ -8,13 +8,18 @@
       <div class="card my-3 p-2 ">
         <div class="card-img text-center">
           <h4>{{Auth::user()->getNombreCompleto() }}</h4>
-          <img src="img/batman.jpg" alt="avatar" class="rounded-circle w-50 h-50 ">
+          <img src="img/batman.jpg" alt="{{Auth::user()->username}}" class="rounded-circle w-50 h-50 ">
         </div>
         <hr>
-        <p class="card-text"> <i class="fas fa-home"></i>{{--{{Auth::user()->nbhd}}--}} Nbhd</p>
-        <p class="card-text"> <i class="fas fa-birthday-cake"></i>{{--{{Auth::user()->bday}}--}} Bday</p>
+          <p class="card-text"><i class="far fa-user"></i>{{" " . Auth::user()->username}}</p>
+        @if (Auth::user()->nbhd)
+          <p class="card-text"> <i class="fas fa-home"></i>{{" " . Auth::user()->nbhd}}</p>
+        @endif
+        @if (Auth::user()->bday)
+          <p class="card-text"> <i class="fas fa-birthday-cake"></i>{{" " . Auth::user()->bday}}</p>
+        @endif
         <p class="card-text"><a href="carrito.php" class="text-body"><i class="far fa-calendar-alt"></i> Mis turnos</p></a>
-        <p class="card-text"><a href="#" class="text-body"><i class="fas fa-cog"></i> Configuracion</p></a>
+        <p class="card-text"><a href="{{route('user.edit')}}" class="text-body"><i class="fas fa-cog"></i> Configuracion</p></a>
       </div>
       <div class="card mb-3 p-2 bg-secondary ">
         <ul class="list-group bg-secondary ">
