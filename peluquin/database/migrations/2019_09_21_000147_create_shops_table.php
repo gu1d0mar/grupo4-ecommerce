@@ -19,7 +19,8 @@ class CreateShopsTable extends Migration
             $table->string('name')->unique();
             $table->decimal('points');
             $table->string('address');
-            $table->string('nbhd');
+            $table->unsignedBigInteger('nbhd_id');
+            $table->foreign('nbhd_id')->references('id')->on('nbhds');
             $table->string('work_hours');
             $table->string('password');
             $table->rememberToken();

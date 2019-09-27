@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNbhdTable extends Migration
+class CreateNbhdsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateNbhdTable extends Migration
      */
     public function up()
     {
-        Schema::create('nbhd', function (Blueprint $table) {
+        Schema::create('nbhds', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('postal_code');
@@ -28,6 +28,6 @@ class CreateNbhdTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nbhd');
+        Schema::dropIfExists('nbhds');
     }
 }

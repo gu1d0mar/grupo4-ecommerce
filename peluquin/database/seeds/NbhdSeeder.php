@@ -1,10 +1,10 @@
 <?php
 
-use App\User;
+use App\Nbhd;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
-class users_seeder extends Seeder
+class NbhdSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,6 +13,6 @@ class users_seeder extends Seeder
      */
     public function run()
     {
-        factory(User::class)->times(20)->create();
+        factory(Nbhd::class)->times(20)->create();
     }
 }
