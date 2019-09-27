@@ -17,19 +17,17 @@ class ShopsController extends Controller
       }
 
       public function show($id){
-      $products = Product::all();
       $shop = Shop::findOrFail($id);
 
-      return view('products.show_shop', ['shop' => $shop,'products'=>$products]);
+      return view('products.show_shop', ['shop' => $shop]);
       }
 
     public function search(Request $request){
-    $products = Product::all();
-    $shops = Shop::where('name','LIKE','%' . $request->get("search") . '%')
-    ->orderby('name')
-    ->paginate();
+      $shops = Shop::where('name','LIKE','%' . $request->get("search") . '%')
+      ->orderby('name')
+      ->paginate();
 
-    return view('products.shops',['shops' => $shops,'products'=>$products]);
+      return view('products.shops',['shops' => $shops]);
     }
 
     public function delete(Request $request){

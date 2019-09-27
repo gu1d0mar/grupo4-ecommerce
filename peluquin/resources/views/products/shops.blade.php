@@ -5,10 +5,10 @@
     <!-- Filtros sm -->
     <div class="row justify-content-center d-lg-none">
       <div class="col">
-        <form class="form-inline my-2">
+        <form class="form-inline my-2" action="{{ route('shops.search') }}" method="get">
           <div class="input-group w-100">
-            <input class="form-control col-10 rounded" type="search" placeholder="Buscar" aria-label="Search">
-            <button type="button" class="btn btn-secondary col-2 ml-lg-1">
+            <input class="form-control col-10 rounded" type="text" name="search" placeholder="Buscar" aria-label="Search">
+            <button type="submit" class="btn btn-secondary col-2 ml-lg-1">
               <i class="fas fa-search"></i>
             </button>
           </div>
@@ -66,10 +66,10 @@
         <div class="sidebar-sticky">
           <ul class="nav flex-column">
             <li class="nav-item pb-2 border-bottom d-none d-lg-block">
-              <form class="form-inline pt-2">
+              <form class="form-inline pt-2" action="{{ route('shops.search') }}" method="get">
                 <div class="input-group w-100">
-                  <input class="form-control col-10 rounded" type="search" placeholder="Buscar" aria-label="Search">
-                  <button type="button" class="btn btn-secondary col-2 ml-lg-1">
+                  <input class="form-control col-10 rounded" type="text" name="search" placeholder="Buscar" aria-label="Search">
+                  <button type="submit" class="btn btn-secondary col-2 ml-lg-1">
                     <i class="fas fa-search"></i>
                   </button>
                 </div>
@@ -122,7 +122,7 @@
             <div class="col-md-8 col-lg-9 col-xl-10">
               <div class="card-body">
                 <h5 class="card-title"><a href="{{route('shops.show',['id'=>$shop->id])}}">{{$shop->name}}</a></h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{$shop->nbhd}} </h6>
+                <h6 class="card-subtitle mb-2 text-muted">{{$shop->nbhd->name}} </h6>
                 <h6 class="card-subtitle mb-2 text-muted">
                   @for($i=0; $i<$shop->stars; $i++)
                     <i class="fas fa-star"></i>

@@ -11,7 +11,7 @@
       </div>
 
       <section class="search-sec">
-        <form action="" method="post">
+        <form action="{{ route('shops.search') }}" method="get">
           <div class="row">
             <div class="col-lg-12">
               <div class="row searchg">
@@ -19,7 +19,7 @@
                   <input type="text" class="form-control search-inp m-md-0" placeholder="Introduzca Localidad">
                 </div>
                 <div class="col-md-3 col-sm-12 p-0">
-                  <input type="text" class="form-control search-inp m-md-0" placeholder="Introduzca Servicio">
+                  <input type="text" class="form-control search-inp m-md-0" name="search" placeholder="Introduzca Servicio">
                 </div>
                 <div class="col-md-3 col-sm-12 p-0">
                   <button type="submit" class="btn btn-primary search-btn">Buscar</button>
@@ -141,7 +141,7 @@
       <div class="col-md-5 order-md-1">
         <img src="img/manicura2.png" alt="m" class="img-fluid mx-auto" width="300" height="300">
       </div>
-    </div> 
+    </div>
   </div>
 
     {{-- <div class="row justify-content-center">

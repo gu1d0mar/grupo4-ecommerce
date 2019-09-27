@@ -12,7 +12,7 @@
               <div class="col">
                 <div class="card-body pb-0">
                   <h3 class="card-title">{{$shop->name}}</h3>
-                  <h6 class="card-subtitle mb-2 text-muted">{{$shop->nbhd}}</h6>
+                  <h6 class="card-subtitle mb-2 text-muted">{{$shop->nbhd->name}}</h6>
                   <h6 class="card-subtitle mb-2 text-muted">
                     @for($i=0; $i<$shop->stars; $i++)
                       <i class="fas fa-star"></i>
@@ -35,14 +35,14 @@
                   <h4 class="card-subtitle"><i class="fas fa-cut"></i> Servicios</h4>
                 </div>
                 <div class="list-group list-group-flush">
-                  {{-- @foreach ($shop->services() as $service)
-                    <a href="carrito.php" class="list-group-item list-group-item-action">
+                  @foreach ($shop->products as $product)
+                    <a href="" class="list-group-item list-group-item-action">
                       <li class="d-flex w-100 justify-content-between">
-                        {{$service->name}}
-                        <small class="text-muted">{{"$" . $service->price}}</small>
+                        {{$product->name}}
+                        <small class="text-muted">{{"$" . $product->price}}</small>
                       </li>
                     </a>
-                  @endforeach --}}
+                  @endforeach
                 </div>
               </div>
             </div>

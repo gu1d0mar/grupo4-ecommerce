@@ -9,6 +9,12 @@
   <form action="" method="post" enctype="multipart/form-data">
   @csrf
 
+  <form>
+    <div class="form-group">
+      <label for="avatar">Example file input</label>
+      <input type="file" class="form-control-file" name="avatar" id="avatar">
+    </div>
+  </form>
   <div class="form-group">
     <label for="avatar">Avatar</label>
     <div class="custom-file">
