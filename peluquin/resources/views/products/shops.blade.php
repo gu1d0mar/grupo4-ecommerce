@@ -75,7 +75,16 @@
                 </div>
               </form>
             </li>
-            <li class="nav-item">
+            @foreach ($categories as $category)
+              @if($category->products->count()>0)
+              <li class="nav-item">
+                <a class="nav-link border-bottom" href="{{ route('shops.search',['category'=>$category->id]) }}">
+                  {{$category->name . " (" . $category->products->count()  . ")"}}
+                </a>
+              </li>
+              @endif
+            @endforeach
+            {{-- <li class="nav-item">
               <a class="nav-link border-bottom" href="#">
                 Peluqueria
               </a>
@@ -99,7 +108,7 @@
               <a class="nav-link border-bottom" href="#">
                 Productos
               </a>
-            </li>
+            </li> --}}
             <li class="nav-item">
               <a class="nav-link border-bottom" href="#">
                 Promociones
@@ -107,11 +116,23 @@
             </li>
           </ul>
           <h6 class="sidebar-heading d-flex justify-content-between align-items-center mt-3 mb-1 text-muted">Barrios</h6>
+          <ul class="nav flex-column mb-3">
+            @foreach ($nbhds as $nbhd)
+              @if(count($nbhd->shops)>0)
+              <li class="nav-item">
+                <a class="nav-link border-bottom" href="{{ route('shops.search',['nbhd'=>$nbhd->id]) }}">
+                  {{$nbhd->name . " (" . $nbhd->shops->count()  . ")"}}
+                </a>
+              </li>
+              @endif
+            @endforeach
+          </ul>
         </div>
       </nav>
 
       <div class="col-10 col-lg-9 offset-1 offset-sm-0 ml-sm-auto mt-sm-2 ">
       @foreach($shops as $shop)
+        @if (count($shop->products)>=1)
         <div class="card mb-3">
           <div class="row no-gutters">
             <div class="col-md-4 col-lg-3 m-auto">
@@ -136,7 +157,6 @@
               </div>
             </div>
           </div>
-          @if (count($shop->products)>=1)
           <div class="row-no-gutters card-body">
               <h5 class="card-subtitle mb-2">Servicios recomendados:</h5>
               <div class="list-group list-group-flush">
@@ -150,12 +170,12 @@
                 @endforeach
               </div>
             </div>
-            @endif
 
           <div class="card-footer d-lg-none">
             <small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i>{{$shop->address}}</a></small>
           </div>
         </div>
+        @endif
         @endforeach
       </div>
     </div>
