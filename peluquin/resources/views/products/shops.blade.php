@@ -161,7 +161,7 @@
               <h5 class="card-subtitle mb-2">Servicios recomendados:</h5>
               <div class="list-group list-group-flush">
                 @foreach ($shop->products as $product)
-                  <a href="" class="list-group-item list-group-item-action">
+              <a href="{{ url('cart/add/'.$product->id) }}" class="list-group-item list-group-item-action">
                     <li class="d-flex w-100 justify-content-between">
                       {{$product->name}}
                       <small class="text-muted">{{"$" . $product->price}}</small>

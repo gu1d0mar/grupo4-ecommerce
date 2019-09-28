@@ -34,6 +34,9 @@ Route::get('/cart', function () {
   return view('cart');
 })->name('cart');
 
+Route::get('/cart/add/{id}',                           'CartController@add')->middleware('auth');
+Route::get('/cart/remove/{id}',                        'CartController@remove')->middleware('auth');
+
 //Users
 //Route::delete('/user/delete', 'userController@destroy')->name('user.destroy')-middleware('auth');
 Route::get('/user','UsersController@show')->name('user.profile')->middleware('auth');
