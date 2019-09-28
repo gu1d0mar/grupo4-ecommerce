@@ -7,7 +7,7 @@
           <div class="card mb-3">
             <div class="row no-gutters">
               <div class="col-md-4 col-lg-3 h-75 w-75 m-auto">
-                <img src="{{--$shop->logo--}}" class="img-fluid" alt="{{$shop->name}}">
+                <img src="/storage/shops/{{$shop->logo}}" class="img-fluid" alt="{{$shop->name}}">
               </div>
               <div class="col">
                 <div class="card-body pb-0">

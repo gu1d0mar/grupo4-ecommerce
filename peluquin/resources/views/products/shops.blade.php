@@ -107,8 +107,6 @@
             </li>
           </ul>
           <h6 class="sidebar-heading d-flex justify-content-between align-items-center mt-3 mb-1 text-muted">Barrios</h6>
-          {{-- Foreach --}}
-
         </div>
       </nav>
 
@@ -116,10 +114,10 @@
       @foreach($shops as $shop)
         <div class="card mb-3">
           <div class="row no-gutters">
-            <div class="col-md-4 col-lg-3 col-xl-2 align-content-center">
-              <img src=" {{-- {{ Storage::url($shop->logo) }} --}} " class="card-img m-auto" alt="{{$shop->name}}">
+            <div class="col-md-4 col-lg-3 m-auto">
+              <img src="/storage/shops/{{$shop->logo}}" class="card-img m-auto" alt="{{$shop->name}}">
             </div>
-            <div class="col-md-8 col-lg-9 col-xl-10">
+            <div class="col-md-8 col-lg-8">
               <div class="card-body">
                 <h5 class="card-title"><a href="{{route('shops.show',['id'=>$shop->id])}}">{{$shop->name}}</a></h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{$shop->nbhd->name}} </h6>
@@ -138,15 +136,26 @@
               </div>
             </div>
           </div>
+          @if (count($shop->products)>=1)
+          <div class="row-no-gutters card-body">
+              <h5 class="card-subtitle mb-2">Servicios recomendados:</h5>
+              <div class="list-group list-group-flush">
+                @foreach ($shop->products as $product)
+                  <a href="" class="list-group-item list-group-item-action">
+                    <li class="d-flex w-100 justify-content-between">
+                      {{$product->name}}
+                      <small class="text-muted">{{"$" . $product->price}}</small>
+                    </li>
+                  </a>
+                @endforeach
+              </div>
+            </div>
+            @endif
+
           <div class="card-footer d-lg-none">
             <small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i>{{$shop->address}}</a></small>
           </div>
         </div>
-              {{-- <div class="card mb-2">
-                <div class="card-body">
-                  <h5 class="card-title">{{$shop->name}} </h5>
-               </div>
-              </div> --}}
         @endforeach
       </div>
     </div>

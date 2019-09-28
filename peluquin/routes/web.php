@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'HomeController@index')->name('home');
 
 //Products
 //Route::get('/products', 'ProductsController@directory')->name('products');
@@ -58,5 +56,3 @@ Route::get('/termsandconditions',function(){
 })->name('terms');
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

@@ -17,7 +17,8 @@ class CreateShopsTable extends Migration
             $table->bigIncrements('id');
             $table->string('email')->unique();
             $table->string('name')->unique();
-            $table->decimal('points');
+            $table->string('logo');
+            $table->decimal('rating');
             $table->string('address');
             $table->unsignedBigInteger('nbhd_id');
             $table->foreign('nbhd_id')->references('id')->on('nbhds');

@@ -13,11 +13,13 @@ $factory->define(Shop::class, function (Faker $faker) {
         //
         'email' => $faker->email,
         'name' => $faker->company,
-        'points' => $faker->randomDigit,
+        'rating' => $faker->numberBetween($min = 0, $max = 5),
         'address' => $faker->address,
         'nbhd_id' => $nbhd->random()->id,
         'work_hours' => $faker->time,
-        'password' => $faker->password
+        'password' => $faker->password,
+        'logo' => $faker->image('public/storage/shops',640,480, null, false),
+
 
     ];
 });

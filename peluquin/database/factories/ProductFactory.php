@@ -11,7 +11,7 @@ $factory->define(Product::class, function (Faker $faker) {
     return [
         'name' => $faker->company,
         'description' => $faker->sentence,
-        'price' => $faker->randomDigit,
+        'price' => $faker->numberBetween($min = 250, $max = 2500),
         'shop_id' => $shops->random()->id,
     ];
 });

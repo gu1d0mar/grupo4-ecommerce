@@ -54,9 +54,9 @@
                           </div>
 
                           <div class="form-group row">
-                            <label for="comment" class="col-md-4 col-form-label text-md-right">{{ __('Contacto') }}</label>
+                            <label for="comment" class="col-md-4 col-form-label text-md-right">{{ __('Mensaje') }}</label>
                             <div class="col-md-6 text-center">
-                              <textarea class="form-control @error('comments') is-invalid @enderror" name="comments" placeholder="Deja tu comentario" rows="4" required autocomplete="comment" autofocus></textarea>
+                              <textarea id="comment" class="form-control @error('comments') is-invalid @enderror" name="comment" placeholder="Deja tu comentario" rows="4" required autocomplete="comment" autofocus></textarea>
 
                                 @error('comments')
                                     <span class="invalid-feedback" role="alert">

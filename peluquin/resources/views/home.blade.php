@@ -16,7 +16,12 @@
             <div class="col-lg-12">
               <div class="row searchg">
                 <div class="col-md-3 col-sm-12 p-0">
-                  <input type="text" class="form-control search-inp m-md-0" placeholder="Introduzca Localidad">
+                  <select class="form-control search-inp m-md-0" name="nbhd">
+                    <option value="">Introduzca Localidad</option>
+                    @foreach ($nbhds as $nbhd)
+                      <option {{$nbhd->name == $nbhd->id ? 'selected':''}} value="{{$nbhd->id}}">{{$nbhd->name}}</option>
+                    @endforeach
+                  </select>
                 </div>
                 <div class="col-md-3 col-sm-12 p-0">
                   <input type="text" class="form-control search-inp m-md-0" name="search" placeholder="Introduzca Servicio">

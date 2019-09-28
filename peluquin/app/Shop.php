@@ -27,6 +27,6 @@ class Shop extends Model
     }
 
     public function getStarsAttribute(){
-      return round($this->points/2);
+      return round($this->rating);
     }
 }

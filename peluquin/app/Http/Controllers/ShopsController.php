@@ -24,6 +24,7 @@ class ShopsController extends Controller
 
     public function search(Request $request){
       $shops = Shop::where('name','LIKE','%' . $request->get("search") . '%')
+      ->where('nbhd_id','LIKE',$request->get('nbhd'))
       ->orderby('name')
       ->paginate();
 
