@@ -40,7 +40,14 @@
                           <a class="nav-link {{ Request::is('shops') ? 'active' : '' }}" href="{{ route('shops') }}">{{ __('Servicios') }}</a>
                       </li>
                       <li class="nav-item">
+<<<<<<< Updated upstream
                           <a class="nav-link {{ Request::is('contact') ? 'active' : '' }}" href="{{ route('contact') }}">{{ __('Contacto') }}</a>
+=======
+                          <a class="nav-link" href="{{ route('register') }}">{{ __('Contacto') }}</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{{ route('cart') }}">{{ __('Carrito') }}</a>
+>>>>>>> Stashed changes
                       </li>
                     </ul>
                 </div>

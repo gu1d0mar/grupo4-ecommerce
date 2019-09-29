@@ -11,7 +11,15 @@
 |
 */
 
+<<<<<<< Updated upstream
 Route::get('/', 'HomeController@index')->name('home');
+=======
+
+
+Route::get('/', function () {
+    return view('welcome'); 
+});
+>>>>>>> Stashed changes
 
 //Products
 //Route::get('/products', 'ProductsController@directory')->name('products');
@@ -35,9 +43,54 @@ Route::get('/shops','ShopsController@directory')->name('shops');
 Route::get('/shops/search', 'ShopsController@search')->name('shops.search');
 Route::get('/shops/{id}','ShopsController@show')->name('shops.show');
 
+<<<<<<< Updated upstream
 Route::get('/cart','CartController@show')->name('cart')->middleware('auth');
 Route::get('/cart/add/{id}','CartController@add')->middleware('auth');
 Route::get('/cart/remove/{id}','CartController@remove')->middleware('auth');
+=======
+//Cart
+Route::bind('product', function($slug){
+    return App\Product::where('slug',$slug) -> first();
+});
+Route::get('/cart', function () {
+  return view('cart');
+Route::get ('cart/show', 'CartController@show');
+})->name('cart');
+Route::get('cart/add/{product}','CartController@add');
+//Compras
+    Route::get('comprar', [
+        'uses' => 'CartController@comprar',
+        'as' => 'cart.comprar',
+        'middleware' => 'auth'
+    ]);
+    Route::post('comprar', [
+        'uses' => 'CartController@postcomprar',
+        'as' => 'cart.postcomprar',
+        'middleware' => 'auth'
+    ]);
+    Route::get('anadir-al-carro/{id}', [
+    'uses' => 'CartController@anadiralcarro',
+    'as' => 'cart.anadiralcarro'
+    ]);
+    Route::post('anadir-al-carro', [
+    'uses' => 'CartController@postanadiralcarro',
+    'as' => 'cart.postanadiralcarro'
+    ]);
+    Route::get('remover-un-item/{id}', [
+    'uses' => 'CartController@removerunitemcarro',
+    'as' => 'cart.removerunitemcarro'
+    ]);
+    Route::get('remover-item/{id}', [
+    'uses' => 'CartController@removeritemcarro',
+    'as' => 'cart.removeritemcarro'
+    ]);
+    Route::get('carro', [
+        'uses' => 'CartController@carro',
+        'as' => 'cart.carro'
+    ]);
+
+
+>>>>>>> Stashed changes
 
 //Users
 //Route::delete('/user/delete', 'userController@destroy')->name('user.destroy')-middleware('auth');
