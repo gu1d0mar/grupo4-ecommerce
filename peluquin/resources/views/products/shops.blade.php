@@ -107,7 +107,7 @@
 
       <div class="col-10 col-lg-9 offset-1 offset-sm-0 ml-sm-auto mt-sm-2 ">
       @foreach($shops as $shop)
-        @if (count($shop->products)>=1)
+        @if (count($shop->products)>=0)
         <div class="card mb-3">
           <div class="row no-gutters">
             <div class="col-md-4 col-lg-3 m-auto pt-1">

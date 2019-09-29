@@ -21,10 +21,12 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/cart','CartController@show')->name('cart');
   Route::get('/cart/add/{id}','CartController@add');
   Route::get('/cart/remove/{id}','CartController@remove');
+  //Create Shops
+  Route::get('/shops/create', 'ShopsController@create')->name('shops.create');
+  Route::post('/shops/create', 'ShopsController@store')->name('shops.save');
   //Create Products
-  Route::get('/products/create', 'ProductsController@create')->name('products.create')->middleware('hasShop');
-  Route::post('/product/create', 'ProductsController@store')->name('products.save')->middleware('hasShop');
-
+  Route::get('/products/create', 'ProductsController@create')->name('products.create');//->middleware('hasShop');
+  Route::post('/product/create', 'ProductsController@store')->name('products.save');//->middleware('hasShop');
 });
 
 Route::get('/products', 'ProductsController@index');
@@ -37,8 +39,6 @@ Route::get('/shops/search', 'ShopsController@search')->name('shops.search');
 
 // Prueba agregar Shops a mano
 Route::get('/shops/index', 'ShopsController@index');
-Route::get('/shops/create', 'ShopsController@create');
-Route::post('/shops/create', 'ShopsController@store');
 //
 Route::get('/shops/{id}','ShopsController@show')->name('shops.show');
 

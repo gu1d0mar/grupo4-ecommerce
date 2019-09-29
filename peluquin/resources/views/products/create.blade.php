@@ -75,7 +75,7 @@
                 <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Categoria') }}</label>
 
                 <div class="col-md-6 text-center">
-                  <select id="category_id" class="form-control @error('category_idshop_id') is-invalid @enderror" name="category_id" required autofocus>
+                  <select id="category_id" class="form-control @error('category_id') is-invalid @enderror" name="category_id" required autofocus>
                     <option value="">Elija una categoria</option>
                     @foreach($categories as $category)
                       <option {{old('category_id')==$category->id ? 'selected':''}} value="{{$category->id}}">{{$category->name}}</option>
