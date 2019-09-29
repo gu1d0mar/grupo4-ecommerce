@@ -17,12 +17,15 @@ class CreateShopsTable extends Migration
             $table->bigIncrements('id');
             $table->string('email')->unique();
             $table->string('name')->unique();
-            $table->string('logo');
+            $table->string('logo')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->decimal('rating');
             $table->string('address');
             $table->unsignedBigInteger('nbhd_id');
             $table->foreign('nbhd_id')->references('id')->on('nbhds');
-            $table->string('work_hours');
+            $table->time('opens_at');
+            $table->time('closes_at');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

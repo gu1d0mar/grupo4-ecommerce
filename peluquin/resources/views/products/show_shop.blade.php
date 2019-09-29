@@ -3,14 +3,14 @@
 @section('content')
   <div class="container">
       <div class="row">
-        <div class="col-12 col-md-9 pb-0">
-          <div class="card mb-3">
+        <div class="col-12 col-md-9">
+          <div class="card mb-3 pt-2">
             <div class="row no-gutters">
-              <div class="col-md-4 col-lg-3 h-75 w-75 m-auto">
-                <img src="/storage/shops/{{$shop->logo}}" class="img-fluid" alt="{{$shop->name}}">
+              <div class="col-md-4 col-lg-3 m-auto pt-1">
+                <img src="{{$shop->logo ? Storage::url($shop->logo) : asset('/img/defaultLogo.png')}}" class="img-fluid" alt="{{$shop->name}}">
               </div>
-              <div class="col">
-                <div class="card-body pb-0">
+              <div class="col-md-8">
+                <div class="card-body py-0">
                   <h3 class="card-title">{{$shop->name}}</h3>
                   <h6 class="card-subtitle mb-2 text-muted">{{$shop->nbhd->name}}</h6>
                   <h6 class="card-subtitle mb-2 text-muted">

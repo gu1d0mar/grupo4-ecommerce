@@ -7,8 +7,8 @@
     <div class="col-md-3">
       <div class="card my-3 p-2 ">
         <div class="card-img text-center">
-          <h4>{{Auth::user()->getNombreCompleto() }}</h4>
-          <img src="img/batman.jpg" alt="{{Auth::user()->username}}" class="rounded-circle w-50 h-50 ">
+          <h4>{{Auth::user()->getFullName() }}</h4>
+          <img src="{{Auth::user()->avatar ? Storage::url(Auth::user()->avatar) : asset('/img/defaultAvatar.png')}}" alt="{{Auth::user()->username}}" class="rounded-circle w-50 h-50 ">
         </div>
         <hr>
           <p class="card-text"><i class="far fa-user"></i>{{" " . Auth::user()->username}}</p>

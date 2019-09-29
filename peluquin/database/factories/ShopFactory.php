@@ -16,9 +16,10 @@ $factory->define(Shop::class, function (Faker $faker) {
         'rating' => $faker->numberBetween($min = 0, $max = 5),
         'address' => $faker->address,
         'nbhd_id' => $nbhd->random()->id,
-        'work_hours' => $faker->time,
+        'opens_at' => $faker->time,
+        'closes_at' => $faker->time,
         'password' => $faker->password,
-        'logo' => $faker->image('public/storage/shops',640,480, null, false),
+        // 'logo' => $faker->image('public/storage/shops',640,480, null, false),
 
 
     ];

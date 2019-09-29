@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Shop extends Model
 {   public $table = "shops";
     protected $fillable = [
-      'email','name','adress','work_hours','password',
+      'email','name','adress','opens_at','closes_at','password','logo','nbhd_id','user_id',
     ];
 
     protected $hidden = [

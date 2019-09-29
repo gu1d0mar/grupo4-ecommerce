@@ -40,7 +40,9 @@ class CartController extends Controller
 
         return redirect('cart');
     }
+    
     //remove
+<<<<<<< HEAD
 =======
 
 use App\Product;
@@ -164,4 +166,21 @@ class CartController extends Controller
         );
         return Redirect::back()->with($notificacion);
 >>>>>>> Stashed changes
+=======
+
+    public function remove($id)
+    {
+        //dd(Cart::content());
+       $product = Product::find($id);
+       foreach (Cart::content() as $content)
+       {
+            if ($content->id == $product->id)
+            {
+                Cart::remove($content->rowId);
+            }
+       }
+        return redirect ('cart');
+    }
+    
+>>>>>>> 1adb9abab5f9533544c8e0f472fa76a698212a5a
 }

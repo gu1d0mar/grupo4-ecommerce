@@ -7,6 +7,9 @@ use App\Shop;
 use App\Product;
 use App\Nbhd;
 use App\Category;
+use App\User;
+use Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ShopsController extends Controller
 {
@@ -47,25 +50,57 @@ class ShopsController extends Controller
     return redirect("/shops");
     }
 
-    protected function create(Request $request)
+    public function index()
     {
-          $rules=[
-          "email"=>"required|email",
-          "name"=>"required|string|max:255",
-          "work_hours"=>"required",
-          "address"=>"required",
-          "password"=>"required|string|min:8|confirmed",
-        ];
+      $shops = Shop::all();
+      return view('shops.index', compact('shops'));
+    }
 
-        $this->validate($request,$rules);
+    protected function create()
+    {
+      $nbhds = Nbhd::all();
+      $shops = Shop::all();
+      return view('shops.create', compact('nbhds', 'shops'));
+    }
 
-        return Shop::create([
-            'email' => $request['email'],
-            'name' => $request['name'],
-            'address'=> $request['address'],
-            'work_hours'=> $request['work_hours'],
-            'password' => Hash::make($request['password']),
-        ]);
+    protected function store(Request $form)
+    {
+      $rules=[
+      "email"=>"required|email",
+      "name"=>"required|string|max:255",
+      "logo"=>"nullable|image",
+      "rating"=>"numeric",
+      "address"=>"required",
+      "nbhd_id"=>"required|integer",
+      "opens_at"=>"required",
+      "closes_at"=>"required",
+      "password"=>"required|string|min:8|confirmed",
+    ];
+
+      $this->validate($form,$rules);
+
+      $newShop = new Shop();
+      $newShop->email = $form["email"];
+      $newShop->name = $form["name"];
+      $newShop->rating = $form["rating"];
+      $newShop->address = $form["address"];
+      $newShop->nbhd_id = $form["nbhd_id"];
+      $newShop->opens_at = $form["opens_at"];
+      $newShop->closes_at = $form["closes_at"];
+      $newShop->password = Hash::make($form["password"]);
+      $newShop->user_id = Auth::user()->id;
+
+      if ($form->has("logo")) {
+        $newShop->logo = $form->file("logo")->store("public/shops");
+      }
+
+      $newShop->save();
+
+      $user=User::findOrFail(Auth::user()->id);
+      $user->role = 1;
+      $user->save();
+
+      return redirect("/shops");
     }
 
 }
