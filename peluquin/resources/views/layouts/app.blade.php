@@ -29,7 +29,7 @@
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
               </button>
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand {{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}">
                   Peluca & Peluquin
                   {{-- {{ config('app.name', 'Peluca & Peluquin') }} --}}
                 </a>
@@ -37,13 +37,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item">
-                          <a class="nav-link" href="{{ route('register') }}">{{ __('Servicios') }}</a>
+                          <a class="nav-link {{ Request::is('shops') ? 'active' : '' }}" href="{{ route('shops') }}">{{ __('Servicios') }}</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="{{ route('register') }}">{{ __('Contacto') }}</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="{{ route('register') }}">{{ __('Carrito') }}</a>
+                          <a class="nav-link {{ Request::is('contact') ? 'active' : '' }}" href="{{ route('contact') }}">{{ __('Contacto') }}</a>
                       </li>
                     </ul>
                 </div>
@@ -52,22 +49,24 @@
                 <ul class="navbar-nav my-2 my-lg-0 order-3">
                   <!-- Authentication Links -->
                   @guest
-                    <li class="nav-item">
+                    <li class="nav-item {{ Request::is('login') ? 'active' : '' }}">
                       <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar Sesion') }}</a>
                     </li>
                     @if (Route::has('register'))
-                      <li class="nav-item">
+                      <li class="nav-item {{ Request::is('register') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
                       </li>
                     @endif
                   @else
                     <li class="nav-item dropdown">
                       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->username }} <span class="caret"></span>
+                        {{ Auth::user()->first_name }} <span class="caret"></span>
                       </a>
 
-                      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('logout') }}"
+                      <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item text-white-50" href="{{route('user.profile')}}">Perfil</a>
+                        <a class="dropdown-item text-white-50" href="{{route('cart')}}">Carrito <span class="badge badge-secondary">{{count(Cart::content())}}</span></a>
+                        <a class="dropdown-item text-white-50" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                         {{ __('Cerrar Sesion') }}
@@ -93,16 +92,16 @@
         <nav class="navbar navbar-dark bg-dark justify-content-center justify-content-md-between">
           <ul class="navbar-nav text-center text-md-left">
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('register') }}">Quienes somos</a>
+              <a class="nav-link" href="{{ route('home') }}">Quienes somos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('register') }}">Preguntas frecuentes</a>
+              <a class="nav-link" href="{{ route('faq') }}">Preguntas frecuentes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ route('register') }}">Terminos y condiciones</a>
+              <a class="nav-link" href="{{ route('terms') }}">Terminos y condiciones</a>
             </li>
           </ul>
-          <a class="navbar-brand d-none d-lg-block" href="{{ route('register') }}">Peluca & Peluquin</a>
+          <a class="navbar-brand d-none d-lg-block" href="{{ route('home') }}">Peluca & Peluquin</a>
           <div>
             <div class="form-label text-white d-none d-md-block">
               <label for="newsletter">Suscribite</label>

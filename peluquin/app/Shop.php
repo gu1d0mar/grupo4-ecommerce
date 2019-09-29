@@ -14,7 +14,19 @@ class Shop extends Model
         'password', 'remember_token',
     ];
 
+    protected $appends = [
+      'stars',
+    ];
+
     public function products(){
-        return $this->hasMany('App\Prodct','shop_id');
-      }
+        return $this->hasMany('App\Product','shop_id');
+    }
+
+    public function nbhd(){
+      return $this->belongsTo('App\Nbhd','nbhd_id');
+    }
+
+    public function getStarsAttribute(){
+      return round($this->rating);
+    }
 }

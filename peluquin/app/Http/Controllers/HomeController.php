@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Nbhd;
+use App\Shops;
+use App\Products;
+
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,10 +15,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -23,6 +27,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $nbhds = Nbhd::orderby('name')->get();
+        return view('home',['nbhds'=>$nbhds]);
     }
 }

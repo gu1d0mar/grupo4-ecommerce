@@ -19,7 +19,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('area')->nullable();
+            $table->unsignedBigInteger('nbhd_id')->nullable();
+            $table->foreign('nbhd_id')->references('id')->on('nbhds');
+            $table->date('bday')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
