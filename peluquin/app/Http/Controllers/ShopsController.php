@@ -7,6 +7,7 @@ use App\Shop;
 use App\Product;
 use App\Nbhd;
 use App\Category;
+use Illuminate\Support\Facades\Hash;
 
 class ShopsController extends Controller
 {
@@ -113,8 +114,7 @@ class ShopsController extends Controller
       $shop->address = $form["address"];
       $shop->nbhd_id = $form["nbhd_id"];
       $shop->work_hours = $form["work_hours"];
-      // $shop->password = Hash::make($form["password"]);
-      $shop->password = $form["password"];
+      $shop->password = Hash::make($form["password"]);
 
       $shop->save();
       return redirect("/shops/index");

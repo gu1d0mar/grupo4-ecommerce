@@ -37,22 +37,20 @@
                 <select name="logo" class="form-control m-md-0">
                   <option value="">Elija un Logo</option>
                   @foreach($shops as $shop)
-                    <option value="{{$shop->id}}">
+                    <option value="{{$shop->logo}}">
                       {{$shop->logo}}
                     </option>
                   @endforeach
                 </select>
 
                 <div class="form-group row">
-                  <label class="col-form-label">Rating</label>
-                  <select name="rating" class="form-control m-md-0">
-                    <option value="">Elija su Rating</option>
-                    @foreach($shops as $shop)
-                      <option value="{{$shop->rating}}">
-                        {{$shop->rating}}
-                      </option>
-                    @endforeach
-                  </select>
+                  <div class="col-md-4 text-md-right">
+                    <label hidden for="rating" class="col-form-label">{{ __('Rating') }}</label>
+                  </div>
+                  <div class="col-md-6">
+                    <input hidden id="rating" type="text" class="form-control" name="rating" required autocomplete="rating" value="0.00" autofocus>
+                  </div>
+                </div>
 
               <div class="form-group row">
                 <div class="col-md-4 text-md-right">
@@ -79,7 +77,16 @@
                   <label for="work_hours" class="col-form-label">{{ __('Horario') }}</label>
                 </div>
                 <div class="col-md-6">
-                  <input id="work_hours" type="text" class="form-control" name="work_hours" required autocomplete="address" autofocus>
+                  <input id="work_hours" type="text" class="form-control" name="work_hours" required autocomplete="work_hours" autofocus>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-4 text-md-right">
+                  <label for="password" class="col-form-label">{{ __('Contrasena') }}</label>
+                </div>
+                <div class="col-md-6">
+                  <input id="password" type="text" class="form-control" name="password" required autocomplete="password" autofocus>
                 </div>
               </div>
 
