@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title') Agregar Producto @endsection
+@section('title') Agregar Productos y Servicios @endsection
 @section('content')
   <div class="container">
     <div class="row justify-content-center">

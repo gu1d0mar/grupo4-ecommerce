@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title') Agregar Producto @endsection
+@section('title') Alta de Comercio @endsection
 @section('content')
   <div class="container">
     <div class="row justify-content-center">
@@ -25,23 +25,20 @@
                 </div>
               </div>
 
-              <!-- <div class="form-group row">
-                <label>Nombre</label>
-                <div class="col-md6 text-center">
-                  <textarea  id="comment" class="form-control" name="name" placeholder="Nombre del servicio" rows="1" required autocomplete="name" autofocus></textarea>
-                </div>
-              </div> -->
-
               <div class="form-group row">
-                <label class="col-form-label">Logo</label>
-                <select name="logo" class="form-control m-md-0">
-                  <option value="">Elija un Logo</option>
-                  @foreach($shops as $shop)
-                    <option value="{{$shop->logo}}">
-                      {{$shop->logo}}
-                    </option>
-                  @endforeach
-                </select>
+                <label class="col-md-4 col-form-label text-md-right">Logo</label>
+                <div class="col-md-6">
+                  <select name="logo" class="form-control">
+                    <option value="">Elija un Logo</option>
+                    @foreach($shops as $shop)
+                      <option value="{{$shop->logo}}">
+                        {{$shop->logo}}
+                      </option>
+                    @endforeach
+                  </select>
+
+                </div>
+              </div>
 
                 <div class="form-group row">
                   <div class="col-md-4 text-md-right">
@@ -62,15 +59,19 @@
               </div>
 
               <div class="form-group row">
-                <label class="col-form-label">Barrio</label>
-                <select name="nbhd_id" class="form-control m-md-0">
-                  <option value="">Elija un barrio</option>
-                  @foreach($nbhds as $nbhd)
-                    <option value="{{$nbhd->id}}">
-                      {{$nbhd->name}}
-                    </option>
-                  @endforeach
-                </select>
+                <label class="col-md-4 col-form-label text-md-right">Barrio</label>
+                <div class="col-md-6">
+                  <select name="nbhd_id" class="form-control">
+                    <option value="">Elija un barrio</option>
+                    @foreach($nbhds as $nbhd)
+                      <option value="{{$nbhd->id}}">
+                        {{$nbhd->name}}
+                      </option>
+                    @endforeach
+                  </select>
+
+                </div>
+              </div>
 
               <div class="form-group row">
                 <div class="col-md-4 text-md-right">
