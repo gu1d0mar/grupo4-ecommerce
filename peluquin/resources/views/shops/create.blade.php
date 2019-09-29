@@ -65,7 +65,7 @@
                 <label for="logo" class="col-md-4 col-form-label text-md-right">{{__('Logo')}}</label>
 
                 <div class="col-md-6 custom-file">
-                  <input id="logo" type="file" class="custom-file-input @error('logo') is-invalid @enderror" name="image" autofocus>
+                  <input id="logo" type="file" class="custom-file-input @error('logo') is-invalid @enderror" name="logo" autofocus>
                     <label class="custom-file-label" for="logo"></label>
 
                     @error('logo')

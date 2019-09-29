@@ -7,6 +7,8 @@ use App\Shop;
 use App\Product;
 use App\Nbhd;
 use App\Category;
+use App\User;
+use Auth;
 use Illuminate\Support\Facades\Hash;
 
 class ShopsController extends Controller
@@ -88,10 +90,15 @@ class ShopsController extends Controller
       $newShop->password = Hash::make($form["password"]);
 
       if ($form->has("logo")) {
-        $newShop->image = $form->file("logo")->store("public/shops");
+        $newShop->logo = $form->file("logo")->store("public/shops");
       }
 
       $newShop->save();
+      
+      $user=User::findOrFail(Auth::user()->id);
+      $user->role = 1;
+      $user->save();
+
       return redirect("/shops");
     }
 

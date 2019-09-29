@@ -17,6 +17,7 @@ Route::group(['middleware' => ['auth']], function () {
   // User
   Route::get('/user','UsersController@show')->name('user.profile');
   Route::get('/user/config','UsersController@edit')->name('user.edit');
+  Route::put('/user/config', 'userController@update')->name('user.update');
   //Cart
   Route::get('/cart','CartController@show')->name('cart');
   Route::get('/cart/add/{id}','CartController@add');
@@ -25,8 +26,8 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/shops/create', 'ShopsController@create')->name('shops.create');
   Route::post('/shops/create', 'ShopsController@store')->name('shops.save');
   //Create Products
-  Route::get('/products/create', 'ProductsController@create')->name('products.create');//->middleware('hasShop');
-  Route::post('/product/create', 'ProductsController@store')->name('products.save');//->middleware('hasShop');
+  Route::get('/products/create', 'ProductsController@create')->name('products.create')->middleware('hasShop');
+  Route::post('/product/create', 'ProductsController@store')->name('products.save')->middleware('hasShop');
 });
 
 Route::get('/products', 'ProductsController@index');
@@ -46,7 +47,6 @@ Route::get('/shops/{id}','ShopsController@show')->name('shops.show');
 
 //Users
 //Route::delete('/user/delete', 'userController@destroy')->name('user.destroy')-middleware('auth');
-//Route::put('/user/{id}', 'userController@update')->name('user.update')-middleware('auth');
 
 
 Route::get('/contact', function () {
