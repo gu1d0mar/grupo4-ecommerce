@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('avatar')->default('defaultaAvatar.png');
+            $table->string('avatar')->default(null);
             $table->unsignedBigInteger('nbhd_id')->nullable();
             $table->foreign('nbhd_id')->references('id')->on('nbhds');
             $table->date('bday')->nullable();

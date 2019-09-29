@@ -26,6 +26,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('/product/create', 'ProductsController@store')->name('products.save')->middleware('hasShop');
 
 });
+
 Route::get('/products', 'ProductsController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -36,8 +37,8 @@ Route::get('/shops/search', 'ShopsController@search')->name('shops.search');
 
 // Prueba agregar Shops a mano
 Route::get('/shops/index', 'ShopsController@index');
-Route::get('/shops/create', 'ShopsController@createShop');
-Route::post('/shopsaction', 'ShopsController@storeShop');
+Route::get('/shops/create', 'ShopsController@create');
+Route::post('/shops/create', 'ShopsController@store');
 //
 Route::get('/shops/{id}','ShopsController@show')->name('shops.show');
 
