@@ -114,7 +114,7 @@ class ShopsController extends Controller
       $shop->nbhd_id = $form["nbhd_id"];
       $shop->work_hours = $form["work_hours"];
       // $shop->password = Hash::make($form["password"]);
-      $shop->password = $form["password"];
+      $shop->password = $form['password'];
 
       $shop->save();
       return redirect("/shops/index");
