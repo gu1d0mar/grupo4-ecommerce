@@ -88,13 +88,14 @@ class ShopsController extends Controller
       $newShop->opens_at = $form["opens_at"];
       $newShop->closes_at = $form["closes_at"];
       $newShop->password = Hash::make($form["password"]);
+      $newShop->user_id = Auth::user()->id;
 
       if ($form->has("logo")) {
         $newShop->logo = $form->file("logo")->store("public/shops");
       }
 
       $newShop->save();
-      
+
       $user=User::findOrFail(Auth::user()->id);
       $user->role = 1;
       $user->save();

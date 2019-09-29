@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Shop;
+use App\User;
 use App\Category;
+use Auth;
 
 class ProductsController extends Controller
 {
@@ -32,7 +34,8 @@ class ProductsController extends Controller
     {
         //
         $categories = Category::all();
-        $shops = Shop::all();
+        $shops = Shop::where('user_id','LIKE', Auth::user()->id)
+        ->get();
         return view('products.create', compact('categories', 'shops'));
     }
 

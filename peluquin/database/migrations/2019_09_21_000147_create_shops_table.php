@@ -18,6 +18,8 @@ class CreateShopsTable extends Migration
             $table->string('email')->unique();
             $table->string('name')->unique();
             $table->string('logo')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->decimal('rating');
             $table->string('address');
             $table->unsignedBigInteger('nbhd_id');

@@ -62,7 +62,7 @@
                 <div class="col-md-6 text-center">
                   <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description" rows="4" autocomplete="description" autofocus></textarea>
 
-                    @error('comments')
+                    @error('description')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
                         </span>
