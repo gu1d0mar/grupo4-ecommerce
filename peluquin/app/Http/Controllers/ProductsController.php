@@ -44,7 +44,28 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $rules=[
+        "name"=>"required",
+        "description"=>"nullable",
+        "duration"=>"nullable|min:0|max:240",
+        "price"=>"required|numeric|min:0",
+        "category_id"=>"required|integer",
+        "shop_id"=>"required|integer",
+      ];
+
+      $this->validate($request,$rules);
+
+      $product = new Product();
+      $product->name= $request["name"];
+      $product->description = $request["description"];
+      $product->duration=$request["duration"];
+      $product->price = $request["price"];
+      $product->category_id = $request["category_id"];
+      $product->shop_id = $request["shop_id"];
+
+
+      $product->save();
+       return redirect("/products");
     }
 
     /**
@@ -91,40 +112,4 @@ class ProductsController extends Controller
     {
         //
     }
-
-    public function storeProduct(Request $form){
-      //$product = new Product();
-
-
-      //$product->name = request('name');
-      //$product->description = request('description');
-      //$product->price = request('price');
-      //$product->id = request('category_id');
-      //$product->id = request('shop_id');
-
-      //$product->save();
-
-      $rules=[
-        "name"=>"required",
-        "description"=>"required",
-        "price"=>"required|numeric|min:0",
-        "category_id"=>"required|integer",
-        "shop_id"=>"required|integer",
-      ];
-
-      //$this->validate($form,$rules);
-      $product = new Product();
-      $product->name= $form["name"];
-      $product->description = $form["description"];
-      $product->price = $form["price"];
-      $product->category_id = $form["category_id"];
-      $product->shop_id = $form["shop_id"];
-
-
-      $product->save();
-       return redirect("/products");
-
-    }
-
-
 }

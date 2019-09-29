@@ -84,31 +84,6 @@
               </li>
               @endif
             @endforeach
-            {{-- <li class="nav-item">
-              <a class="nav-link border-bottom" href="#">
-                Peluqueria
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link border-bottom" href="#">
-                Manicura
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link border-bottom" href="#">
-                Barberia
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link border-bottom" href="#">
-                Maquillaje
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link border-bottom" href="#">
-                Productos
-              </a>
-            </li> --}}
             <li class="nav-item">
               <a class="nav-link border-bottom" href="#">
                 Promociones
@@ -136,9 +111,9 @@
         <div class="card mb-3">
           <div class="row no-gutters">
             <div class="col-md-4 col-lg-3 m-auto">
-              <img src="/storage/shops/{{$shop->logo}}" class="card-img m-auto" alt="{{$shop->name}}">
+              <img src="{{ Storage::url($shop->logo) }}" class="card-img m-auto" alt="{{$shop->name}}">
             </div>
-            <div class="col-md-8 col-lg-8">
+            <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title"><a href="{{route('shops.show',['id'=>$shop->id])}}">{{$shop->name}}</a></h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{$shop->nbhd->name}} </h6>

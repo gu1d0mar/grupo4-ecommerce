@@ -18,7 +18,7 @@ $factory->define(Shop::class, function (Faker $faker) {
         'nbhd_id' => $nbhd->random()->id,
         'work_hours' => $faker->time,
         'password' => $faker->password,
-        'logo' => $faker->image('public/storage/shops',640,480, null, false),
+        // 'logo' => $faker->image('public/storage/shops',640,480, null, false),
 
 
     ];

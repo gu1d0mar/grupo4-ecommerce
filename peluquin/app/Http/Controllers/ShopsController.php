@@ -7,6 +7,7 @@ use App\Shop;
 use App\Product;
 use App\Nbhd;
 use App\Category;
+use Illuminate\Support\Facades\Hash;
 
 class ShopsController extends Controller
 {
@@ -66,6 +67,57 @@ class ShopsController extends Controller
             'work_hours'=> $request['work_hours'],
             'password' => Hash::make($request['password']),
         ]);
+    }
+
+
+    // Shop creation
+    public function index()
+    {
+      $shops = Shop::all();
+      return view('shops.index', compact('shops'));
+    }
+
+    protected function createShop()
+    {
+      $nbhds = Nbhd::all();
+      $shops = Shop::all();
+      return view('shops.create', compact('nbhds', 'shops'));
+
+    }
+
+    protected function storeShop(Request $form)
+    {
+      //$rules=[
+      //  "email"=>"required|email",
+      //  "name"=>"required|string|max:255",
+      //  "work_hours"=>"required",
+      //  "address"=>"required",
+      //  "password"=>"required|string|min:8|confirmed",
+      //];
+
+      $rules=[
+      "email"=>"required|email",
+      "name"=>"required|string|max:255",
+      "logo"=>"required|string|max:255",
+      "rating"=>"decimal",
+      "address"=>"required",
+      "nbhd_id"=>"required|integer",
+      "work_hours"=>"required",
+      "password"=>"required|string|min:8|confirmed",
+    ];
+
+      $shop = new Shop();
+      $shop->email = $form["email"];
+      $shop->name = $form["name"];
+      $shop->logo = $form["logo"];
+      $shop->rating = $form["rating"];
+      $shop->address = $form["address"];
+      $shop->nbhd_id = $form["nbhd_id"];
+      $shop->work_hours = $form["work_hours"];
+      $shop->password = Hash::make($form["password"]);
+
+      $shop->save();
+      return redirect("/shops/index");
     }
 
 }
