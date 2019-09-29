@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+<<<<<<< HEAD
 
 //Products
 //Route::get('/products', 'ProductsController@directory')->name('products');
@@ -27,27 +28,24 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/products', 'ProductsController@index');
 Route::get('/products/create', 'ProductsController@create');
 Route::post('/productsaction', 'ProductsController@storeProduct');
+=======
+Route::get('/home', 'HomeController@index')->name('home');
+>>>>>>> eb1303dbd40d678481b8d590605876dd307d17dd
 
 //Shops
 Route::get('/shops','ShopsController@directory')->name('shops');
 Route::get('/shops/search', 'ShopsController@search')->name('shops.search');
 Route::get('/shops/{id}','ShopsController@show')->name('shops.show');
 
-//Cart
-Route::get('/cart', function () {
-  return view('cart');
-})->name('cart');
-
-Route::get('/cart/add/{id}',                           'CartController@add')->middleware('auth');
-Route::get('/cart/remove/{id}',                        'CartController@remove')->middleware('auth');
+Route::get('/cart','CartController@show')->name('cart')->middleware('auth');
+Route::get('/cart/add/{id}','CartController@add')->middleware('auth');
+Route::get('/cart/remove/{id}','CartController@remove')->middleware('auth');
 
 //Users
 //Route::delete('/user/delete', 'userController@destroy')->name('user.destroy')-middleware('auth');
 Route::get('/user','UsersController@show')->name('user.profile')->middleware('auth');
 Route::get('/user/config','UsersController@edit')->name('user.edit')->middleware('auth');
 //Route::put('/user/{id}', 'userController@update')->name('user.update')-middleware('auth');
-
-
 
 
 Route::get('/contact', function () {
