@@ -29,7 +29,7 @@ class ShopsController extends Controller
     public function search(Request $request){
       $nbhds = Nbhd::all();
       $products = Product::all();
-      // $categories = Category::all();
+      $categories = Category::all();
       $shops = Shop::with('products')
       ->where('name','LIKE','%' . $request->get("search") . '%')
       // ->where('category_id','LIKE',$request->get('category'))
@@ -37,9 +37,7 @@ class ShopsController extends Controller
       ->orderby('name')
       ->paginate();
 
-      return view('products.shops',['shops'=>$shops,'products'=>$products,'nbhds'=>$nbhds,
-      // 'categories'=>$categories,
-      ]);
+      return view('products.shops',['shops'=>$shops,'products'=>$products,'nbhds'=>$nbhds,'categories'=>$categories,]);
     }
 
     public function delete(Request $request){

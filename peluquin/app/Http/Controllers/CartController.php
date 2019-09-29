@@ -7,23 +7,27 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+    public function show(){
+      return view('cart');
+    }
+    
     //add
     public function add($id)
     {
-        $products   = [];
-        $product    = Product::find($id);
+        $products = [];
+        $product = Product::find($id);
         if($product){
-            $encontro = false;
+            $found = false;
             foreach (Cart::content() as $p) {
               if($p->id == $product->id){
-                  $encontro = true;
+                  $found = true;
               };
-              
+
             }
 
-            if( $encontro == false){
+            if( $found == false){
                 Cart::add([
-                    'id' => $product->id, 
+                    'id' => $product->id,
                     'name' => $product->name,
                     'qty' => 1,
                     'price' => $product->price,
@@ -35,10 +39,21 @@ class CartController extends Controller
 
         return redirect('cart');
     }
+    
     //remove
+
     public function remove($id)
     {
-        Cart::remove($id);
+        //dd(Cart::content());
+       $product = Product::find($id);
+       foreach (Cart::content() as $content)
+       {
+            if ($content->id == $product->id)
+            {
+                Cart::remove($content->rowId);
+            }
+       }
+        return redirect ('cart');
     }
-    return redirect('cart');
+    
 }

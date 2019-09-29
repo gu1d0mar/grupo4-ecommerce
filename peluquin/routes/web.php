@@ -24,26 +24,26 @@ Route::get('/', 'HomeController@index')->name('home');
 //Route::put('/products/{id}', 'productsController@update')->name('products.update')//->middleware(admins);
 //Route::get('/products/{id}/buy', 'productsController@buy')->name('products.buy')->middleware('auth');
 //Route::post('/products/{id}/buy', 'productsController@addToCart')->name('products.cart')->middleware('auth');
+Route::get('/products', 'ProductsController@index');
+Route::get('/products/create', 'ProductsController@create');
+Route::post('/productsaction', 'ProductsController@storeProduct');
 
+Route::get('/home', 'HomeController@index')->name('home');
+
+//Shops
 Route::get('/shops','ShopsController@directory')->name('shops');
 Route::get('/shops/search', 'ShopsController@search')->name('shops.search');
 Route::get('/shops/{id}','ShopsController@show')->name('shops.show');
 
-//Cart
-Route::get('/cart', function () {
-  return view('cart');
-})->name('cart');
-
-Route::get('/cart/add/{id}',                           'CartController@add')->middleware('auth');
-Route::get('/cart/remove/{id}',                        'CartController@remove')->middleware('auth');
+Route::get('/cart','CartController@show')->name('cart')->middleware('auth');
+Route::get('/cart/add/{id}','CartController@add')->middleware('auth');
+Route::get('/cart/remove/{id}','CartController@remove')->middleware('auth');
 
 //Users
 //Route::delete('/user/delete', 'userController@destroy')->name('user.destroy')-middleware('auth');
 Route::get('/user','UsersController@show')->name('user.profile')->middleware('auth');
 Route::get('/user/config','UsersController@edit')->name('user.edit')->middleware('auth');
 //Route::put('/user/{id}', 'userController@update')->name('user.update')-middleware('auth');
-
-
 
 
 Route::get('/contact', function () {
