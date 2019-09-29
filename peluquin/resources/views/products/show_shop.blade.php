@@ -7,7 +7,7 @@
           <div class="card mb-3">
             <div class="row no-gutters">
               <div class="col-md-4 col-lg-3 m-auto">
-                <img src="/storage/shops/{{$shop->logo}}" class="img-fluid" alt="{{$shop->name}}">
+                <img src="{{ Storage::url($shop->logo) }}" class="img-fluid" alt="{{$shop->name}}">
               </div>
               <div class="col-md-8">
                 <div class="card-body py-0">
