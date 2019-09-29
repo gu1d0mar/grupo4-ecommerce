@@ -24,7 +24,11 @@ Route::get('/', 'HomeController@index')->name('home');
 //Route::put('/products/{id}', 'productsController@update')->name('products.update')//->middleware(admins);
 //Route::get('/products/{id}/buy', 'productsController@buy')->name('products.buy')->middleware('auth');
 //Route::post('/products/{id}/buy', 'productsController@addToCart')->name('products.cart')->middleware('auth');
+Route::get('/products', 'ProductsController@index');
+Route::get('/products/create', 'ProductsController@create');
+Route::post('/productsaction', 'ProductsController@storeProduct');
 
+//Shops
 Route::get('/shops','ShopsController@directory')->name('shops');
 Route::get('/shops/search', 'ShopsController@search')->name('shops.search');
 Route::get('/shops/{id}','ShopsController@show')->name('shops.show');

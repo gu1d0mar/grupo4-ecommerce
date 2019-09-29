@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Shop;
+use App\Category;
 
 class ProductsController extends Controller
 {
@@ -16,6 +17,10 @@ class ProductsController extends Controller
     public function index()
     {
         //
+        $products = Product::all();
+        $categories = Category::all();
+        //$shops = Shop::all();
+        return view('products.index',compact('products'));
     }
 
     /**
@@ -26,6 +31,9 @@ class ProductsController extends Controller
     public function create()
     {
         //
+        $categories = Category::all();
+        $shops = Shop::all();
+        return view('products.create', compact('categories', 'shops'));
     }
 
     /**
@@ -83,4 +91,40 @@ class ProductsController extends Controller
     {
         //
     }
+
+    public function storeProduct(Request $form){
+      //$product = new Product();
+
+
+      //$product->name = request('name');
+      //$product->description = request('description');
+      //$product->price = request('price');
+      //$product->id = request('category_id');
+      //$product->id = request('shop_id');
+
+      //$product->save();
+
+      $rules=[
+        "name"=>"required",
+        "description"=>"required",
+        "price"=>"required|numeric|min:0",
+        "category_id"=>"required|integer",
+        "shop_id"=>"required|integer",
+      ];
+
+      //$this->validate($form,$rules);
+      $product = new Product();
+      $product->name= $form["name"];
+      $product->description = $form["description"];
+      $product->price = $form["price"];
+      $product->category_id = $form["category_id"];
+      $product->shop_id = $form["shop_id"];
+
+
+      $product->save();
+       return redirect("/products");
+
+    }
+
+
 }
