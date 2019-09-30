@@ -108,8 +108,8 @@
               <p class="text-muted">Y enterate de todas las novedades</p>
             </div>
             <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-1 col-9" type="mail" placeholder="Suscribite" name="newsletter">
-              <button class="btn btn-outline-success my-2 my-sm-0 col-2" type="submit"><i class="far fa-envelope"></i></button>
+              <input class="form-control mr-1 col-9" type="mail" placeholder="Suscribite" name="">
+              <button class="btn btn-outline-success my-2 my-sm-0 col-2" type=""><i class="far fa-envelope"></i></button>
             </form>
           </div>
         </nav>
