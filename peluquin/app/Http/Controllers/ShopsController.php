@@ -39,6 +39,11 @@ class ShopsController extends Controller
       ->where('nbhd_id','LIKE',$request->get('nbhd'))
       ->orderby('name')
       ->paginate();
+      if($request->get('category')) 
+      {
+        $productsx = Product::where('category_id',$request->get('category'))->pluck('shop_id');
+        $shops = Shop::with('products')->whereIn('id',$productsx)->get();
+      }
 
       return view('products.shops',['shops'=>$shops,'products'=>$products,'nbhds'=>$nbhds,'categories'=>$categories,]);
     }

@@ -155,7 +155,7 @@
       </div>
     </div>
     <div class="row mt-3">
-      {{$shops->links()}}
+      {{-- {{$shops->links()}} --}}
     </div>
   </div>
 @endsection
