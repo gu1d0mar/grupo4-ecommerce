@@ -19,7 +19,15 @@
           <p class="card-text"> <i class="fas fa-birthday-cake"></i>{{" " . Auth::user()->bday}}</p>
         @endif
         <p class="card-text"><a href="carrito.php" class="text-body"><i class="far fa-calendar-alt"></i> Mis turnos</p></a>
-        <p class="card-text"><a href="{{route('user.edit')}}" class="text-body"><i class="fas fa-cog"></i> Configuracion</p></a>
+        <p class="card-text"><a href="{{route('user.edit')}}" class="text-body"><i class="fas fa-cog"></i> Editar Perfil</p></a>
+        @if (Auth::user()->shops)
+          <h6 class="card-subtitle">Mis Locales</h6>
+          <ul class="list-group">
+            @foreach (Auth::user()->shops as $shop)
+              <li class="list-group-item border-0 pl-0"><a href="{{route('shops.show',$shop->id)}}" class="text-body"><i class="fas fa-dollar-sign"></i>{{" ".$shop->name}}</a></li>
+            @endforeach
+          </ul>
+        @endif
       </div>
       <div class="card mb-3 p-2 bg-secondary ">
         <ul class="list-group bg-secondary ">

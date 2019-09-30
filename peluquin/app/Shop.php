@@ -26,6 +26,10 @@ class Shop extends Model
       return $this->belongsTo('App\Nbhd','nbhd_id');
     }
 
+    public function owner(){
+      return $this->belongsTo('App\User','user_id');
+    }
+
     public function getStarsAttribute(){
       return round($this->rating);
     }
