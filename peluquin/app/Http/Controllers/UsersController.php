@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Nbhd;
 use App\Comment;
+use App\Shop;
 use Auth;
 
 class UsersController extends Controller
@@ -15,7 +16,9 @@ class UsersController extends Controller
     ->where('user_id','LIKE',Auth::user()->id)
     ->take(5)
     ->get();
-    return view('user.profile',['comments'=>$comments]);
+    $shops=Shop::orderBy('name')
+    ->get();
+    return view('user.profile',['comments'=>$comments,'shops'=>$shops]);
   }
 
   public function edit(){
@@ -39,6 +42,29 @@ class UsersController extends Controller
     $editUser->email = $request["email"];
     $editUser->bday = $request["bday"];
     $editUser->nbhd_id = $request["nbhd_id"];
+
+    if ($request->has("avatar")) {
+      $editUser->avatar = $request->file("avatar")->store("public/users");
+    }
+
+    $editUser->save();
+
+    return redirect("/user");
+  }
+
+  public function editAvatar(){
+    return view('user.editAvatar');
+  }
+
+  public function updateAvatar(Request $request){
+    $user = Auth::user();
+    $rules=[
+      "avatar"=>"nullable|image",
+    ];
+
+    $this->validate($request,$rules);
+
+    $editUser = User::findOrFail($user->id);
 
     if ($request->has("avatar")) {
       $editUser->avatar = $request->file("avatar")->store("public/users");

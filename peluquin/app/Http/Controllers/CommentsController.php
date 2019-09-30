@@ -28,7 +28,27 @@ class CommentsController extends Controller
 
       $newComment->save();
 
-
       return redirect("/shops/$newComment->shop_id");
+    }
+
+    public function addFromProfile(Request $request)
+    {
+      $rules=[
+      "comment"=>"required|max:300",
+      "rating"=>"required",
+    ];
+
+      $this->validate($request,$rules);
+
+      $newComment = new Comment();
+
+      $newComment->user_id = Auth::user()->id;
+      $newComment->shop_id = $request["shop_id"];
+      $newComment->comment = $request["comment"];
+      $newComment->rating = $request["rating"];
+
+      $newComment->save();
+
+      return redirect("/user");
     }
 }
