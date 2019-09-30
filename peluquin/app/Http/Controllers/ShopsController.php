@@ -25,7 +25,6 @@ class ShopsController extends Controller
       }
 
       public function show($id){
-
       $shop = Shop::findOrFail($id);
       $comments=Comment::inRandomOrder()
       ->where('shop_id','LIKE',$id)

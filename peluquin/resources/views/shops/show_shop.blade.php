@@ -49,6 +49,7 @@
                   </ul>
                 </div>
               </div>
+              @if (Auth::check())
               @if ($shop->user_id == Auth::user()->id)
                 <a href="{{ route('products.create',['shop_id'=>$shop->id])}}" class="list-group-item list-group-item-action bg-dark">
                   <li class="d-flex w-100 justify-content-between text-light">
@@ -56,10 +57,11 @@
                   </li>
                 </a>
               @endif
+            @endif
             </div>
           @endif
           </div>
-          @auth
+          @if (Auth::check())
             @if ($shop->user_id == Auth::user()->id)
               <form class="form-inline mt-2 mt-md-0" action="{{route('shops.delete')}}" method="post">
                 @method('DELETE')
@@ -69,10 +71,10 @@
                 <button class="btn btn-secondary my-2 my-sm-0" type="submit">Eliminar Local</button>
               </form>
             @endif
-          @endauth
+          @endif
         </div>
         <div class="col-md-3">
-          @auth
+          @if(Auth::check())
           <div class="card mb-3">
             <div class="card-body">
               <h5 class="card-title">Deja tu comentario</h5>
@@ -130,7 +132,7 @@
             </div>
           </div>
         </form>
-        @endauth
+        @endif
         @if (count($comments)>0)
 
         <h4 class="card-title">Reseñas</h4>
