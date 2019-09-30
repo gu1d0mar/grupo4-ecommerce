@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-<<<<<<< Updated upstream
 use Cart;
 use App\Product;
 use Illuminate\Http\Request;
@@ -42,6 +41,7 @@ class CartController extends Controller
     }
     
     //remove
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -183,4 +183,6 @@ class CartController extends Controller
     }
     
 >>>>>>> 1adb9abab5f9533544c8e0f472fa76a698212a5a
+=======
+>>>>>>> parent of 13ac3f1... Search category
 }
