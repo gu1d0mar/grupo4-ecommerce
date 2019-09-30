@@ -75,4 +75,11 @@ class UsersController extends Controller
     return redirect("/user");
   }
 
+  public function delete(Request $request){
+    $user = User::find(Auth::user()->id);
+    $user->delete();
+
+    return redirect("/home");
+  }
+
 }

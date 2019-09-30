@@ -25,7 +25,7 @@
                   </h6>
                   <a href="producto.php" class="btn btn-primary btn-block">Reservar</a>
                   <p class="card-text mt-2 lead"></p>
-                  <p class="card-text"><a href="#"><i class="fas fa-map-marker-alt"></i>{{" " . $shop->address}}</a></p>
+                  <p class="card-text"><a href="https://www.google.com/maps/search/{{$shop->address}}" target="_blank"><i class="fas fa-map-marker-alt"></i>{{" " . $shop->address}}</a></p>
                 </div>
               </div>
             </div>

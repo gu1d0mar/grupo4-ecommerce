@@ -68,6 +68,7 @@
                               </div>
                           </div>
 
+                          @if (!Auth::user()->avatar)
                           <div class="form-group">
                             <label for="avatar" class="col-md-4 col-form-label text-md-right">{{__('Avatar')}}</label>
 
@@ -83,6 +84,7 @@
 
                             </div>
                           </div>
+                        @endif
 
                           <div class="form-group row">
                             <label for="bday" class="col-md-4 col-form-label text-md-right">{{__('Fecha de Nacimiento')}}</label>

@@ -11,6 +11,9 @@
           <img src="{{Auth::user()->avatar ? Storage::url(Auth::user()->avatar) : asset('/img/defaultAvatar.png')}}" alt="{{Auth::user()->username}}" class="rounded-circle w-50 h-50 ">
         </div>
         <hr>
+        @if (Auth::user()->avatar)
+          <p class="card-text"><a href="{{route('user.editAvatar')}}" class="text-body"><i class="fas fa-cog"></i> Cambiar Avatar</p></a>
+        @endif
           <p class="card-text"><i class="far fa-user"></i>{{" " . Auth::user()->username}}</p>
         @if (Auth::user()->nbhd_id)
           <p class="card-text"> <i class="fas fa-home"></i>{{" " . Auth::user()->nbhd->name}}</p>
@@ -48,20 +51,85 @@
             <small class="text-muted">Martes 15 20:00</small>
         </div>
       </div>
+      <form class="form-inline mt-2 mt-md-0" action="{{route('user.delete')}}" method="post">
+        @method('DELETE')
+        @csrf
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Eliminar Cuenta</button>
+      </form>
     </div>
 
     <!--Centro -->
     <div class="col-md-6 col-xl-7">
       <div class="card my-3">
         <div class="card-header">
-          <p class="text-muted mb-0">Dejanos tu reseña acerca del lugar al que fuiste</p>
+          <p class="text-muted mb-0">Dejanos tu reseña acerca de algun Local</p>
         </div>
+
         <div class="card-body p-2">
-          <form>
+
+          <form method="post" action="{{ route('comments.addFromProfile') }}">
+            @csrf
             <div class="form-group">
-              <label for="exampleFormControlTextarea1"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <label for="description" class="text-muted card-text">{{ __('Local') }}</label>
+
+              <div class="text-center">
+                <select id="shop_id" class="form-control @error('shop_id') is-invalid @enderror" name="shop_id" required autofocus>
+                  <option value="">Elija un local</option>
+                  @foreach($shops as $shop)
+                    <option {{old('shop_id')==$shop->id ? 'selected':''}} value="{{$shop->id}}">{{$shop->name}}</option>
+                  @endforeach
+                </select>
+
+                @error('shop_id')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+
+              </div>
             </div>
+            <label class="text-muted card-text">{{ __('Rating') }}</label>
+            <div class="form-group" >
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rating" id="inlineRadio1" value="1">
+                <label class="form-check-label" for="inlineRadio1">1</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rating" id="inlineRadio2" value="2">
+                <label class="form-check-label" for="inlineRadio2">2</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rating" id="inlineRadio3" value="3">
+                <label class="form-check-label" for="inlineRadio3">3</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rating" id="inlineRadio4" value="4">
+                <label class="form-check-label" for="inlineRadio5">4</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rating" id="inlineRadio5" value="5">
+                <label class="form-check-label" for="inlineRadio5">5</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="text-center">
+                <textarea id="comment" class="form-control @error('comment') is-invalid @enderror" name="comment" placeholder="Deja tu comentario" rows="4" required autocomplete="comment" autofocus></textarea>
+
+                  @error('comment')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="mt-3">
+                <button type="submit" class="btn btn-primary">
+                  {{ __('Enviar mensaje') }}
+                </button>
+              </div>
+            </div>
+
           </form>
         </div>
       </div>
@@ -70,11 +138,10 @@
           <div class="card-header">
             <p class="text-muted mb-0">Comentaste</p>
           </div>
+          @foreach ($comments as $comment)
           <div class="card-body">
             <div class="row no-gutters">
-              @foreach ($comments as $comment)
 
-              @endforeach
               <div class="col-md-4 col-lg-3 h-75 w-75 m-auto">
                 <img src="{{$comment->shop->logo ? Storage::url($comment->shop->logo) : asset('/img/defaultLogo.png')}}" class="img-fluid" alt="{{$comment->shop->name}}">
               </div>
@@ -98,6 +165,8 @@
               </div>
             </div>
           </div>
+          <hr>
+        @endforeach
         </div>
       @endif
     </div>

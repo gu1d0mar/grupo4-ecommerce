@@ -127,7 +127,7 @@
                   @endif
                 </h6>
                 <a href="{{route('shops.show',['id'=>$shop->id])}}" class="btn btn-primary my-2">Servicios</a>
-                <p class="card-text d-none d-lg-block"><small class="text-muted"><a href="#"><i class="fas fa-map-marker-alt"></i>{{ " " . $shop->address}}</a></small></p>
+                <p class="card-text d-none d-lg-block"><small class="text-muted"><a href="https://www.google.com/maps/search/{{$shop->address}}" target="_blank"><i class="fas fa-map-marker-alt"></i>{{ " " . $shop->address}}</a></small></p>
               </div>
             </div>
           </div>
