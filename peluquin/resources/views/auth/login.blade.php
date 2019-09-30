@@ -61,7 +61,7 @@
                         </div>
 
                         <div class="form-group row">
-                          <div class="col-md-8 offset-md-4 m-auto">
+                          <div class="col-md-8 offset-md-4">
                             @if (Route::has('password.request'))
                               <a class="btn btn-link" href="{{ route('password.request') }}">
                                 {{ __('Olvido su contraseña?') }}
@@ -71,11 +71,11 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                          <div class="col-md-8 offset-md-4 m-auto">
+                          <div class="col-md-8 offset-md-4">
                             <a href="{{route('register')}}">No tienes cuenta? Registrate</a>
                           </div>
                         </div>
-                        
+
                     </form>
                 </div>
             </div>
