@@ -41,6 +41,11 @@
           <li class="list-group-item bg-secondary border-0 pl-0 pt-1 pb-1"><a href="{{route('shops.create')}}" class="text-white"><i class="far fa-star"></i> Crear Local</a></li>
         </ul>
       </div>
+      <form class="form-inline my-2 mt-md-0" action="{{route('user.delete')}}" method="post">
+        @method('DELETE')
+        @csrf
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Eliminar Cuenta</button>
+      </form>
       <div class="card mb-3 d-md-none">
         <div class="card-header">
           <h5>Proximamente</h5>
@@ -51,11 +56,6 @@
             <small class="text-muted">Si tan solo tuviera uno</small>
         </div>
       </div>
-      <form class="form-inline mt-2 mt-md-0" action="{{route('user.delete')}}" method="post">
-        @method('DELETE')
-        @csrf
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Eliminar Cuenta</button>
-      </form>
     </div>
 
     <!--Centro -->
