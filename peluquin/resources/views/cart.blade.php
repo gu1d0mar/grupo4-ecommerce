@@ -29,7 +29,7 @@
               </li>
             </ul>
             <form>
-              <a href="" class="btn btn-primary btn-lg btn-block my-2">Finalizar compra</a>
+              <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-primary btn-lg btn-block my-2">Finalizar compra</a>
               <p class="text-center mt-2 "><a href="{{route('shops')}}" class="text-secondary">Seguir comprando</a></p>
             </form>
           </div>

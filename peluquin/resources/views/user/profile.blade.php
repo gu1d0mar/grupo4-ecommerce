@@ -6,7 +6,7 @@
     <!-- Izquierda -->
     <div class="col-md-3">
       <div class="card my-3 p-2 ">
-        <div class="card-img text-center">
+        <div class="card-img text-center mx-auto">
           <h4>{{Auth::user()->getFullName() }}</h4>
           <img src="{{Auth::user()->avatar ? Storage::url(Auth::user()->avatar) : asset('/img/defaultAvatar.png')}}" alt="{{Auth::user()->username}}" class="rounded-circle w-50 h-50 ">
         </div>
@@ -46,9 +46,9 @@
           <h5>Proximamente</h5>
         </div>
         <div class="card-body p-2 text-center">
-            <img src="img/depilation.jpg" alt="turno" class="card-img w-75 h-75 pb-2">
-            <p class="card-text">Corte en Peluqueria Don Pepito</p>
-            <small class="text-muted">Martes 15 20:00</small>
+            <img src="{{asset('/img/calendario.jpg')}}" alt="turno" class="card-img w-75 h-75 pb-2">
+            <p class="card-text">Aqui pondriamos el calendario</p>
+            <small class="text-muted">Si tan solo tuviera uno</small>
         </div>
       </div>
       <form class="form-inline mt-2 mt-md-0" action="{{route('user.delete')}}" method="post">
@@ -178,9 +178,9 @@
           <h6>Proximamente</h6>
         </div>
         <div class="card-body p-2 text-center">
-            <img src="img/depilation.jpg" alt="turno" class="card-img w-75 h-75 pb-2">
-            <p class="card-text">Corte en Peluqueria Don Pepito</p>
-            <small class="text-muted">Martes 15 20:00</small>
+            <img src="{{asset('/img/calendario.jpg')}}" alt="turno" class="card-img w-75 h-75 pb-2">
+            <p class="card-text">Aqui Pondriamos el calendario</p>
+            <small class="text-muted">Si tan solo tuvieramos uno</small>
         </div>
       </div>
     </div>

@@ -15,7 +15,7 @@
         </form>
       </div>
     </div>
-    <div class="row justify-content-center d-sm-none">
+    <div class="row justify-content-center d-lg-none">
       <div class="col">
         <div class="dropdown mb-2">
           <button class="btn btn-secondary w-100 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -23,36 +23,27 @@
           </button>
           <div class="dropdown-menu w-100" aria-labelledby="dropdownMenuButton">
             <ul class="nav flex-column dropdown-item">
-              <li class="nav-item">
-                <a class="nav-link border-bottom" href="#">
-                  Peluqueria
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link border-bottom" href="#">
-                  Manicura
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link border-bottom" href="#">
-                  Barberia
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link border-bottom" href="#">
-                  Maquillaje
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link border-bottom" href="#">
-                  Productos
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  Promociones
-                </a>
-              </li>
+              @foreach ($categories as $category)
+                @if($category->products->count()>0)
+                <li class="nav-item">
+                  <a class="nav-link border-bottom" href="{{ route('shops.search',['category'=>$category->id]) }}">
+                    {{$category->name . " (" . $category->products->count()  . ")"}}
+                  </a>
+                </li>
+                @endif
+              @endforeach
+            </ul>
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center mt-3 mb-1 text-muted">Barrios</h6>
+            <ul class="nav flex-column mb-3">
+              @foreach ($nbhds as $nbhd)
+                @if(count($nbhd->shops)>0)
+                <li class="nav-item">
+                  <a class="nav-link border-bottom" href="{{ route('shops.search',['nbhd'=>$nbhd->id]) }}">
+                    {{$nbhd->name . " (" . $nbhd->shops->count()  . ")"}}
+                  </a>
+                </li>
+                @endif
+              @endforeach
             </ul>
           </div>
         </div>
@@ -62,7 +53,7 @@
     <!-- Filtros md -->
 
     <div class="row">
-      <nav class="col-2 col-lg-3 d-none d-md-block bg-light sidebar rounded my-2 bg-white">
+      <nav class="col-2 col-lg-3 d-none d-lg-block bg-light sidebar rounded my-2 bg-white">
         <div class="sidebar-sticky">
           <ul class="nav flex-column">
             <li class="nav-item pb-2 border-bottom d-none d-lg-block">
@@ -105,11 +96,11 @@
         </div>
       </nav>
 
-      <div class="col-10 col-lg-9 offset-1 offset-sm-0 ml-sm-auto mt-sm-2 ">
+      <div class="col-lg-9  offset-sm-0 mt-sm-2 ">
       @foreach($shops as $shop)
         <div class="card mb-3">
           <div class="row no-gutters">
-            <div class="col-md-4 col-lg-3 m-auto py-1">
+            <div class="col-md-3 m-auto py-1">
               <img src="{{$shop->logo ? Storage::url($shop->logo) : asset('/img/defaultLogo.png')}}" class="card-img m-auto" alt="{{$shop->name}}">
             </div>
             <div class="col-md-8">

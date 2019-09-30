@@ -6,7 +6,6 @@
       <div class="row">
         <div class="col-md-12 px-0">
           <h1 class="display-3">Peluca & Peluquin</h1>
-          <p class="lead my-3">Comodidad y bienestar</p>
         </div>
       </div>
 
@@ -66,13 +65,10 @@
   <hr class="divider">
 
   <div class="row info">
-    <div class="col-md-7 order-md-2 info-text">
+    <div class="col-md-7 order-md-2 info-text text-center mx-auto">
       <h2 class="featurette-heading">Reserva lo que quieras, donde quieras, cuando quieras</h2>
       <p class="lead">Queremos facilitarte la vida, y queremos verte bien, asi que ingresa la direccion y decinos lo que queres, y blablablablabala </p>
       <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-    </div>
-    <div class="col-md-5 order-md-1">
-      <img src="img/amigos.jpg" alt="m" class="img-fluid mx-auto" width="100%" height="100%">
     </div>
   </div>
 
@@ -115,14 +111,14 @@
 
   <div class="unite text-center">
     <div class="row">
-      <div class="col-md-5 order-md-2 info-text">
+      <div class="col-md-5  info-text mx-auto">
         <h2 class="featurette-heading">Unite a la comunidad P&P</h2>
         <p class="lead">Tenes ganas de brindar tus servicios, o conoces a alguien que quiera hacerlo? </p>
-        <a class="btn btn-secondary" href="faq.php" role="button">Apreta aca</a>
+        <a class="btn btn-secondary" href="{{route('shops.create')}}" role="button">Apreta aca</a>
       </div>
-      <div class="col-md-5 order-md-1">
-        <img src="img/manicura2.png" alt="m" class="img-fluid mx-auto" width="300" height="300">
-      </div>
+    </div>
+    <div class="col-md-5 order-md-1 mx-auto">
+      <img src="{{asset('/img/peluquinLogo.png')}}" alt="Logo Peluquin" class="img-fluid mx-auto" width="300" height="300">
     </div>
   </div>
 

@@ -12,7 +12,6 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: red;
   /* Altura fija del footer para celulares */
   height: 220px;
   margin-top: 400px;

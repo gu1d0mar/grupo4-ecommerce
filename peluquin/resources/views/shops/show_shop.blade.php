@@ -6,8 +6,8 @@
         <div class="col-12 col-md-9">
           <div class="card mb-3 pt-2">
             <div class="row no-gutters pb-3">
-              <div class="col-md-4 col-lg-3 m-auto pt-1">
-                <img src="{{$shop->logo ? Storage::url($shop->logo) : asset('/img/defaultLogo.png')}}" class="img-fluid" alt="{{$shop->name}}">
+              <div class="col-md-3 m-auto py-1">
+                <img src="{{$shop->logo ? Storage::url($shop->logo) : asset('/img/defaultLogo.png')}}" class="card-img m-auto" alt="{{$shop->name}}">
               </div>
               <div class="col-md-8">
                 <div class="card-body py-0">
@@ -23,7 +23,7 @@
                       @endfor
                     @endif
                   </h6>
-                  <a href="producto.php" class="btn btn-primary btn-block">Reservar</a>
+                  <a href="{{route('cart')}}" class="btn btn-primary btn-block">Reservar</a>
                   <p class="card-text mt-2 lead"></p>
                   <p class="card-text"><a href="https://www.google.com/maps/search/{{$shop->address}}" target="_blank"><i class="fas fa-map-marker-alt"></i>{{" " . $shop->address}}</a></p>
                 </div>
