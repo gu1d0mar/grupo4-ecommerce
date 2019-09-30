@@ -59,13 +59,6 @@ class ShopsController extends Controller
       return view('shops.shops',['shops'=>$shops,'products'=>$products,'nbhds'=>$nbhds,'categories'=>$categories,]);
     }
 
-    public function delete(Request $request){
-    $shop = Shop::find($request['id']);
-    $shop->delete();
-
-    return redirect("/shops");
-    }
-
     protected function create()
     {
       $nbhds = Nbhd::orderBy('name')->get();
@@ -78,7 +71,7 @@ class ShopsController extends Controller
       "email"=>"required|email",
       "name"=>"required|string|max:255",
       "logo"=>"nullable|image",
-      "rating"=>"numeric",
+      "rating"=>"numeric|min:0|max:5",
       "address"=>"required",
       "nbhd_id"=>"required|integer",
       "opens_at"=>"required",
@@ -126,7 +119,7 @@ class ShopsController extends Controller
       "email"=>"required|email|max:255|unique:shops,email,$id",
       "name"=>"required|string|max:255",
       "logo"=>"nullable|image",
-      "rating"=>"numeric",
+      "rating"=>"numeric|min:0|max:5",
       "address"=>"required",
       "nbhd_id"=>"required|integer",
       "opens_at"=>"required",
@@ -151,6 +144,16 @@ class ShopsController extends Controller
       $editShop->save();
 
       return redirect("/shops/$editShop->id");
+    }
+
+    public function delete(Request $request){
+      if (!$shop->user_id == Auth::user()->id) {
+        return redirect("/");
+      }
+      $shop = Shop::find($request['id']);
+      $shop->delete();
+
+      return redirect("/shops");
     }
 
 

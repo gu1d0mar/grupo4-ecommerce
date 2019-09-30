@@ -18,6 +18,10 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/user','UsersController@show')->name('user.profile');
   Route::get('/user/edit','UsersController@edit')->name('user.edit');
   Route::put('/user/edit', 'UsersController@update')->name('user.update');
+  Route::get('/user/editAvatar','UsersController@editAvatar')->name('user.editAvatar');
+  Route::put('/user/editAvatar', 'UsersController@updateAvatar')->name('user.updateAvatar');
+  Route::delete('/user/delete', 'UsersController@delete')->name('user.delete');
+
 
   //Cart
   Route::get('/cart','CartController@show')->name('cart');
@@ -25,13 +29,16 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/cart/remove/{id}','CartController@remove');
   //Create Shops
   Route::get('/shops/create', 'ShopsController@create')->name('shops.create');
-  
+
   //Add Comment
   Route::post('/comment/create','CommentsController@add')->name('comments.add');
+  Route::post('/comment/createFromProfile','CommentsController@addFromProfile')->name('comments.addFromProfile');
 
   //Create Products
-  Route::get('/products/create', 'ProductsController@create')->name('products.create')->middleware('hasShop');
+  Route::get('/products/create/{shop_id}', 'ProductsController@create')->name('products.create')->middleware('hasShop');
   Route::post('/product/create', 'ProductsController@store')->name('products.save')->middleware('hasShop');
+  Route::delete('/prodcut/delete', 'ProductsController@delete')->name('prodcuts.delete')->middleware('hasShop');
+
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -42,6 +49,7 @@ Route::get('/shops','ShopsController@directory')->name('shops');
 Route::get('/shops/search', 'ShopsController@search')->name('shops.search');
 Route::get('/shops/{id}/edit','ShopsController@edit')->name('shops.edit')->middleware('auth','hasShop');
 Route::put('/shops/{id}', 'ShopsController@update')->name('shops.update')->middleware('auth','hasShop');
+Route::delete('/shops/delete', 'ShopsController@delete')->name('shops.delete')->middleware('auth','hasShop');
 Route::get('/shops/{id}','ShopsController@show')->name('shops.show');
 
 //Cart

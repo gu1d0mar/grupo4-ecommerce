@@ -16,27 +16,26 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
-        $products = Product::all();
-        $categories = Category::all();
-        //$shops = Shop::all();
-        return view('products.index',compact('products'));
-    }
+    // public function index()
+    // {
+    //     //
+    //     $products = Product::all();
+    //     $categories = Category::all();
+    //     //$shops = Shop::all();
+    //     return view('products.index',compact('products'));
+    // }
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
         //
         $categories = Category::all();
-        $shops = Shop::where('user_id','LIKE', Auth::user()->id)
-        ->get();
-        return view('products.create', compact('categories', 'shops'));
+        $shop = Shop::findOrFail($id);
+        return view('products.create', compact('categories', 'shop'));
     }
 
     /**
@@ -66,7 +65,7 @@ class ProductsController extends Controller
       $product->category_id = $request["category_id"];
       $product->shop_id = $request["shop_id"];
 
-      $shop_id = $request["shop_id"];
+      $shop_id  = $request['shop_id'];
 
       $product->save();
        return redirect("/shops/$shop_id");

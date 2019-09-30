@@ -45,7 +45,7 @@
                   <label for="rating" class="col-md-4 col-form-label text-md-right">{{ __('Rating') }}</label>
 
                   <div class="col-md-6">
-                      <input id="rating" type="text" class="form-control @error('rating') is-invalid @enderror" name="rating" value="{{ old('rating') }}" required autocomplete="rating" autofocus min="0" max="5">
+                      <input id="rating" type="number" class="form-control @error('rating') is-invalid @enderror" name="rating" value="{{ old('rating') }}" required autocomplete="rating" autofocus min="0" max="5">
 
                       @error('rating')
                           <span class="invalid-feedback" role="alert">

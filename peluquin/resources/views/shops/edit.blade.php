@@ -46,7 +46,7 @@
                   <label for="rating" class="col-md-4 col-form-label text-md-right">{{ __('Rating') }}</label>
 
                   <div class="col-md-6">
-                      <input id="rating" type="text" class="form-control @error('rating') is-invalid @enderror" name="rating" value="{{$shop->rating}}" required autocomplete="rating" autofocus min="0" max="5">
+                      <input id="rating" type="numer" class="form-control @error('rating') is-invalid @enderror" name="rating" value="{{$shop->rating}}" required autocomplete="rating" autofocus min="0" max="5">
 
                       @error('rating')
                           <span class="invalid-feedback" role="alert">
@@ -57,7 +57,6 @@
                   </div>
               </div>
 
-              @if (!$shop->logo)
                 <div class="form-group">
                   <label for="logo" class="col-md-4 col-form-label text-md-right">{{__('Logo')}}</label>
 
@@ -73,7 +72,6 @@
 
                   </div>
                 </div>
-              @endif
 
               <div class="form-group row">
                   <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-mail') }}</label>

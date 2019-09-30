@@ -91,6 +91,8 @@
                 </div>
               </div>
 
+              <input type="hidden" name="shop_id" value="{{$shop->id}}">
+{{--
               <div class="form-group row">
                 <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Local') }}</label>
 
@@ -109,7 +111,7 @@
                   @enderror
 
                 </div>
-              </div>
+              </div> --}}
 
               <div class="form-group row mb-0">
                 <div class="col-md-8 offset-md-4">
