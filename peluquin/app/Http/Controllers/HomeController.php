@@ -30,6 +30,9 @@ class HomeController extends Controller
     {
         $nbhds = Nbhd::orderby('name')->get();
         $categories = Category::orderby('name')->get();
-        return view('home',['nbhds'=>$nbhds,'categories'=>$categories]);
+        $shops = Shop::inRandomOrder()
+        ->take(3)
+        ->get();
+        return view('home',['nbhds'=>$nbhds,'categories'=>$categories,'shops'=>$shops]);
     }
 }

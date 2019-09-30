@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title') Servicios @endsection
+@section('title') Productos y Servicios @endsection
 @section('content')
   <div class="container">
     <!-- Filtros sm -->

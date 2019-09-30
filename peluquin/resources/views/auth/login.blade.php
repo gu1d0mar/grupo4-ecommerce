@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title') Iniciar Sesion @endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -51,19 +51,31 @@
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
+                        <div class="form-group row">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Iniciar Sesion') }}
                                 </button>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Olvido su contraseña?') }}
-                                    </a>
-                                @endif
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                          <div class="col-md-8 offset-md-4 m-auto">
+                            @if (Route::has('password.request'))
+                              <a class="btn btn-link" href="{{ route('password.request') }}">
+                                {{ __('Olvido su contraseña?') }}
+                              </a>
+                            @endif
+                          </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                          <div class="col-md-8 offset-md-4 m-auto">
+                            <a href="{{route('register')}}">No tienes cuenta? Registrate</a>
+                          </div>
+                        </div>
+                        
                     </form>
                 </div>
             </div>

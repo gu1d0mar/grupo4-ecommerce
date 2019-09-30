@@ -8,7 +8,7 @@
                   <div class="card-header">{{ __('Dejanos tu mensaje') }}</div>
 
                   <div class="card-body">
-                      <form method="POST" action="{{ route('login') }}">
+                      <form method="get" action="{{ route('home') }}">
                           @csrf
 
                           <div class="form-group row">
@@ -56,9 +56,9 @@
                           <div class="form-group row">
                             <label for="comment" class="col-md-4 col-form-label text-md-right">{{ __('Mensaje') }}</label>
                             <div class="col-md-6 text-center">
-                              <textarea id="comment" class="form-control @error('comments') is-invalid @enderror" name="comment" placeholder="Deja tu comentario" rows="4" required autocomplete="comment" autofocus></textarea>
+                              <textarea id="comment" class="form-control @error('comment') is-invalid @enderror" name="comment" placeholder="Deja tu comentario" rows="4" required autocomplete="comment" autofocus></textarea>
 
-                                @error('comments')
+                                @error('comment')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -70,7 +70,7 @@
                           <div class="form-group row">
                               <div class="col-md-10 offset-md-2">
                                   <div class="form-check">
-                                      <input class="form-check-input" type="checkbox" name="terms" id="terms" {{ old('terms') ? 'checked' : '' }}>
+                                      <input class="form-check-input" type="checkbox" name="terms" id="terms" {{ old('terms') ? 'checked' : '' }} required>
 
                                       <label class="form-check-label" for="remember">
                                           Acepto los <a href="{{route('faq')}}">Términos y condiciones</a> de Peluca y peluquín S.A.

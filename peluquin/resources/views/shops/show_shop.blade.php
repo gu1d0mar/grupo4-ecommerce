@@ -5,7 +5,7 @@
       <div class="row">
         <div class="col-12 col-md-9">
           <div class="card mb-3 pt-2">
-            <div class="row no-gutters">
+            <div class="row no-gutters pb-3">
               <div class="col-md-4 col-lg-3 m-auto pt-1">
                 <img src="{{$shop->logo ? Storage::url($shop->logo) : asset('/img/defaultLogo.png')}}" class="img-fluid" alt="{{$shop->name}}">
               </div>
@@ -29,6 +29,7 @@
                 </div>
               </div>
             </div>
+            @if (count($shop->products)>0)
             <div class="row no-gutters">
               <div class="card-body col-12 pb-0">
                 <div class="card-header">
@@ -46,12 +47,15 @@
                 </div>
               </div>
             </div>
-            @if ($shop->user_id == Auth::user()->id)
-              <form class="form-inline mt-2 mt-md-0" action="{{route('shops.edit',['id'=>$shop->id])}}" method="get">
-                @csrf
-                <button class="btn btn-success my-2 mx-2" type="submit">Edit Shop</button>
-              </form>
-            @endif
+          @endif
+            @auth
+              @if ($shop->user_id == Auth::user()->id)
+                <form class="form-inline mt-2 mt-md-0" action="{{route('shops.edit',['id'=>$shop->id])}}" method="get">
+                  @csrf
+                  <button class="btn btn-success my-2 mx-2" type="submit">Edit Shop</button>
+                </form>
+              @endif
+            @endauth
           </div>
         </div>
         <div class="col-md-3">

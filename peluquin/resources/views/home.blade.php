@@ -53,21 +53,13 @@
       <p>Reserva online facil y rapido. Los mejores locales y profesionales te esperan</p>
     </div>
     <div class="row text-center">
-      <div class="col-md-4">
-        <a href="producto.php"><img src="img/depilation.jpg" alt="depilation" class="rounded-circle" width="200" height="200"></a>
-        <h2>Nombre del local</h2>
-        <a class="btn btn-secondary" href="producto.php" role="button">Ver servicios</a>
-      </div>
-      <div class="col-md-4">
-        <a href="producto.php"><img src="img/manicura.jpg" alt="manicura" class="rounded-circle" width="200" height="200"></a>
-        <h2>Nombre del local</h2>
-        <a class="btn btn-secondary" href="producto.php" role="button">Ver servicios</a>
-      </div>
-      <div class="col-md-4">
-        <a href="producto.php"><img src="img/peluqueria.jpg" alt="peluqueria" class="rounded-circle" width="200" height="200"></a>
-        <h2>Nombre del local</h2>
-        <a class="btn btn-secondary" href="producto.php" role="button">Ver servicios</a>
-      </div>
+      @foreach ($shops as $shop)
+        <div class="col-md-4">
+          <a href="producto.php"><img src="{{$shop->logo ? Storage::url($shop->logo) : asset('/img/defaultLogo.png')}}" alt="{{$shop->name}}" class="rounded-circle" width="200" height="200"></a>
+          <h2>{{$shop->name}}</h2>
+          <a class="btn btn-secondary" href="{{route('shops.show',['id'=>$shop->id])}}" role="button">Ver servicios</a>
+        </div>
+      @endforeach
     </div>
   </div>
 

@@ -20,13 +20,14 @@ class ShopsController extends Controller
       $shops = Shop::orderby('name')
       ->paginate();
 
-      return view('products.shops',['shops'=>$shops,'products'=>$products,'nbhds'=>$nbhds,'categories'=>$categories,]);
+      return view('shops.shops',['shops'=>$shops,'products'=>$products,'nbhds'=>$nbhds,'categories'=>$categories,]);
       }
 
       public function show($id){
-      $shop = Shop::findOrFail($id);
 
-      return view('products.show_shop', ['shop' => $shop]);
+      $shop = Shop::findOrFail($id);
+      return view('shops.show_shop', ['shop' => $shop]);
+      
       }
 
     public function search(Request $request){
@@ -49,7 +50,7 @@ class ShopsController extends Controller
         ->paginate();
       }
 
-      return view('products.shops',['shops'=>$shops,'products'=>$products,'nbhds'=>$nbhds,'categories'=>$categories,]);
+      return view('shops.shops',['shops'=>$shops,'products'=>$products,'nbhds'=>$nbhds,'categories'=>$categories,]);
     }
 
     public function delete(Request $request){
