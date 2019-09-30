@@ -59,27 +59,87 @@
           </div>
         </div>
         <div class="col-md-3">
+          @auth
           <div class="card mb-3">
             <div class="card-body">
-              <h5 class="card-title">Reseñas</h5>
-              <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></h6>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud  </p>
+              <h5 class="card-title">Deja tu comentario</h5>
+
+            <form class="" method="post" action="{{ route('comments.add') }}">
+
+              @csrf
+
+              <input type="hidden" name="shop_id" value="{{$shop->id}}">
+              <label class="text-rating card-text">{{ __('Rating') }}</label>
+              <div class="form-group" >
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rating" id="inlineRadio1" value="1">
+                <label class="form-check-label" for="inlineRadio1">1</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rating" id="inlineRadio2" value="2">
+                <label class="form-check-label" for="inlineRadio2">2</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rating" id="inlineRadio3" value="3">
+                <label class="form-check-label" for="inlineRadio3">3</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rating" id="inlineRadio4" value="4">
+                <label class="form-check-label" for="inlineRadio5">4</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="rating" id="inlineRadio5" value="5">
+                <label class="form-check-label" for="inlineRadio5">5</label>
+              </div>
+            </div>
+
+                <div class="form-group">
+                <div class="text-center">
+                  <textarea id="comment" class="form-control @error('comment') is-invalid @enderror" name="comment" placeholder="Deja tu comentario" rows="4" required autocomplete="comment" autofocus></textarea>
+
+                    @error('comment')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <div class="mt-3">
+                  <button type="submit" class="btn btn-primary">
+                    {{ __('Enviar mensaje') }}
+                  </button>
+                </div>
+              </div>
+
             </div>
           </div>
+        </form>
+        @endauth
+        @if (count($comments)>0)
+
+        <h4 class="card-title">Reseñas</h4>
+          @foreach ($comments as $comment)
           <div class="card mb-3">
             <div class="card-body">
-              <h5 class="card-title">Reseñas</h5>
-              <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></h6>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud  </p>
+              <h5 class="card-title">{{$comment->user->username}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">
+                @for($i=0; $i<$comment->stars; $i++)
+                  <i class="fas fa-star"></i>
+                @endfor
+                @if($dif=5-$comment->stars)
+                  @for($i=0;$i<$dif;$i++)
+                    <i class="far fa-star"></i>
+                  @endfor
+                @endif
+              </h6>
+              <p class="card-text">{{$comment->comment}}</p>
             </div>
           </div>
-          <div class="card mb-3">
-            <div class="card-body">
-              <h5 class="card-title">Reseñas</h5>
-              <h6 class="card-subtitle mb-2 text-muted"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></h6>
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud  </p>
-            </div>
-          </div>
+        @endforeach
+      @endif
         </div>
       </div>
     </div>

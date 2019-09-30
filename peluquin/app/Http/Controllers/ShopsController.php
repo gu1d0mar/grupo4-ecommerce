@@ -8,6 +8,7 @@ use App\Product;
 use App\Nbhd;
 use App\Category;
 use App\User;
+use App\Comment;
 use Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -26,8 +27,13 @@ class ShopsController extends Controller
       public function show($id){
 
       $shop = Shop::findOrFail($id);
-      return view('shops.show_shop', ['shop' => $shop]);
-      
+      $comments=Comment::inRandomOrder()
+      ->where('shop_id','LIKE',$id)
+      ->where('rating','>',2)
+      ->take(5)
+      ->get();
+      return view('shops.show_shop', ['shop' => $shop,'comments'=>$comments]);
+
       }
 
     public function search(Request $request){

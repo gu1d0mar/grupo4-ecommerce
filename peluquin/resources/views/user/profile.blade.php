@@ -65,27 +65,41 @@
           </form>
         </div>
       </div>
-      <div class="card mb-3">
-        <div class="card-header">
-          <p class="text-muted mb-0">Visitaste:</p>
-        </div>
-        <div class="card-body">
-          <div class="row no-gutters">
-            <div class="col-md-4 col-lg-3 h-75 w-75 m-auto">
-              <img src="img/manicura.jpg" class="img-fluid" alt="manicura">
-            </div>
-            <div class="col">
-              <div class="card-body pb-0">
-                <h3 class="card-title"><a href="producto.php">Nombre del Local </a></h3>
-                <h6 class="card-subtitle mb-2 text-muted">Barrio</h6>
-                <p class="card-text mt-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i></p>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
-                <small class="text-muted">Hace una semana</small>
+      @if (count($comments)>0)
+        <div class="card mb-3">
+          <div class="card-header">
+            <p class="text-muted mb-0">Comentaste</p>
+          </div>
+          <div class="card-body">
+            <div class="row no-gutters">
+              @foreach ($comments as $comment)
+
+              @endforeach
+              <div class="col-md-4 col-lg-3 h-75 w-75 m-auto">
+                <img src="{{$comment->shop->logo ? Storage::url($comment->shop->logo) : asset('/img/defaultLogo.png')}}" class="img-fluid" alt="{{$comment->shop->name}}">
+              </div>
+              <div class="col">
+                <div class="card-body pb-0">
+                  <h3 class="card-title"><a href="producto.php">{{$comment->shop->name}}</a></h3>
+                  <h6 class="card-subtitle mb-2 text-muted">{{$comment->shop->nbhd->name}}</h6>
+                  <p class="card-text mt-2">
+                    @for($i=0; $i<$comment->stars; $i++)
+                      <i class="fas fa-star"></i>
+                    @endfor
+                    @if($dif=5-$comment->stars)
+                      @for($i=0;$i<$dif;$i++)
+                        <i class="far fa-star"></i>
+                      @endfor
+                    @endif
+                  </p>
+                  <p class="card-text">{{$comment->comment}}</p>
+                  <small class="text-muted">{{$comment->created_at}}</small>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      @endif
     </div>
 
     <!-- Derecha -->

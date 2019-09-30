@@ -52,9 +52,9 @@
       <h2>Lo mejor para vos</h2>
       <p>Reserva online facil y rapido. Los mejores locales y profesionales te esperan</p>
     </div>
-    <div class="row text-center">
+    <div class="row text-center mt-3">
       @foreach ($shops as $shop)
-        <div class="col-md-4">
+        <div class="col-md-4 mt-3">
           <a href="producto.php"><img src="{{$shop->logo ? Storage::url($shop->logo) : asset('/img/defaultLogo.png')}}" alt="{{$shop->name}}" class="rounded-circle" width="200" height="200"></a>
           <h2>{{$shop->name}}</h2>
           <a class="btn btn-secondary" href="{{route('shops.show',['id'=>$shop->id])}}" role="button">Ver servicios</a>
@@ -79,58 +79,35 @@
   <hr class="divider">
 
   <div class="resena">
-    <div class="text-center">
+    <div class="text-center mb-5">
       <h2>La opinion de nuestros usuarios</h2>
     </div>
 
     <div class="row">
-      <div class="col-md-3">
-        <div class="card mb-3">
-          <div class="card-body p-2 text-center">
-              <img src="img/batman.jpg" alt="usuario" class="card-img pb-2 rounded-circle w-50 h-50">
-              <p class="card-text"><small class="text-muted">Brunito</small></p>
-              <p class="mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-              <p class="card-text">Persona diciendo que la pagina esta buenisima y blabla</p>
-              <small class="text-muted">Nombre del local al que fue</small>
-          </div>
-        </div>
-      </div>
 
+      @foreach ($comments as $comment)
       <div class="col-md-3">
         <div class="card mb-3">
-          <div class="card-body p-2 text-center">
-            <img src="img/batman.jpg" alt="usuario" class="card-img pb-2 rounded-circle w-50 h-50">
-            <p class="card-text"><small class="text-muted">Brunito</small></p>
-            <p class="mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-            <p class="card-text">Persona diciendo que la pagina esta buenisima y blabla</p>
-            <small class="text-muted">Nombre del local al que fue</small>
+          <div class="card-body p-2 text-center" style="max-height:400px; overflow:scroll">
+              <img src="{{$comment->user->avatar ? Storage::url($comment->user->avatar) : asset('/img/defaultAvatar.png')}}" alt="usuario" class="card-img pb-2 rounded-circle w-50 h-50">
+              <p class="card-text"><small class="text-muted">{{$comment->user->username}}</small></p>
+              <p class="mb-2">
+                @for($i=0; $i<$comment->stars; $i++)
+                  <i class="fas fa-star"></i>
+                @endfor
+                @if($dif=5-$comment->stars)
+                  @for($i=0;$i<$dif;$i++)
+                    <i class="far fa-star"></i>
+                  @endfor
+                @endif
+              </p>
+              <p class="card-text">{{$comment->comment}}</p>
+              <a href="{{route('shops.show',['id'=>$comment->shop->id])}}"><small class="text-muted">{{$comment->shop->name}}</small></a>
           </div>
         </div>
       </div>
+      @endforeach
 
-      <div class="col-md-3">
-        <div class="card mb-3">
-          <div class="card-body p-2 text-center">
-              <img src="img/batman.jpg" alt="usuario" class="card-img pb-2 rounded-circle w-50 h-50">
-              <p class="card-text"><small class="text-muted">Brunito</small></p>
-              <p class="mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-              <p class="card-text">Persona diciendo que la pagina esta buenisima y blabla</p>
-              <small class="text-muted">Nombre del local al que fue</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-md-3">
-        <div class="card mb-3">
-          <div class="card-body p-2 text-center">
-              <img src="img/batman.jpg" alt="usuario" class="card-img pb-2 rounded-circle w-50 h-50">
-              <p class="card-text"><small class="text-muted">Brunito</small></p>
-              <p class="mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></p>
-              <p class="card-text">Persona diciendo que la pagina esta buenisima y blabla</p>
-              <small class="text-muted">Nombre del local al que fue</small>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 

@@ -25,6 +25,9 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/cart/remove/{id}','CartController@remove');
   //Create Shops
   Route::get('/shops/create', 'ShopsController@create')->name('shops.create');
+  
+  //Add Comment
+  Route::post('/comment/create','CommentsController@add')->name('comments.add');
 
   //Create Products
   Route::get('/products/create', 'ProductsController@create')->name('products.create')->middleware('hasShop');

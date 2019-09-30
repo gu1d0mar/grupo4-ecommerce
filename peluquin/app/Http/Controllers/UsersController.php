@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Nbhd;
+use App\Comment;
 use Auth;
 
 class UsersController extends Controller
 {
   public function show(){
-    return view('user.profile');
+    $comments=Comment::inRandomOrder()
+    ->where('user_id','LIKE',Auth::user()->id)
+    ->take(5)
+    ->get();
+    return view('user.profile',['comments'=>$comments]);
   }
 
   public function edit(){
@@ -43,5 +48,5 @@ class UsersController extends Controller
 
     return redirect("/user");
   }
-  
+
 }

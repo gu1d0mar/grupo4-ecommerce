@@ -6,6 +6,7 @@ use App\Nbhd;
 use App\Shop;
 use App\Product;
 use App\Category;
+use App\Comment;
 
 use Illuminate\Http\Request;
 
@@ -33,6 +34,10 @@ class HomeController extends Controller
         $shops = Shop::inRandomOrder()
         ->take(3)
         ->get();
-        return view('home',['nbhds'=>$nbhds,'categories'=>$categories,'shops'=>$shops]);
+        $comments=Comment::inRandomOrder()
+        ->where('rating','>=',2)
+        ->take(4)
+        ->get();
+        return view('home',['nbhds'=>$nbhds,'categories'=>$categories,'shops'=>$shops,'comments'=>$comments]);
     }
 }
