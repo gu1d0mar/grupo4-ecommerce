@@ -146,10 +146,10 @@ class ShopsController extends Controller
     }
 
     public function delete(Request $request){
+      $shop = Shop::find($request['id']);
       if (!$shop->user_id == Auth::user()->id) {
         return redirect("/");
       }
-      $shop = Shop::find($request['id']);
       $shop->delete();
 
       return redirect("/shops");
