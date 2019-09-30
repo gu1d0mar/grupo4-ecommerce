@@ -66,9 +66,10 @@ class ProductsController extends Controller
       $product->category_id = $request["category_id"];
       $product->shop_id = $request["shop_id"];
 
+      $shop_id = $request["shop_id"];
 
       $product->save();
-       return redirect("/products");
+       return redirect("/shops/$shop_id");
     }
 
     /**

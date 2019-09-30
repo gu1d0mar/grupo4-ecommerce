@@ -7,10 +7,16 @@ use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
+       //Page: Carro de compras
+    //route: product.carro
+    //params: Session->cart
+    //Models: shcart\Product
+    //        shcart\Cart
+    //return: $products, $totalPrecio -> views/shop/carrodecompras
     public function show(){
       return view('cart');
     }
-    
+
     //add
     public function add($id)
     {
@@ -39,34 +45,18 @@ class CartController extends Controller
 
         return redirect('cart');
     }
-    
-    //remove
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-use App\Product;
-
-class CartController extends Controller
-{
-       //Page: Carro de compras
-    //route: product.carro
-    //params: Session->cart
-    //Models: shcart\Product
-    //        shcart\Cart
-    //return: $products, $totalPrecio -> views/shop/carrodecompras
     public function carro()
     {
-        
+
         if(!Session::has('cart'))
             return view('shop.carrodecompras', ['products' => null]);
-        
+
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
         return view('shop.carrodecompras', [
             'carro' => $cart,
             'products' => $cart->items,
-            'totalPrecio' => $cart->totalPrecio 
+            'totalPrecio' => $cart->totalPrecio
             ]);
     }
     //Page: Añadir elementos al carro de compras (de uno en uno)
@@ -81,14 +71,14 @@ class CartController extends Controller
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
         $cart->add($product, $product->id);
-        
+
         $request->session()->put('cart', $cart);
         $notificacion = array(
-            'message' => $product->titulo.' añadido al carro de compras', 
+            'message' => $product->titulo.' añadido al carro de compras',
             'alert-type' => 'success'
         );
         return Redirect::back()->with($notificacion);
-        
+
     }
     //Page: Añadir elementos al carro de compras (n cantidades definidas por el usuario)
     //route: product.postanadiralcarro
@@ -101,23 +91,23 @@ class CartController extends Controller
         if($request->cantidad < 1)
         {
             $notificacion = array(
-                'message' => 'La cantidad de productos debe ser mayor a 0', 
+                'message' => 'La cantidad de productos debe ser mayor a 0',
                 'alert-type' => 'info'
             );
-        
+
             return Redirect::back()->with($notificacion);
         }
         $product = Product::find($request->id);
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
         $cart->addmany($product, $request->cantidad, $product->id);
-        
+
         $request->session()->put('cart', $cart);
         $notificacion = array(
-            'message' => $product->titulo.' añadido al carro de compras', 
+            'message' => $product->titulo.' añadido al carro de compras',
             'alert-type' => 'success'
         );
-        
+
         return Redirect::back()->with($notificacion);
     }
     //Page: Reduce en 1 el contenido del carro
@@ -134,7 +124,7 @@ class CartController extends Controller
         $cart->removeaitem($id);
         Session::put('cart', $cart);
         $notificacion = array(
-            'message' => $product->titulo.' ha sido reducido en 1', 
+            'message' => $product->titulo.' ha sido reducido en 1',
             'alert-type' => 'warning'
         );
         return Redirect::back()->with($notificacion);
@@ -161,13 +151,11 @@ class CartController extends Controller
         }
         Session::put('cart', $cart);
         $notificacion = array(
-            'message' => $product->titulo.' ha sido eliminado', 
+            'message' => $product->titulo.' ha sido eliminado',
             'alert-type' => 'error'
         );
         return Redirect::back()->with($notificacion);
->>>>>>> Stashed changes
-=======
-
+      }
     public function remove($id)
     {
         //dd(Cart::content());
@@ -181,8 +169,5 @@ class CartController extends Controller
        }
         return redirect ('cart');
     }
-    
->>>>>>> 1adb9abab5f9533544c8e0f472fa76a698212a5a
-=======
->>>>>>> parent of 13ac3f1... Search category
+
 }

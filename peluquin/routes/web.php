@@ -37,16 +37,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Shops
 Route::get('/shops','ShopsController@directory')->name('shops');
 Route::get('/shops/search', 'ShopsController@search')->name('shops.search');
-
-// Prueba agregar Shops a mano
-Route::get('/shops/index', 'ShopsController@index');
-//
 Route::get('/shops/{id}','ShopsController@show')->name('shops.show');
 
-
-Route::get('/cart','CartController@show')->name('cart')->middleware('auth');
-Route::get('/cart/add/{id}','CartController@add')->middleware('auth');
-Route::get('/cart/remove/{id}','CartController@remove')->middleware('auth');
+//Cart
 
 //Users
 //Route::delete('/user/delete', 'userController@destroy')->name('user.destroy')-middleware('auth');
