@@ -59,17 +59,10 @@ class ShopsController extends Controller
     return redirect("/shops");
     }
 
-    public function index()
-    {
-      $shops = Shop::all();
-      return view('shops.index', compact('shops'));
-    }
-
     protected function create()
     {
       $nbhds = Nbhd::orderBy('name')->get();
-      $shops = Shop::orderBy('name')->get();
-      return view('shops.create', compact('nbhds', 'shops'));
+      return view('shops.create', compact('nbhds'));
     }
 
     protected function store(Request $form)
@@ -105,12 +98,53 @@ class ShopsController extends Controller
 
       $newShop->save();
 
-
       $user=User::findOrFail(Auth::user()->id);
       $user->role = 1;
       $user->save();
 
       return redirect("/shops/$newShop->id");
     }
+
+    public function edit($id){
+      $nbhds = Nbhd::orderBy('name')->get();
+      $shop = Shop::findOrFail($id);
+      if (!$shop->user_id == Auth::user()->id) {
+        return redirect("/");
+      }
+      return view('shops.edit',['nbhds'=>$nbhds,'shop'=>$shop,]);
+    }
+
+    public function update(Request $request,$id){
+      $rules=[
+      "email"=>"required|email|max:255|unique:shops,email,$id",
+      "name"=>"required|string|max:255",
+      "logo"=>"nullable|image",
+      "rating"=>"numeric",
+      "address"=>"required",
+      "nbhd_id"=>"required|integer",
+      "opens_at"=>"required",
+      "closes_at"=>"required",
+    ];
+
+      $this->validate($request,$rules);
+
+      $editShop = Shop::findOrFail($id);
+      $editShop->email = $request["email"];
+      $editShop->name = $request["name"];
+      $editShop->rating = $request["rating"];
+      $editShop->address = $request["address"];
+      $editShop->nbhd_id = $request["nbhd_id"];
+      $editShop->opens_at = $request["opens_at"];
+      $editShop->closes_at = $request["closes_at"];
+
+      if ($request->has("logo")) {
+        $editShop->logo = $request->file("logo")->store("public/shops");
+      }
+
+      $editShop->save();
+
+      return redirect("/shops/$editShop->id");
+    }
+
 
 }

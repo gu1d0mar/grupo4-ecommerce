@@ -9,7 +9,7 @@
                   <div class="card-header">{{ __('Editar Perfil') }}</div>
 
                   <div class="card-body">
-                      <form method="post" action="{{ route('user.edit') }}" enctype="multipart/form-data">
+                      <form method="post" action="{{ route('user.update') }}" enctype="multipart/form-data">
                           @csrf
 
                           {{ method_field('PUT') }}

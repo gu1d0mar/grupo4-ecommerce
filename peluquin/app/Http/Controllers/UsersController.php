@@ -12,6 +12,7 @@ class UsersController extends Controller
   public function show(){
     return view('user.profile');
   }
+
   public function edit(){
     $nbhds = Nbhd::orderBy('name')->get();
     return view('user.edit',['nbhds'=>$nbhds]);
@@ -42,4 +43,5 @@ class UsersController extends Controller
 
     return redirect("/user");
   }
+  
 }

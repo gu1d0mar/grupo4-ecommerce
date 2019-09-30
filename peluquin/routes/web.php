@@ -16,8 +16,8 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::group(['middleware' => ['auth']], function () {
   // User
   Route::get('/user','UsersController@show')->name('user.profile');
-  Route::get('/user/config','UsersController@edit')->name('user.edit');
-  Route::put('/user/config', 'UsersController@update')->name('user.update');
+  Route::get('/user/edit','UsersController@edit')->name('user.edit');
+  Route::put('/user/edit', 'UsersController@update')->name('user.update');
 
   //Cart
   Route::get('/cart','CartController@show')->name('cart');
@@ -25,19 +25,20 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/cart/remove/{id}','CartController@remove');
   //Create Shops
   Route::get('/shops/create', 'ShopsController@create')->name('shops.create');
-  Route::post('/shops/create', 'ShopsController@store')->name('shops.save');
+
   //Create Products
   Route::get('/products/create', 'ProductsController@create')->name('products.create')->middleware('hasShop');
   Route::post('/product/create', 'ProductsController@store')->name('products.save')->middleware('hasShop');
 });
 
-Route::get('/products', 'ProductsController@index');
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 //Shops
+Route::post('/shops/create', 'ShopsController@store')->name('shops.save')->middleware('auth');
 Route::get('/shops','ShopsController@directory')->name('shops');
 Route::get('/shops/search', 'ShopsController@search')->name('shops.search');
+Route::get('/shops/{id}/edit','ShopsController@edit')->name('shops.edit')->middleware('auth','hasShop');
+Route::put('/shops/{id}', 'ShopsController@update')->name('shops.update')->middleware('auth','hasShop');
 Route::get('/shops/{id}','ShopsController@show')->name('shops.show');
 
 //Cart

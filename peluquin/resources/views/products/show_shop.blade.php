@@ -46,6 +46,12 @@
                 </div>
               </div>
             </div>
+            @if ($shop->user_id == Auth::user()->id)
+              <form class="form-inline mt-2 mt-md-0" action="{{route('shops.edit',['id'=>$shop->id])}}" method="get">
+                @csrf
+                <button class="btn btn-success my-2 mx-2" type="submit">Edit Shop</button>
+              </form>
+            @endif
           </div>
         </div>
         <div class="col-md-3">
