@@ -66,6 +66,10 @@ Route::get('/faq', function () {
     return view('help.faq');
 })->name('faq');
 
+Route::get('/aboutus', function () {
+    return view('help.aboutus');
+})->name('aboutus');
+
 Route::get('/termsandconditions',function(){
   return view('help.tac');
 })->name('terms');
