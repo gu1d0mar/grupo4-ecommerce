@@ -41,6 +41,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Shop','user_id');
     }
 
+    public function nbhd(){
+      return $this->belongsTo('App\Nbhd','nbhd_id');
+    }
 
     public function getFullName()
     {

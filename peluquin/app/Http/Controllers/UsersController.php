@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Nbhd;
+use Auth;
 
 class UsersController extends Controller
 {
@@ -11,31 +13,33 @@ class UsersController extends Controller
     return view('user.profile');
   }
   public function edit(){
-    return view('user.edit');
+    $nbhds = Nbhd::orderBy('name')->get();
+    return view('user.edit',['nbhds'=>$nbhds]);
   }
 
-  public function update(){
+  public function update(Request $request){
+    $user = Auth::user();
     $rules=[
-      "title"=>"required",
-      "rating"=>"required|numeric|min:0|max:10",
-      "awards"=>"required|numeric|min:0",
-      "release_date"=>"required|date",
-      "genre_id"=>"required|integer",
-      "image"=>"nullable|image",
+      "username"=>"required|string|max:255|unique:users,username,$user->id",
+      "email"=>"required|string|email|max:255|unique:users,email,$user->id",
+      "avatar"=>"nullable|image",
+      "nbhd_id"=>"nullable|integer",
     ];
 
-    $this->validate($form,$rules);
+    $this->validate($request,$rules);
 
-    $editUser = User::findOrFail($id);
-    $editUser->rating = $form["username"];
-    $editUser->awards = $form["email"];
-    $editUser->bday = $form["bday"];
-    $editUser->nbhd_id = $form["nbhd_id"];
+    $editUser = User::findOrFail($user->id);
+    $editUser->username = $request["username"];
+    $editUser->email = $request["email"];
+    $editUser->bday = $request["bday"];
+    $editUser->nbhd_id = $request["nbhd_id"];
 
-    if ($form->has("avatar")) {
-      $editUser->avatar = $form->file("avatar")->store("public/users");
+    if ($request->has("avatar")) {
+      $editUser->avatar = $request->file("avatar")->store("public/users");
     }
 
-    $editMovie->save();
+    $editUser->save();
+
+    return redirect("/user");
   }
 }

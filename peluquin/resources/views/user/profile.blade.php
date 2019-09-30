@@ -12,8 +12,8 @@
         </div>
         <hr>
           <p class="card-text"><i class="far fa-user"></i>{{" " . Auth::user()->username}}</p>
-        @if (Auth::user()->nbhd)
-          <p class="card-text"> <i class="fas fa-home"></i>{{" " . Auth::user()->nbhd}}</p>
+        @if (Auth::user()->nbhd_id)
+          <p class="card-text"> <i class="fas fa-home"></i>{{" " . Auth::user()->nbhd->name}}</p>
         @endif
         @if (Auth::user()->bday)
           <p class="card-text"> <i class="fas fa-birthday-cake"></i>{{" " . Auth::user()->bday}}</p>
@@ -34,6 +34,7 @@
           <li class="list-group-item bg-secondary border-0 pl-0 pt-1"><a href="#" class="text-white"><i class="fas fa-history"></i> Historial</a></li>
           <li class="list-group-item bg-secondary border-0 pl-0 pt-1"><a href="#" class="text-white"><i class="far fa-heart"></i> Favoritos</a></li>
           <li class="list-group-item bg-secondary border-0 pl-0 pt-1 pb-1"><a href="#" class="text-white"><i class="far fa-star"></i> Reseñas</a></li>
+          <li class="list-group-item bg-secondary border-0 pl-0 pt-1 pb-1"><a href="{{route('shops.create')}}" class="text-white"><i class="far fa-star"></i> Crear Local</a></li>
         </ul>
       </div>
       <div class="card mb-3 d-md-none">

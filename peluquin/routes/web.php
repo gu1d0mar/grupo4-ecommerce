@@ -17,7 +17,8 @@ Route::group(['middleware' => ['auth']], function () {
   // User
   Route::get('/user','UsersController@show')->name('user.profile');
   Route::get('/user/config','UsersController@edit')->name('user.edit');
-  Route::put('/user/config', 'userController@update')->name('user.update');
+  Route::put('/user/config', 'UsersController@update')->name('user.update');
+
   //Cart
   Route::get('/cart','CartController@show')->name('cart');
   Route::get('/cart/add/{id}','CartController@add');

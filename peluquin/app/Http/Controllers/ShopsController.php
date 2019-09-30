@@ -105,11 +105,12 @@ class ShopsController extends Controller
 
       $newShop->save();
 
+
       $user=User::findOrFail(Auth::user()->id);
       $user->role = 1;
       $user->save();
 
-      return redirect("/shops");
+      return redirect("/shops/$newShop->id");
     }
 
 }
