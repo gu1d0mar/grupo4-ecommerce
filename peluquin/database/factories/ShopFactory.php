@@ -19,7 +19,6 @@ $factory->define(Shop::class, function (Faker $faker) {
         'opens_at' => $faker->time,
         'closes_at' => $faker->time,
         'password' => $faker->password,
-        // 'logo' => $faker->image('public/storage/shops',640,480, null, false),
 
 
     ];
