@@ -20,7 +20,7 @@
         @endif
         <p class="card-text"><a href="carrito.php" class="text-body"><i class="far fa-calendar-alt"></i> Mis turnos</p></a>
         <p class="card-text"><a href="{{route('user.edit')}}" class="text-body"><i class="fas fa-cog"></i> Editar Perfil</p></a>
-        @if (Auth::user()->shops)
+        @if (count(Auth::user()->shops)>0)
           <h6 class="card-subtitle">Mis Locales</h6>
           <ul class="list-group">
             @foreach (Auth::user()->shops as $shop)

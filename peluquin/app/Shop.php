@@ -22,6 +22,10 @@ class Shop extends Model
         return $this->hasMany('App\Product','shop_id');
     }
 
+    public function category(){
+      return $this->hasManyThrough('App\Category', 'App\Product');
+    }
+
     public function nbhd(){
       return $this->belongsTo('App\Nbhd','nbhd_id');
     }

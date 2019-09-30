@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Nbhd;
-use App\Shops;
-use App\Products;
+use App\Shop;
+use App\Product;
+use App\Category;
 
 use Illuminate\Http\Request;
 
@@ -28,6 +29,7 @@ class HomeController extends Controller
     public function index()
     {
         $nbhds = Nbhd::orderby('name')->get();
-        return view('home',['nbhds'=>$nbhds]);
+        $categories = Category::orderby('name')->get();
+        return view('home',['nbhds'=>$nbhds,'categories'=>$categories]);
     }
 }

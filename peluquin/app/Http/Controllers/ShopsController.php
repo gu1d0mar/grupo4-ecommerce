@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Hash;
 class ShopsController extends Controller
 {
       public function directory(){
-      $nbhds = Nbhd::all();
-      $products = Product::all();
-      $categories = Category::all();
+      $nbhds = Nbhd::orderBy('name')->get();
+      $products = Product::orderBy('name')->get();
+      $categories = Category::orderBy('name')->get();
       $shops = Shop::orderby('name')
       ->paginate();
 
@@ -30,19 +30,23 @@ class ShopsController extends Controller
       }
 
     public function search(Request $request){
-      $nbhds = Nbhd::all();
-      $products = Product::all();
-      $categories = Category::all();
+      $nbhds = Nbhd::orderBy('name')->get();
+      $products = Product::orderBy('name')->get();
+      $categories = Category::orderBy('name')->get();
       $shops = Shop::with('products')
       ->where('name','LIKE','%' . $request->get("search") . '%')
-      // ->where('category_id','LIKE',$request->get('category'))
       ->where('nbhd_id','LIKE',$request->get('nbhd'))
       ->orderby('name')
       ->paginate();
-      if($request->get('category')) 
+
+      if($request->get('category'))
       {
-        $productsx = Product::where('category_id',$request->get('category'))->pluck('shop_id');
-        $shops = Shop::with('products')->whereIn('id',$productsx)->get();
+        $products_category = Product::where('category_id',$request->get('category'))->pluck('shop_id');
+        $shops = Shop::with('products')->whereIn('id',$products_category)
+        ->where('name','LIKE','%' . $request->get("search") . '%')
+        ->where('nbhd_id','LIKE',$request->get('nbhd'))
+        ->orderby('name')
+        ->paginate();
       }
 
       return view('products.shops',['shops'=>$shops,'products'=>$products,'nbhds'=>$nbhds,'categories'=>$categories,]);
@@ -63,8 +67,8 @@ class ShopsController extends Controller
 
     protected function create()
     {
-      $nbhds = Nbhd::all();
-      $shops = Shop::all();
+      $nbhds = Nbhd::orderBy('name')->get();
+      $shops = Shop::orderBy('name')->get();
       return view('shops.create', compact('nbhds', 'shops'));
     }
 

@@ -15,7 +15,7 @@
           <div class="row">
             <div class="col-lg-12">
               <div class="row searchg">
-                <div class="col-md-3 col-sm-12 p-0">
+                <div class="col-md-2 col-sm-12 p-0">
                   <select class="form-control search-inp m-md-0" name="nbhd">
                     <option value="">Introduzca Localidad</option>
                     @foreach ($nbhds as $nbhd)
@@ -23,7 +23,15 @@
                     @endforeach
                   </select>
                 </div>
-                <div class="col-md-3 col-sm-12 p-0">
+                <div class="col-md-2 col-sm-12 p-0">
+                  <select class="form-control search-inp m-md-0" name="category">
+                    <option value="">Introduzca Categoria</option>
+                    @foreach ($categories as $category)
+                      <option {{$category->name == $category->id ? 'selected':''}} value="{{$category->id}}">{{$category->name}}</option>
+                    @endforeach
+                  </select>
+                </div>
+                <div class="col-md-2 col-sm-12 p-0">
                   <input type="text" class="form-control search-inp m-md-0" name="search" placeholder="Introduzca Servicio">
                 </div>
                 <div class="col-md-3 col-sm-12 p-0">
